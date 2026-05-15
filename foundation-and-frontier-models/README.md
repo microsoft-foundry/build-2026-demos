@@ -1,9 +1,27 @@
 ## Foundation and Frontier Models README
 
-This README covers all the areas of Foundation and Frontier models on Foundry.
+### Key Announcements
 
-Topics:
-* New models to Foundry
-* Offers (Deployments)
-* Tools
-* Prompting 
+* A
+* B
+* C
+
+### Demos for Foundational and Frontier Models 
+
+* A
+* B
+* C
+
+### Resources
+
+* [Foundry Foundation and Frontier Models Booth Rotating Deck]()
+* [KBYG Deck]()
+* [KBYG Recording]()
+
+### Doc and blog post links
+
+* Blog post A
+* Blog post B
+* Doc link A
+* Doc link B
+* QR Code
