@@ -44,7 +44,7 @@ On macOS/Linux replace the activation and `$env:` syntax with `source .venv/bin/
 | File | Purpose |
 |---|---|
 | `foundry-iq-cookbook.ipynb` | The cookbook — open and run top to bottom. |
-| `requirements.txt` | Pinned dependencies, including `azure-search-documents==12.1.0a20260515004` (alpha SDK for the `2025-11-01-preview` API). |
+| `requirements.txt` | Pinned dependencies, including `azure-search-documents==12.1.0a20260515004` (alpha SDK for the `2026-05-01-preview` API — the surface that backs the upcoming Build 2026 features). |
 | `pip.ini` | Adds the Azure SDK public feed so pip can resolve the alpha. |
 | `.env.example` | Template for the endpoints and keys the notebook needs. |
 
