@@ -1,3 +1,11 @@
 requests
 python-dotenv
 azure-search-documents==12.1.0a20260515004
+
+# Optional — only required for the "Agent Framework + Foundry Agent Service"
+# sections at the end of the cookbook (Steps 9–10). The core SDK demos work
+# without these.
+azure-identity>=1.18
+agent-framework-core>=1.4.0
+agent-framework-openai>=1.4.0
+mcp>=1.24.0

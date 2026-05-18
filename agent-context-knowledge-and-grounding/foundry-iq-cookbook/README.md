@@ -8,7 +8,8 @@ End-to-end walkthrough that provisions an agentic retrieval pipeline on Azure AI
 2. A **Knowledge Source** pointing at that index.
 3. A **Knowledge Base** that pairs the source with an Azure OpenAI chat model and answer synthesis.
 4. Two retrievals — a complex multi-part question and a multi-turn follow-up — with the planner's activity trace and citations.
-5. A clean teardown that removes every resource the notebook created.
+5. The same Knowledge Base consumed three more ways: **directly over MCP** (JSON-RPC), from a **Microsoft Agent Framework** agent (`MCPStreamableHTTPTool`), and from a **Foundry Agent Service** agent wired via a `RemoteTool` project connection.
+6. A clean teardown that removes every resource the notebook created.
 
 ## Prerequisites
 
