@@ -24,3 +24,11 @@ The video culminates in a Cost Savings Analysis, where the results are striking:
 ## model-router-zava-chatbot-demo.mp4
 
 This video walks through using the Model router Foundry Models and demonstrates how it intelligently routes queries to the most capable and cost-efficient AI model in real time based on complexity and performance. Using a fictional smart sportswear brand called Zava, the demo shows a customer-facing chatbot powered by the model router dynamically selecting different underlying models depending on whether a query is simple or complex. Watch how the model router achieves 10.5x faster latency at a fraction of the cost with comparable accuracy, all within the Microsoft Foundry.
+
+## Resources
+
+### [Model-Router-Auto-Evaluation](https://github.com/microsoft-foundry/Model-Router-Auto-Evaluation)
+
+Want to test whether Model Router will actually save you money on your workload? This open-source toolkit lets you benchmark Microsoft Foundry's Model Router against any baseline model on quality, cost, and latency — bring your own prompts and get a full side-by-side report in one command. It includes a no-keys-needed quickstart with mock data, an interactive Jupyter walkthrough, and scales to 1,000+ prompts with built-in checkpointing and resume.
+
+Whether you're evaluating Model Router for production or just exploring what it can do, this is the fastest way to get hands-on with real metrics. Clone the repo, run the demo script, and open the self-contained HTML dashboard to see quality scores, cost breakdowns, and latency percentiles — no Azure credentials required to get started.
