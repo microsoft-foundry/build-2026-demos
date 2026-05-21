@@ -25,7 +25,7 @@ Whether you're evaluating Model Router for production or just exploring what it 
 
 ---
 
-# Resources
+# Demo Videos (download only)
 
 ## model-router-tour.mp4
 
