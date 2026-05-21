@@ -27,9 +27,11 @@ Whether you're evaluating Model Router for production or just exploring what it 
 
 ---
 
-# Demo Videos (download only)
+# Demo Videos
 
-## [model-router-tour.mp4](./model-router-tour.mp4)
+## model-router-tour.mp4
+
+<video src="./model-router-tour.mp4" controls width="100%"></video>
 
 This video is an ambient walkthrough of a live demo for the model router — an intelligent AI routing system that automatically selects the best AI model for each query based on the task at hand.
 
@@ -42,7 +44,9 @@ The demo covers four key comparison dimensions:
 - **Cost** — a detailed cost breakdown comparing token usage and pricing between routing strategies
 - **Accuracy** — an automated evaluation that grades response quality across both approaches
 
-## [model-router-demo.mp4](./model-router-demo.mp4)
+## model-router-demo.mp4
+
+<video src="./model-router-demo.mp4" controls width="100%"></video>
 
 In this video, the model router is tasked with selecting the most cost-efficient and performant language model for a given task, then benchmarks it against a standard model.
 
@@ -50,6 +54,8 @@ In the demo, the user selects the Marketing department and the Campaign Performa
 
 The video culminates in a Cost Savings Analysis, where the results are striking: the model router cost $0.000538 versus the benchmark's $0.041815 — a 98.7% cost reduction — while also being 3.8x faster (7,284 ms vs. 27,648 ms).
 
-## [model-router-zava-chatbot-demo.mp4](./model-router-zava-chatbot-demo.mp4)
+## model-router-zava-chatbot-demo.mp4
+
+<video src="./model-router-zava-chatbot-demo.mp4" controls width="100%"></video>
 
 This video walks through using the Model router Foundry Models and demonstrates how it intelligently routes queries to the most capable and cost-efficient AI model in real time based on complexity and performance. Using a fictional smart sportswear brand called Zava, the demo shows a customer-facing chatbot powered by the model router dynamically selecting different underlying models depending on whether a query is simple or complex. Watch how the model router achieves 10.5x faster latency at a fraction of the cost with comparable accuracy, all within the Microsoft Foundry.
