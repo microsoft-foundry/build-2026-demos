@@ -29,7 +29,7 @@ Whether you're evaluating Model Router for production or just exploring what it 
 
 # Demo Videos
 
-## model-router-tour.mp4
+## Model Router Tour
 
 <video src="https://github.com/user-attachments/assets/fafdeede-369e-4683-a775-935b1e271ae5" controls width="100%"></video>
 
@@ -44,7 +44,7 @@ The demo covers four key comparison dimensions:
 - **Cost** — a detailed cost breakdown comparing token usage and pricing between routing strategies
 - **Accuracy** — an automated evaluation that grades response quality across both approaches
 
-## model-router-demo.mp4
+## Model Router Demo
 
 <video src="https://github.com/user-attachments/assets/470416cc-b2fe-4b0e-995e-8d19649b9b13" controls width="100%"></video>
 
@@ -54,7 +54,7 @@ In the demo, the user selects the Marketing department and the Campaign Performa
 
 The video culminates in a Cost Savings Analysis, where the results are striking: the model router cost $0.000538 versus the benchmark's $0.041815 — a 98.7% cost reduction — while also being 3.8x faster (7,284 ms vs. 27,648 ms).
 
-## model-router-zava-chatbot-demo.mp4
+## Model Router: Zava Chatbot Demo
 
 <video src="https://github.com/user-attachments/assets/742b488b-73d9-48b3-8e83-2db1b7aa8488" controls width="100%"></video>
 
