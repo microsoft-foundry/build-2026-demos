@@ -5,6 +5,8 @@
 
 A progressive series of hands-on demos showing how to build AI agents with the Microsoft Foundry SDK. Each demo builds on the previous one, adding exactly one new concept at a time — from a simple prompt agent to function calling, desktop/web UIs, built-in web search, code interpretation, RAG with file search, MCP integration, centralized toolbox governance, and self-hosted agent servers. All demos use Model Router as their default model deployment, demonstrating zero model-selection overhead, automatic quality routing, and significant cost efficiency across diverse agent tasks without any routing logic in your code.
 
+### Demo Summary
+
 | # | Folder | Description | Concept | Tool | UX | Default Model |
 |---|--------|-------------|---------|------|----|---------------|
 | 0 | `hello-demo/` | Simplest prompt agent — chat in the terminal | Agent creation, conversations, Responses API | None | Terminal | Model Router |
