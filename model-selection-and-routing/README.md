@@ -44,7 +44,7 @@ The demo covers four key comparison dimensions:
 - **Cost** — a detailed cost breakdown comparing token usage and pricing between routing strategies
 - **Accuracy** — an automated evaluation that grades response quality across both approaches
 
-## Model Router Demo
+## Model Router Demo (no sound)
 
 <video src="https://github.com/user-attachments/assets/470416cc-b2fe-4b0e-995e-8d19649b9b13" controls width="100%"></video>
 
