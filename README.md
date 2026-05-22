@@ -4,7 +4,6 @@ A collection of demo assets showcasing Microsoft Foundry capabilities presented 
 
 ## Topics
 
-- [Model Selection and Routing](model-selection-and-routing/)
 - [Agent Context, Knowledge, and Grounding](agent-context-knowledge-and-grounding/)
 - [Agent Guardrails and Controls](agent-guardrails-and-controls/)
 - [Agent Operations and Management](agent-operations-and-management/)
@@ -13,6 +12,7 @@ A collection of demo assets showcasing Microsoft Foundry capabilities presented 
 - [Fine-Tuning and Adaption](fine-tuning-and-adaption/)
 - [Foundation and Frontier Models](foundation-and-frontier-models/)
 - [Model Eval and Benchmarking](model-eval-and-benchmarking/)
+- [Model Selection and Routing](model-selection-and-routing/)
 - [Multi-Agent Systems and Orchestration](multi-agent-systems-and-orchestration/)
 - [Multi-Modal Models](multi-modal-models/)
 - [Open Source Models](open-source-models/)
