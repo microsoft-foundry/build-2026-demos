@@ -31,7 +31,7 @@ Whether you're evaluating Model Router for production or just exploring what it 
 
 # Demo Videos
 
-## Model Router Tour
+## Model Router Tour (no sound)
 
 <video src="https://github.com/user-attachments/assets/fafdeede-369e-4683-a775-935b1e271ae5" controls width="100%"></video>
 
