@@ -28,12 +28,13 @@ What you get: a filtered shortlist by category, quality, throughput, and cost. P
 
 ## Part 2 — Decide with ASSERT on YOUR scenario (code)
 
-Once you have 2-3 candidates, test them against the agent behavior your users actually need. ASSERT is a spec-driven, scenario-specific eval harness: write a one-page spec, generate targeted test cases, execute your target, then inspect judged evidence. It is local-first, framework-agnostic, and works with a LangGraph agent, a Python callable, or another agent runtime you can call from Python.
+Once you have 2-3 candidates, test them against the behavior your users actually need. ASSERT is a spec-driven, scenario-specific eval harness: write a one-page spec, generate targeted test cases, execute your target, then inspect judged evidence. For this booth, the target is a prompt agent (hosted model + system prompt + simulated tools) so the comparison isolates the model choice.
 
 - **Walkthrough:** [`assert-model-eval-cookbook/assert-model-eval-cookbook.ipynb`](./assert-model-eval-cookbook/assert-model-eval-cookbook.ipynb)
 - **Source:** https://github.com/microsoft/ASSERT
+- TODO(@changliu2): Verify `microsoft/ASSERT` links resolve for unauthenticated users on launch morning.
 
-What you'll do in the notebook: take a working agent (LangGraph travel planner), define a one-page spec, run ASSERT against **gpt-5.4-mini vs gpt-5.4**, compare quality plus cost per judged pass, and read the evidence behind a failed case.
+What you'll do in the notebook: define a one-page travel-planner spec, run the same prompt agent (hosted model + system prompt + simulated tools) against **gpt-5.4-mini vs gpt-5.4**, compare quality plus cost per judged pass, and read the evidence behind a failed case.
 
 ## Was this useful?
 

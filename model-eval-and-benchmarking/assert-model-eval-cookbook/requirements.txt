@@ -1,5 +1,6 @@
-# ASSERT (eval harness)
-p2m-policy[otel,langgraph] @ git+https://github.com/microsoft/ASSERT.git
+# ASSERT (Microsoft Foundry Adaptive Eval) - eval harness
+# Install from GitHub until PyPI is published.
+p2m-policy @ git+https://github.com/microsoft/ASSERT.git
 
 # Notebook runtime
 jupyter

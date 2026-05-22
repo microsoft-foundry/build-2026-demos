@@ -1,7 +1,5 @@
-.venv/
 .env
-__pycache__/
-*.pyc
-.ipynb_checkpoints/
+eval_*.yaml
 artifacts/
-*.yaml
+__pycache__/
+.ipynb_checkpoints/
