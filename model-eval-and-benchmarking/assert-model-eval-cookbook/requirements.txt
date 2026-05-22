@@ -1,0 +1,7 @@
+# ASSERT (eval harness)
+p2m-policy[otel,langgraph] @ git+https://github.com/microsoft/ASSERT.git
+
+# Notebook runtime
+jupyter
+pandas
+python-dotenv
