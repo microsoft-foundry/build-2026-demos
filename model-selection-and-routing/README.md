@@ -5,6 +5,8 @@
 
 A progressive series of hands-on demos showing how to build AI agents with the Microsoft Foundry SDK. Each demo builds on the previous one, adding exactly one new concept at a time — from a simple prompt agent to function calling, desktop/web UIs, built-in web search, code interpretation, RAG with file search, MCP integration, centralized toolbox governance, and self-hosted agent servers. All demos use Model Router as their default model deployment, demonstrating zero model-selection overhead, automatic quality routing, and significant cost efficiency across diverse agent tasks without any routing logic in your code.
 
+**Companion blog post:** [Building AI Agents with Microsoft Foundry: A Progressive Lab from Hello World to Self-Hosted](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/building-ai-agents-with-microsoft-foundry-a-progressive-lab-from-hello-world-to-/4521792) — walks through each demo's code in depth, covering architecture principles, Model Router empirical routing data, security considerations, and guidance on when to use each tool pattern.
+
 ### Demo Summary
 
 | # | Folder | Description | Concept | Tool | UX | Default Model |
