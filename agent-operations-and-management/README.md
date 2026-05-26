@@ -57,6 +57,6 @@ More will be announced on the day of Build 2026.
 ## Build 2026 Foundry Control Plane Sessions
 
 <p align="center">
-  <!-- Placeholder: Build 2026 Foundry IQ sessions schedule image -->
-  <em>Build 2026 Foundry IQ sessions schedule image goes here.</em>
+  <!-- Placeholder: Build 2026 Foundry Control Plane sessions schedule image -->
+  <em>Build 2026 Foundry Control Plane sessions schedule image goes here.</em>
 </p>
