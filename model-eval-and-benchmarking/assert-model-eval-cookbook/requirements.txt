@@ -1,6 +1,5 @@
-# ASSERT (Microsoft Foundry Adaptive Eval) - eval harness
-# Install from GitHub until PyPI is published.
-p2m-policy @ git+https://github.com/microsoft/ASSERT.git
+# Public ASSERT eval framework (microsoft/ASSERT; will be public by 2026-06-01)
+p2m-policy @ git+https://github.com/microsoft/ASSERT.git@main
 
 # Notebook runtime
 jupyter
