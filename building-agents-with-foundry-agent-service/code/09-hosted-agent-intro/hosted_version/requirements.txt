@@ -1,0 +1,6 @@
+agent-framework
+agent-framework-foundry-hosting
+azure-ai-agentserver-responses
+azure-identity
+python-dotenv
+pydantic

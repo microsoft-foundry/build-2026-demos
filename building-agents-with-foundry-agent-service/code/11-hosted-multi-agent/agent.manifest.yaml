@@ -1,0 +1,6 @@
+name: triage-agent
+description: Multi-agent triage for Contoso Outdoor — routes to billing, technical, or sales specialists.
+language: python
+entrypoint: main.py
+agentYaml: agent.yaml
+requirements: requirements.txt

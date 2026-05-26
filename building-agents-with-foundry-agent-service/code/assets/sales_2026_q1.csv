@@ -1,0 +1,25 @@
+month,region,product,units_sold,revenue_usd
+Jan,North,TrailMaster X4 Tent,142,85058
+Jan,North,SummitClimber Backpack,310,77190
+Jan,North,RainGuard Pro Jacket,205,67445
+Jan,North,TrekLite Hiking Boots,488,92232
+Jan,South,TrailMaster X4 Tent,98,58702
+Jan,South,SummitClimber Backpack,221,55029
+Jan,South,RainGuard Pro Jacket,140,46060
+Jan,South,TrekLite Hiking Boots,402,75978
+Feb,North,TrailMaster X4 Tent,160,95840
+Feb,North,SummitClimber Backpack,295,73455
+Feb,North,RainGuard Pro Jacket,260,85540
+Feb,North,TrekLite Hiking Boots,520,98280
+Feb,South,TrailMaster X4 Tent,110,65890
+Feb,South,SummitClimber Backpack,240,59760
+Feb,South,RainGuard Pro Jacket,165,54285
+Feb,South,TrekLite Hiking Boots,430,81270
+Mar,North,TrailMaster X4 Tent,210,125790
+Mar,North,SummitClimber Backpack,355,88395
+Mar,North,RainGuard Pro Jacket,290,95410
+Mar,North,TrekLite Hiking Boots,612,115668
+Mar,South,TrailMaster X4 Tent,148,88652
+Mar,South,SummitClimber Backpack,278,69222
+Mar,South,RainGuard Pro Jacket,201,66129
+Mar,South,TrekLite Hiking Boots,505,95445

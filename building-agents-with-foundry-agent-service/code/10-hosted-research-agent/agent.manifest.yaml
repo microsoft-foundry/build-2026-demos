@@ -1,0 +1,7 @@
+# Manifest consumed by `azd ai agent init -m` to scaffold this sample into a deployable project.
+name: research-agent
+description: A hosted research agent that plans, web-searches, and synthesizes briefings.
+language: python
+entrypoint: main.py
+agentYaml: agent.yaml
+requirements: requirements.txt
