@@ -15,7 +15,7 @@ This repo is your follow-up kit from the //Build 2026 booth.
 
 ## Part 1 — Narrow with Foundry Model Leaderboards (UI)
 
-Start in the Foundry model catalog when you need a shortlist. Use leaderboards and side-by-side comparison to filter by category, quality, safety, throughput, and cost before you spend time wiring models into your app. The booth demo showed the leaderboard entry point, quality and cost trade-off charts, and scenario leaderboards for narrowing a candidate set.
+Start in the Foundry model catalog when you need a shortlist backed up industry-standard benchmarks. Use leaderboards and side-by-side comparison to filter by category, quality, safety, throughput, and cost before you spend time wiring models into your app. The booth demo showed the leaderboard entry point, quality vs safety/cost/throughput trade-off charts, and scenario leaderboards for narrowing a candidate set.
 
 → **Open the leaderboards:** https://aka.ms/model-leaderboards
 
@@ -28,11 +28,10 @@ What you get: a filtered shortlist by category, quality, throughput, and cost. P
 
 ## Part 2 — Decide with ASSERT on YOUR scenario (code)
 
-Once you have 2-3 candidates, test them against the behavior your users actually need. ASSERT is a spec-driven, scenario-specific eval harness: write a one-page spec, generate targeted test cases, execute your target, then inspect judged evidence. For this booth, the target is a prompt agent (hosted model + system prompt + simulated tools) so the comparison isolates the model choice.
+Once you have 2-3 candidates, test them against the behavior your users actually need in the context of your specific use case. ASSERT is a spec-driven, scenario-specific eval harness: write a spec, generate targeted test cases, execute your target, then inspect judged evidence. For this booth, the target is a prompt agent (hosted model + system prompt + simulated tools) so the comparison isolates the model choice.
 
 - **Walkthrough:** [`assert-model-eval-cookbook/assert-model-eval-cookbook.ipynb`](./assert-model-eval-cookbook/assert-model-eval-cookbook.ipynb)
 - **Source:** https://github.com/microsoft/ASSERT
-- TODO(@changliu2): Verify `microsoft/ASSERT` links resolve for unauthenticated users on launch morning.
 
 What you'll do in the notebook: define a one-page travel-planner spec, run the same prompt agent (hosted model + system prompt + simulated tools) against **gpt-5.4-mini vs gpt-5.4**, compare quality plus cost per judged pass, and read the evidence behind a failed case.
 
