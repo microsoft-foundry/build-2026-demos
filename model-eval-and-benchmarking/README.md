@@ -13,6 +13,17 @@ This repo is your follow-up kit from the //Build 2026 booth.
 | **1. Narrow** | "Which 2-3 models should I even try?" | Foundry Model Leaderboards | UI-only, no code |
 | **2. Decide** | "Which one actually works on MY scenario?" | ASSERT (Adaptive Eval) | Code-first, notebook included |
 
+## What you'll see when you run the notebook
+
+| Model | Pass rate | Cost / judged pass | Notes |
+|---|---:|---:|---|
+| `gpt-5.4-mini` | 70% | **$0.0009** | ~19× cheaper per success |
+| `gpt-5.4` | 85% | $0.0168 | +15pp quality |
+
+For this travel-planner scenario, `gpt-5.4-mini` delivers ~82% of the quality at ~5% of the cost. Public benchmarks rank `gpt-5.4` higher overall. **Your scenario decides.**
+
+> Numbers from a sample run of n=20 test cases (10 prompt + 10 scenario) on Azure OpenAI deployments of `gpt-5.4-mini` and `gpt-5.4`. Your numbers will vary by scenario, system prompt, tool design, and judge choice. Reproduce with the notebook below.
+
 ## Part 1 — Narrow with Foundry Model Leaderboards (UI)
 
 Start in the Foundry model catalog when you need a shortlist backed up industry-standard benchmarks. Use leaderboards and side-by-side comparison to filter by category, quality, safety, throughput, and cost before you spend time wiring models into your app. The booth demo showed the leaderboard entry point, quality vs safety/cost/throughput trade-off charts, and scenario leaderboards for narrowing a candidate set.
