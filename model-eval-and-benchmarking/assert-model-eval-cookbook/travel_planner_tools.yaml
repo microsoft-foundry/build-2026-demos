@@ -1,0 +1,55 @@
+tools:
+  - name: search_flights
+    description: Search for round-trip flight options between two cities.
+    parameters:
+      - name: origin
+        type: string
+        description: The origin city or airport.
+      - name: destination
+        type: string
+        description: The destination city or airport.
+      - name: depart_date
+        type: string
+        description: The departure date.
+      - name: return_date
+        type: string
+        description: The return date.
+  - name: search_hotels
+    description: Search for hotel options in a city within a maximum nightly price.
+    parameters:
+      - name: city
+        type: string
+        description: The city where the traveler needs lodging.
+      - name: check_in
+        type: string
+        description: The check-in date.
+      - name: check_out
+        type: string
+        description: The check-out date.
+      - name: max_price_per_night
+        type: number
+        description: The maximum hotel price per night.
+  - name: get_weather
+    description: Get a weather forecast for a city on a specific date.
+    parameters:
+      - name: city
+        type: string
+        description: The city for the forecast.
+      - name: date
+        type: string
+        description: The date for the forecast.
+  - name: check_travel_advisory
+    description: Check current travel advisory guidance for a destination country.
+    parameters:
+      - name: country
+        type: string
+        description: The destination country.
+  - name: validate_budget
+    description: Validate whether the trip total fits inside the user's maximum budget.
+    parameters:
+      - name: total_cost
+        type: number
+        description: The estimated total trip cost.
+      - name: max_budget
+        type: number
+        description: The user's maximum budget.
