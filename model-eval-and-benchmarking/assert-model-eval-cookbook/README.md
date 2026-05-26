@@ -6,7 +6,7 @@ Runnable notebook for the model eval and benchmarking booth track: shortlist mod
 
 1. Install ASSERT from `microsoft/ASSERT`.
 2. Load Azure OpenAI settings from `.env`.
-3. Write a compact travel-planner eval spec and ASSERT YAML config.
+3. Write the behavioral spec (what the agent should and should not do) and wrap it in the ASSERT `eval_config.yaml`.
 4. Run the same scenario against `gpt-5.4-mini` and `gpt-5.4`.
 5. Compare judged pass rate, token use, and cost per judged pass.
 6. Inspect one failed verdict with the judge rationale and cited conversation turn.
