@@ -62,8 +62,3 @@ More will be announced on the day of Build 2026.
   <!-- Placeholder: Build 2026 Foundry IQ sessions schedule image -->
   <em>Build 2026 Foundry IQ sessions schedule image goes here.</em>
 </p>
-
-## Agent Tools and Integrations Sessions
-
-* From zero to teammate in 25 minutes: Build a Teams agent live
-* Build agents where work happens: chats, channels, and meetings in Microsoft Teams
