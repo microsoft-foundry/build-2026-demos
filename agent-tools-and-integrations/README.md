@@ -105,3 +105,8 @@ More will be announced on the day of Build 2026.
 
 * <https://devblogs.microsoft.com/foundry/introducing-toolboxes-in-foundry/>
 * <https://aka.ms/foundry-toolboxes>
+
+## Agent Tools and Integrations Sessions
+
+* From zero to teammate in 25 minutes: Build a Teams agent live
+* Build agents where work happens: chats, channels, and meetings in Microsoft Teams
