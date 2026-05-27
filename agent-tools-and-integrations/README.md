@@ -1,4 +1,20 @@
-# [DRAFT] Agent Tools & Integrations
+# Agent Tools & Integrations
+
+## Contents
+
+- [Build 2026 Announcements](#build-2026-agent-tools--integrations-announcements)
+- [What Are Foundry Toolboxes?](#what-are-foundry-toolboxes)
+- [Demo Flow](#demo-flow)
+- [Content Understanding](#content-understanding)
+  - [Features worth highlighting](#features-worth-highlighting)
+  - [Pre-reqs](#pre-reqs-set-these-up-ahead-of-time)
+  - [Demo Flow (Foundry Playground)](#demo-flow--foundry-playground-2-min)
+  - [Customization (CU Studio)](#customization-only-if-asked)
+  - [Hooking CU into an agent](#hooking-cu-into-an-agent-bonus-only-if-asked)
+  - [Known gaps & gotchas](#known-gaps--gotchas-read-these-so-you-dont-get-caught-out)
+  - [Rude FAQ](#rude-faq)
+- [Documentation Links](#documentation-links)
+- [Sessions](#agent-tools-and-integrations-sessions)
 
 Check out the Microsoft Build 2026 Agent Tools & Integrations Expert content!
 
@@ -108,10 +124,10 @@ Useful hooks to pivot to when a customer asks *"what makes this different?"*:
 
 1. A Foundry project on `ai.azure.com` in a region where CU is available (East US, East US 2, West US, West US 3, Sweden Central, Australia East, etc. — see the [region list](https://learn.microsoft.com/azure/ai-services/content-understanding/service-limits#region-support)).
 2. **Deploy `gpt-4.1` (or `gpt-4.1-mini`) into the same project.** The Foundry playground dropdown only lists `gpt-4.1` family today. Without a deployment, you can run Layout, but custom uploads for field-extraction analyzers (Invoice, Call center, etc.) will be blocked. Takes ~2 min from the Deployments tab — don't wait until a customer is standing in front of you.
-3. Open the Foundry playground gear/settings panel once and confirm your `gpt-4.1` deployment shows up in the dropdown. If it doesn't, the upload step in Flow A will silently block.
+3. Open the Foundry playground gear/settings panel once and confirm your `gpt-4.1` deployment shows up in the dropdown. If it doesn't, the upload step in the demo flow will silently block.
 4. Grab a couple of sample documents to upload — the [Azure Document Intelligence sample data folder](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/main/Data) is a great source (invoices, receipts, contracts, IDs).
 
-### Demo Flow A — Foundry Playground (prebuilts, ~2 min)
+### Demo Flow — Foundry Playground (~2 min)
 
 1. Go to <https://ai.azure.com> → click **Build** (top right) → **Models** *or* **Deployments** in the left nav (the tab name is under A/B test today, so you may see either) → **AI Services** tab → select **Content Understanding**. Alternate path: `/discover/models` → search "Content Understanding". All land in the same playground.
 2. **Show #1 — Layout (Document modality).** The default sample document loads. On the right, flip between **Content** (markdown, paragraphs, tables) and **Result** (full JSON; markdown lives at `result -> contents -> markdown`). Talking point: *"This is the most-used analyzer in CU — it's what powers RAG pipelines because you get clean markdown plus structure with no LLM call required."* Layout runs on the Foundry resource alone; no GPT deployment needed.
