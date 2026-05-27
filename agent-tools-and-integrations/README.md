@@ -82,8 +82,6 @@ Demonstrate how Toolboxes are created, configured, and consumed directly in the 
 
 Demonstrate how **Azure Content Understanding (CU) in Foundry Tools** turns unstructured content — documents, audio, video, images — into structured, agent-ready fields. **CU brings together Azure Document Intelligence and advanced LLM-based multimodal capabilities for extracting information across structured and unstructured content** through a single API and schema-driven experience.
 
-<!-- TODO: add overview screenshot/visual of CU in Foundry -->
-
 **Elevator pitch (10 seconds):** One multimodal **API** that takes any file (PDF, audio, video, image) and returns structured JSON your agent can act on — confidence scores and source grounding included where the analyzer supports them. Layout (OCR → clean markdown) is the highest-volume use case today, especially for RAG.
 
 **Where can I do what?**
