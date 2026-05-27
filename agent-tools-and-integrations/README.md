@@ -86,15 +86,11 @@ Demonstrate how **Azure Content Understanding (CU) in Foundry Tools** turns unst
 
 **Where can I do what?**
 
-| Capability | Foundry (New) | CU Studio | REST API |
-|---|---|---|---|
-| Layout and OCR/Read | ✅ | ✅ | ✅ |
-| Document analyzers (Invoice, Contract, etc.) | ✅ | ✅ | ✅ |
-| Audio analyzer (Call center) | ✅ | ✅ | ✅ |
-| Video & Image analyzers | ❌ (coming) | ✅ | ✅ |
-| Custom analyzers, classifiers & labeling | ❌ | ✅ | ✅ |
-| Document-Search analyzer (LLM figure understanding for RAG) | ❌ | ✅ | ✅ |
-| GPT-5.2 selection | ❌ (gpt-4.1 family only) | ✅ | ✅ |
+* **Foundry (New)** is the **prebuilts demo surface** — Layout, the prebuilt **document analyzers** (Invoice, Contract, etc.), and the **Call center audio** analyzer, all running on the `gpt-4.1` family.
+* **CU Studio** does everything Foundry does **plus** what's not in the playground yet: **video & image analyzers**, **custom analyzers / classifiers / labeling**, the **Document-Search** analyzer (LLM figure understanding for RAG), and **GPT-5.2** selection.
+* **REST API / SDKs** cover all of the above headlessly — same backend, same analyzers, available in Python, .NET, Java, JS/TS.
+
+> **Rule of thumb:** if a customer wants to *see* CU in 2 minutes, demo in Foundry. If they want to *build* something custom or show video/image, switch to CU Studio.
 
 ### Features worth highlighting
 
@@ -119,7 +115,13 @@ Useful hooks to pivot to when a customer asks *"what makes this different?"*:
 
 1. Go to <https://ai.azure.com> → click **Build** (top right) → **Models** *or* **Deployments** in the left nav (the tab name is under A/B test today, so you may see either) → **AI Services** tab → select **Content Understanding**. Alternate path: `/discover/models` → search "Content Understanding". All land in the same playground.
 2. **Show #1 — Layout (Document modality).** The default sample document loads. On the right, flip between **Content** (markdown, paragraphs, tables) and **Result** (full JSON; markdown lives at `result -> contents -> markdown`). Talking point: *"This is the most-used analyzer in CU — it's what powers RAG pipelines because you get clean markdown plus structure with no LLM call required."* Layout runs on the Foundry resource alone; no GPT deployment needed.
+
+   ![Foundry playground showing the Layout analyzer with markdown output on the right](images/cu-foundry-layout.png)
+
 3. **Show #2 — Invoice (Document → Procurements → Invoice).** Sample invoice loads with extracted **fields + confidence scores** on the right. Uploading a fresh invoice (sample or a customer-approved file) is where the GPT-4.1 deployment kicks in — open the gear icon in the right panel to confirm the deployment is selected; you can deploy one inline if you forgot the pre-req.
+
+   ![Foundry playground showing the Invoice analyzer with extracted fields and confidence scores](images/cu-foundry-invoice-fields.png)
+
 4. **Show #3 — Call center (Audio modality).** Sample MP3 loads with a transcript in the middle and structured fields (summary, topics, sentiment, etc.) on the right. Great for landing the multimodal point.
 
 ▶ **Walkthrough video:** [Foundry Playground — Content Understanding demo](https://microsoft-my.sharepoint.com/:v:/p/kmuthukrishn/cQqp592pKQcnRZUfXm6tMSPZEgUCkWXJ8RC7gXgjpnXTbR4lDg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0=) (Microsoft internal, SSO required)
@@ -130,6 +132,8 @@ Customization, labeling, video & image analyzers, and the LLM-powered **Document
 
 * Sign in, use your existing Foundry project, and create a new CU project.
 * Build a custom analyzer with **Suggest schema** — upload a sample doc and CU proposes a schema you can edit and run.
+
+  ![CU Studio custom analyzer with Suggest schema](images/cu-studio-custom-analyzer.png)
 * You can reuse the same `gpt-4.1` deployment you created in Foundry — no extra setup. CU Studio also lets you pick **GPT-5.2** for analyzers that benefit from it.
 * For documents with figures/charts, mention the **Document-Search analyzer** — a Layout variant that uses an LLM to add figure understanding and image/chart descriptions inline in the markdown output. Best option when you want maximum RAG/agent context from a document with visuals (decks, reports, datasheets).
 
@@ -138,6 +142,7 @@ Recommended: set up a sample custom analyzer in CU Studio ahead of time so you c
 ### Hooking CU into an agent (bonus, only if asked)
 
 * **Microsoft Agent Framework context provider:** `pip install agent-framework-azure-contentunderstanding` — any file the agent receives is automatically routed through CU before the model sees it. ~10 lines of glue. Point folks at the [PyPI package](https://pypi.org/project/agent-framework-azure-contentunderstanding/).
+* **LangChain document loader:** `pip install langchain-azure-ai` ships a CU document loader (`langchain_azure_ai.document_loaders`) that turns CU output into LangChain `Document` objects — drop-in replacement for the usual PDF/Markdown loaders, so existing LangChain RAG pipelines pick up CU's layout + figure understanding with a one-line swap. See the [demo notebook](https://github.com/langchain-ai/langchain-azure/blob/main/libs/azure-ai/docs/content_understanding_loader_demo.ipynb).
 * **Foundry IQ uses CU under the hood (going GA at Build).** When you create a Foundry IQ knowledge source (e.g., from Azure Blob) and set `contentExtractionMode` to **`standard`**, the ingestion pipeline calls the Content Understanding skill to extract text, chunk semantically across pages, and verbalize images/figures into markdown. Net: every Foundry IQ knowledge base going GA at Build is already a CU customer — great answer for "how does Foundry IQ ingest documents?". See [Foundry IQ overview](https://learn.microsoft.com/azure/ai-foundry/agents/concepts/what-is-foundry-iq) and [blob knowledge source how-to](https://learn.microsoft.com/azure/search/agentic-knowledge-source-how-to-blob).
 * **Logic Apps connector for CU as an MCP tool (new).** The new Logic Apps connector for Content Understanding can be surfaced as an **MCP tool**, so any MCP-aware agent (including via a Foundry Toolbox) can invoke CU analyzers as part of a workflow — no custom code required.
 * **MarkItDown integration:** newly merged — lets MarkItDown call CU under the hood for richer Markdown conversion than the default extractors. Good "what should I use for RAG ingestion?" answer.
