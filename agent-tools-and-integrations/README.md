@@ -84,18 +84,14 @@ Demonstrate how **Azure AI Content Understanding (CU)** turns unstructured conte
 
 **Elevator pitch (10 seconds):** One multimodal **API** that takes any file (PDF, audio, video, image) and returns structured JSON your agent can act on — confidence scores and source grounding included where the analyzer supports them. The **Foundry playground** today covers Document + Audio (video/image are coming); for video, image, and customization, jump to **CU Studio**. Layout (OCR → clean markdown) is the highest-volume use case today, especially for RAG.
 
-**Why a customer should care:** CU replaces the one-off OCR/parser/transcription/glue code teams write for every new content type. One API, one schema, JSON out — drops straight into an agent or workflow.
-
 #### Pre-reqs (set these up ahead of time)
 
 1. A Foundry project on `ai.azure.com` in a region where CU is available (East US, East US 2, West US, West US 3, Sweden Central, Australia East, etc. — see the [region list](https://learn.microsoft.com/azure/ai-services/content-understanding/service-limits#region-support)).
 2. **Deploy `gpt-4.1` (or `gpt-4.1-mini`) into the same project.** The Foundry playground dropdown only lists `gpt-4.1` family today. Without a deployment, you can run Layout, but custom uploads for field-extraction analyzers (Invoice, Call center, etc.) will be blocked. Takes ~2 min from the Deployments tab — don't wait until a customer is standing in front of you.
 3. Open the Foundry playground gear/settings panel once and confirm your `gpt-4.1` deployment shows up in the dropdown. If it doesn't, the upload step in Flow A will silently block.
-4. Grab a couple of sample documents to upload — the [Azure Document Intelligence sample data folder](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/main/Data) is a great source (invoices, receipts, contracts, IDs). **Default to these samples; only upload a customer's actual files if they explicitly confirm the content is non-sensitive and OK to send to the demo tenant.**
+4. Grab a couple of sample documents to upload — the [Azure Document Intelligence sample data folder](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/main/Data) is a great source (invoices, receipts, contracts, IDs).
 
 #### Demo Flow A — Foundry Playground (prebuilts, ~2 min)
-
-> Foundry doesn't expose a deep link to a specific analyzer today, so navigate from the top of `ai.azure.com` every time.
 
 1. Go to <https://ai.azure.com> → click **Build** (top right) → **Models** *or* **Deployments** in the left nav (the tab name is under A/B test today, so you may see either) → **AI Services** tab → select **Content Understanding**. Alternate path: `/discover/models` → search "Content Understanding". All land in the same playground.
 2. **Show #1 — Layout (Document modality).** The default sample document loads. On the right, flip between **Content** (markdown, paragraphs, tables) and **Result** (full JSON; markdown lives at `result -> contents -> markdown`). Talking point: *"This is the most-used analyzer in CU — it's what powers RAG pipelines because you get clean markdown plus structure with no LLM call required."* Layout runs on the Foundry resource alone; no GPT deployment needed.
