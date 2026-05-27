@@ -1,5 +1,5 @@
 # Public ASSERT eval framework (microsoft/ASSERT; will be public by 2026-06-01)
-p2m-policy @ git+https://github.com/microsoft/ASSERT.git@main
+assert-eval @ git+https://github.com/microsoft/ASSERT.git@main
 
 # Notebook runtime
 jupyter
