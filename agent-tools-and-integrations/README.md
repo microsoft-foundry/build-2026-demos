@@ -1,4 +1,20 @@
-# [DRAFT] Agent Tools & Integrations
+# Agent Tools & Integrations
+
+## Contents
+
+- [Build 2026 Announcements](#build-2026-agent-tools--integrations-announcements)
+- [What Are Foundry Toolboxes?](#what-are-foundry-toolboxes)
+- [Demo Flow](#demo-flow)
+- [Content Understanding](#content-understanding)
+  - [Features worth highlighting](#features-worth-highlighting)
+  - [Pre-reqs](#pre-reqs-set-these-up-ahead-of-time)
+  - [Demo Flow (Foundry Playground)](#demo-flow--foundry-playground-2-min)
+  - [Customization (CU Studio)](#customization-only-if-asked)
+  - [Hooking CU into an agent](#hooking-cu-into-an-agent-bonus-only-if-asked)
+  - [Known gaps & gotchas](#known-gaps--gotchas-read-these-so-you-dont-get-caught-out)
+  - [Rude FAQ](#rude-faq)
+- [Documentation Links](#documentation-links)
+- [Sessions](#agent-tools-and-integrations-sessions)
 
 Check out the Microsoft Build 2026 Agent Tools & Integrations Expert content!
 
@@ -17,7 +33,7 @@ thanks, Q
 * **Language, framework agnostic.** Any agent that can call an MCP endpoint — whether built in Python, .NET, Java, or C# — can use a Toolbox.
 * **Govern capabilities on the roadmap.** centralized analytics and controls (Govern) are coming. Build, discover and Consume are live now.
 * **Content Understanding Studio now supports GPT-5.2 across 12 regions.** Expanded beyond East US 2 to include East US, Australia East, Japan East, North Europe, South Central US, Southeast Asia, Sweden Central, UK South, West Europe, West US, and West US 3.
-* **Content Understanding integrates with the Azure AI Agent Framework (preview).** Install `agent-framework-azure-contentunderstanding` from PyPI to add document extraction capabilities directly to your agents.
+* **Content Understanding integrates with the Microsoft Agent Framework (preview).** Install `agent-framework-azure-contentunderstanding` from PyPI to add document extraction capabilities directly to your agents.
 * **Prebuilt analyzers playground in the Foundry portal.** Explore Content Understanding capabilities without writing any code, directly in the Foundry portal experience.
 
 ## What Are Foundry Toolboxes?
@@ -37,7 +53,7 @@ Think of Toolboxes as the package manager for agent tools. Instead of every team
 
 ## Demo Flow
 
-The station demo is centered in the **Microsoft Foundry Playground** at [ai.azure.com/nextgen](https://ai.azure.com/nextgen). Two parallel flows showcase complementary capabilities:
+The station demo is centered in the **Microsoft Foundry Playground** at [ai.azure.com/nextgen](https://ai.azure.com/nextgen).
 
 ---
 
@@ -78,24 +94,92 @@ Demonstrate how Toolboxes are created, configured, and consumed directly in the 
 
 ---
 
-### Content Understanding
+## Content Understanding
 
-Demonstrate how Content Understanding turns unstructured documents into structured, agent-ready data.
+Demonstrate how **Azure Content Understanding (CU) in Foundry Tools** turns unstructured content — documents, audio, video, images — into structured, agent-ready fields. **CU brings together Azure Document Intelligence and advanced LLM-based multimodal capabilities for extracting information across structured and unstructured content** through a single API and schema-driven experience.
 
-**What to show:**
+**Elevator pitch (10 seconds):** One multimodal **API** that takes any file (PDF, audio, video, image) and returns structured JSON your agent can act on — confidence scores and source grounding included where the analyzer supports them. Layout (OCR → clean markdown) is the highest-volume use case today, especially for RAG.
 
-1. Open Content Understanding in the Foundry portal: [Content Understanding Playground](https://ai.azure.com/nextgen/[project]/build/models/ai-services/Azure-AI-Content-Understanding/playground)
-2. Upload example documents (invoices, contracts, reports) — [download sample documents here](<!-- TODO: insert link to sample documents -->).
-3. Walk through how the service extracts structured fields, tables, and entities from the uploaded content.
-4. Show how the extracted output can be consumed by agents as a tool — completing the loop back to Toolboxes.
-5. Alternatively, use the standalone Content Understanding Studio: [contentunderstanding.ai.azure.com](https://contentunderstanding.ai.azure.com/home)
+**Where can I do what?**
 
-**Key talking points:**
-* Turns messy documents into clean, structured data agents can act on.
-* Works across document types out of the box — no custom training required for common formats.
-* Integrates naturally as a tool within a Toolbox for end-to-end agent workflows.
+* **Foundry (New)** is the **prebuilts demo surface** — Layout, the prebuilt **document analyzers** (Invoice, Contract, etc.), and the **Call center audio** analyzer, all running on the `gpt-4.1` family.
+* **CU Studio** does everything Foundry does **plus** what's not in the playground yet: **video & image analyzers**, **custom analyzers / classifiers / labeling**, the **Document-Search** analyzer (LLM figure understanding for RAG), and **GPT-5.2** selection.
+* **REST API / SDKs** cover all of the above headlessly — same backend, same analyzers, available in Python, .NET, Java, JS/TS.
 
-**Sample documents:** [Download demo documents](<!-- TODO: insert link to sample documents -->)
+> **Rule of thumb:** if a customer wants to *see* CU in 2 minutes, demo in Foundry. If they want to *build* something custom or show video/image, switch to CU Studio.
+
+### Features worth highlighting
+
+Useful hooks to pivot to when a customer asks *"what makes this different?"*:
+
+* **Layout with Markdown output** — clean structural Markdown (headings, paragraphs, tables, hyperlinks) from any document. Most-used analyzer; powers RAG pipelines with no LLM cost.
+* **Solid table extraction** — preserves table structure including **cross-page tables stitched as a single unit** (not fragmented per page), surfaced as Markdown for LLM-friendly downstream use.
+* **Figure & image understanding** — the **Document-Search** analyzer adds LLM-generated descriptions of charts, figures, and diagrams inline in the Markdown. Big unlock for technical docs, decks, and reports in RAG.
+* **One API across modalities** — same schema-driven extraction surface for documents, audio, video, and image. No swapping services as you grow modalities.
+* **Confidence scores + source grounding** — every extracted field comes back with a confidence score and pointer to source content, so agents can decide when to ask the user vs. act.
+* **Foundry IQ runs on CU under the hood** — every Foundry IQ knowledge source with `contentExtractionMode = "standard"` calls CU for chunking, extraction, and image verbalization. Foundry IQ customers are CU customers by default.
+* **Custom analyzers with Suggest schema** — define your own fields/classifiers in CU Studio; the **Suggest** button generates a starting schema from a sample doc.
+
+### Pre-reqs (set these up ahead of time)
+
+1. A Foundry project on `ai.azure.com` in a region where CU is available (East US, East US 2, West US, West US 3, Sweden Central, Australia East, etc. — see the [region list](https://learn.microsoft.com/azure/ai-services/content-understanding/service-limits#region-support)).
+2. **Deploy `gpt-4.1` (or `gpt-4.1-mini`) into the same project.** The Foundry playground dropdown only lists `gpt-4.1` family today. Without a deployment, you can run Layout, but custom uploads for field-extraction analyzers (Invoice, Call center, etc.) will be blocked. Takes ~2 min from the Deployments tab — don't wait until a customer is standing in front of you.
+3. Open the Foundry playground gear/settings panel once and confirm your `gpt-4.1` deployment shows up in the dropdown. If it doesn't, the upload step in the demo flow will silently block.
+4. Grab a couple of sample documents to upload — the [Azure Document Intelligence sample data folder](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/main/Data) is a great source (invoices, receipts, contracts, IDs).
+
+### Demo Flow — Foundry Playground (~2 min)
+
+1. Go to <https://ai.azure.com> → click **Build** (top right) → **Models** *or* **Deployments** in the left nav (the tab name is under A/B test today, so you may see either) → **AI Services** tab → select **Content Understanding**. Alternate path: `/discover/models` → search "Content Understanding". All land in the same playground.
+2. **Show #1 — Layout (Document modality).** The default sample document loads. On the right, flip between **Content** (markdown, paragraphs, tables) and **Result** (full JSON; markdown lives at `result -> contents -> markdown`). Talking point: *"This is the most-used analyzer in CU — it's what powers RAG pipelines because you get clean markdown plus structure with no LLM call required."* Layout runs on the Foundry resource alone; no GPT deployment needed.
+
+   ![Foundry playground showing the Layout analyzer with markdown output on the right](images/cu-foundry-layout.png)
+
+3. **Show #2 — Invoice (Document → Procurements → Invoice).** Sample invoice loads with extracted **fields + confidence scores** on the right. Uploading a fresh invoice (sample or a customer-approved file) is where the GPT-4.1 deployment kicks in — open the gear icon in the right panel to confirm the deployment is selected; you can deploy one inline if you forgot the pre-req.
+
+   ![Foundry playground showing the Invoice analyzer with extracted fields and confidence scores](images/cu-foundry-invoice-fields.png)
+
+4. **Show #3 — Call center (Audio modality).** Sample MP3 loads with a transcript in the middle and structured fields (summary, topics, sentiment, etc.) on the right. Great for landing the multimodal point.
+
+▶ **Walkthrough video:** [Foundry Playground — Content Understanding demo](https://microsoft-my.sharepoint.com/:v:/p/kmuthukrishn/cQqp592pKQcnRZUfXm6tMSPZEgUCkWXJ8RC7gXgjpnXTbR4lDg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0=) (Microsoft internal, SSO required)
+
+### Customization (only if asked)
+
+Customization, labeling, video & image analyzers, and the LLM-powered **Document-Search** analyzer aren't in Foundry (New) yet — point customers at **CU Studio** (<https://contentunderstanding.ai.azure.com/>). The fastest way to get there is the **Customize in CU Studio** link/button at the top right of any analyzer in the Foundry playground; it carries your project context across so the deployment, region, and resource you set up in Foundry are already wired up on the other side.
+
+* Sign in, use your existing Foundry project, and create a new CU project.
+* Build a custom analyzer with **Suggest schema** — upload a sample doc and CU proposes a schema you can edit and run.
+
+  ![CU Studio custom analyzer with Suggest schema](images/cu-studio-custom-analyzer.png)
+* You can reuse the same `gpt-4.1` deployment you created in Foundry — no extra setup. CU Studio also lets you pick **GPT-5.2** for analyzers that benefit from it.
+* For documents with figures/charts, mention the **Document-Search analyzer** — a Layout variant that uses an LLM to add figure understanding and image/chart descriptions inline in the markdown output. Best option when you want maximum RAG/agent context from a document with visuals (decks, reports, datasheets).
+
+Recommended: set up a sample custom analyzer in CU Studio ahead of time so you can show it end-to-end in under a minute if it comes up.
+
+### Hooking CU into an agent (bonus, only if asked)
+
+* **Microsoft Agent Framework context provider:** `pip install agent-framework-azure-contentunderstanding` — any file the agent receives is automatically routed through CU before the model sees it. ~10 lines of glue. Point folks at the [PyPI package](https://pypi.org/project/agent-framework-azure-contentunderstanding/).
+* **LangChain document loader:** `pip install langchain-azure-ai` ships a CU document loader (`langchain_azure_ai.document_loaders`) that turns CU output into LangChain `Document` objects — drop-in replacement for the usual PDF/Markdown loaders, so existing LangChain RAG pipelines pick up CU's layout + figure understanding with a one-line swap. See the [demo notebook](https://github.com/langchain-ai/langchain-azure/blob/main/libs/azure-ai/docs/content_understanding_loader_demo.ipynb).
+* **Foundry IQ uses CU under the hood (going GA at Build).** When you create a Foundry IQ knowledge source (e.g., from Azure Blob) and set `contentExtractionMode` to **`standard`**, the ingestion pipeline calls the Content Understanding skill to extract text, chunk semantically across pages, and verbalize images/figures into markdown. Net: every Foundry IQ knowledge base going GA at Build is already a CU customer — great answer for "how does Foundry IQ ingest documents?". See [Foundry IQ overview](https://learn.microsoft.com/azure/ai-foundry/agents/concepts/what-is-foundry-iq) and [blob knowledge source how-to](https://learn.microsoft.com/azure/search/agentic-knowledge-source-how-to-blob).
+* **Logic Apps connector for CU as an MCP tool (new).** The new Logic Apps connector for Content Understanding can be surfaced as an **MCP tool**, so any MCP-aware agent (including via a Foundry Toolbox) can invoke CU analyzers as part of a workflow — no custom code required.
+* **MarkItDown integration:** newly merged — lets MarkItDown call CU under the hood for richer Markdown conversion than the default extractors. Good "what should I use for RAG ingestion?" answer.
+
+### Known gaps & gotchas (read these so you don't get caught out)
+
+| Gap | Reality today | What to say |
+|---|---|---|
+| Video & Image modalities in Foundry (New) | Not in the playground yet (Document + Audio only). Both are fully supported via the CU API and in CU Studio. | *"Foundry is catching up to the API — video and image are coming. Today, show video/image demos in CU Studio."* |
+| Custom analyzers / labeling in Foundry (New) | Not yet — Foundry is prebuilts-only. | *"Customization lives in CU Studio today; that's why the **Customize in CU Studio** button is right there in the playground."* |
+| GPT-5.2 in the Foundry playground dropdown | API and CU Studio support GPT-5.2 (across 12 regions); Foundry playground dropdown is gpt-4.1 / gpt-4.1-mini only for now. | *"4.1 in the playground is fine for demos; production workloads can pick 5.2 via CU Studio or the API."* |
+| Deep links to the Foundry CU playground | None today — always start from `ai.azure.com`. | Just navigate live; don't try to paste a URL into the customer's tenant. |
+
+### Rude FAQ
+
+* **"How is this different from Document Intelligence (DI)?"** CU brings together Azure Document Intelligence and advanced LLM-based multimodal capabilities under one umbrella — you can think of DI's strengths as part of the CU experience now, extended to audio, video, and image with schema-driven extraction. Both are in Foundry, both are supported. For new content-to-JSON projects, start with CU.
+* **"Why two surfaces (Foundry vs. CU Studio)?"** Foundry (New) = fastest path to "show me what it does" for prebuilts. CU Studio = build, label, and ship your own analyzers, plus video/image/Document-Search and GPT-5.2 selection. They share the same backend and the same API — you're never locked into one UI.
+* **"Can I use CU as a tool in my agent?"** Yes — easiest path is the Agent Framework context provider (above). You can also wire CU into an MCP-aware agent via the new Logic Apps connector, or call the REST analyzer endpoint directly from any tool surface (OpenAPI spec → Toolbox → done). And if you're using Foundry IQ, you're already calling CU under the hood when `contentExtractionMode = standard`.
+* **"Do I need a GPT deployment to use CU?"** Only for analyzers that do field extraction with custom inputs. Layout (OCR/markdown) runs without one.
+
+**Sample files:** [Azure Document Intelligence sample data folder](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/main/Data) — invoices, receipts, contracts, IDs, and more.
 
 ---
 
@@ -105,6 +189,10 @@ More will be announced on the day of Build 2026.
 
 * <https://devblogs.microsoft.com/foundry/introducing-toolboxes-in-foundry/>
 * <https://aka.ms/foundry-toolboxes>
+* Content Understanding Build 2026 blog: <https://aka.ms/content-understanding-build2026>
+* Content Understanding overview: <https://learn.microsoft.com/azure/ai-services/content-understanding/overview>
+* Content Understanding Studio: <https://contentunderstanding.ai.azure.com/>
+* CU Agent Framework provider (PyPI): <https://pypi.org/project/agent-framework-azure-contentunderstanding/>
 
 ## Agent Tools and Integrations Sessions
 
