@@ -108,5 +108,5 @@ More will be announced on the day of Build 2026.
 
 ## Agent Tools and Integrations Sessions
 
-* From zero to teammate in 25 minutes: Build a Teams agent live
-* Build agents where work happens: chats, channels, and meetings in Microsoft Teams
+* [From zero to teammate in 25 minutes: Build a Teams agent live](https://build.microsoft.com/en-US/sessions/DEM332?source=sessions)
+* [Build agents where work happens: chats, channels, and meetings in Microsoft Teams](https://build.microsoft.com/en-US/sessions/DEM334?source=sessions)
