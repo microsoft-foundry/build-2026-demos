@@ -96,6 +96,18 @@ Demonstrate how **Azure Content Understanding (CU) in Foundry Tools** turns unst
 | Document-Search analyzer (LLM figure understanding for RAG) | ❌ | ✅ | ✅ |
 | GPT-5.2 selection | ❌ (gpt-4.1 family only) | ✅ | ✅ |
 
+### Features worth highlighting
+
+Useful hooks to pivot to when a customer asks *"what makes this different?"*:
+
+* **Layout with Markdown output** — clean structural Markdown (headings, paragraphs, tables, hyperlinks) from any document. Most-used analyzer; powers RAG pipelines with no LLM cost.
+* **Solid table extraction** — preserves table structure including **cross-page tables stitched as a single unit** (not fragmented per page), surfaced as Markdown for LLM-friendly downstream use.
+* **Figure & image understanding** — the **Document-Search** analyzer adds LLM-generated descriptions of charts, figures, and diagrams inline in the Markdown. Big unlock for technical docs, decks, and reports in RAG.
+* **One API across modalities** — same schema-driven extraction surface for documents, audio, video, and image. No swapping services as you grow modalities.
+* **Confidence scores + source grounding** — every extracted field comes back with a confidence score and pointer to source content, so agents can decide when to ask the user vs. act.
+* **Foundry IQ runs on CU under the hood** — every Foundry IQ knowledge source with `contentExtractionMode = "standard"` calls CU for chunking, extraction, and image verbalization. Foundry IQ customers are CU customers by default.
+* **Custom analyzers with Suggest schema** — define your own fields/classifiers in CU Studio; the **Suggest** button generates a starting schema from a sample doc.
+
 ### Pre-reqs (set these up ahead of time)
 
 1. A Foundry project on `ai.azure.com` in a region where CU is available (East US, East US 2, West US, West US 3, Sweden Central, Australia East, etc. — see the [region list](https://learn.microsoft.com/azure/ai-services/content-understanding/service-limits#region-support)).
@@ -145,11 +157,6 @@ Recommended: set up a sample custom analyzer in CU Studio ahead of time so you c
 * **"Why two surfaces (Foundry vs. CU Studio)?"** Foundry (New) = fastest path to "show me what it does" for prebuilts. CU Studio = build, label, and ship your own analyzers, plus video/image/Document-Search and GPT-5.2 selection. They share the same backend and the same API — you're never locked into one UI.
 * **"Can I use CU as a tool in my agent?"** Yes — easiest path is the Agent Framework context provider (above). You can also wire CU into an MCP-aware agent via the new Logic Apps connector, or call the REST analyzer endpoint directly from any tool surface (OpenAPI spec → Toolbox → done). And if you're using Foundry IQ, you're already calling CU under the hood when `contentExtractionMode = standard`.
 * **"Do I need a GPT deployment to use CU?"** Only for analyzers that do field extraction with custom inputs. Layout (OCR/markdown) runs without one.
-
-**Key talking points (if you only remember three things):**
-* One multimodal API across docs, audio, video, image — structured JSON out, confidence scores included.
-* Foundry (New) for prebuilts, CU Studio for customization / video / image / Document-Search / GPT-5.2 — same backend, same API.
-* Drops into an agent as a tool via the Agent Framework context provider, the new Logic Apps MCP connector, or a direct REST call — and quietly powers Foundry IQ ingestion when `contentExtractionMode = standard`.
 
 **Sample files:** [Azure Document Intelligence sample data folder](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/main/Data) — invoices, receipts, contracts, IDs, and more.
 
