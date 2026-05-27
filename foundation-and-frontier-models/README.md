@@ -7,6 +7,8 @@
 3. Managed Compute in Foundry Models
 4. Tented Model Announcement
 
+__Official PPT for demo booth: (Models PPT for Build 2026)[https://microsoft-my.sharepoint.com/:p:/p/meerakurup/cQqCkNumeYLBR56L4Fe-LXPMEgUCwHVqo0r54yt4GQhGFsrSOw]__
+
 ### 1 - New MAI Models
 
 __Availability of the models as of Build 2026:__
@@ -40,8 +42,7 @@ __Model cards__
 
 __Other assets__
 
-- Hero MAI Build 2026 blog
-- Foundry Tech Community blog
+- [Foundry Tech Community blog](https://aka.ms/mai-build-2026-foundryblog)
 - [MAI Models in Foundry FAQ](https://aka.ms/mai-pupr-faq)
 - [Foundry Models L150 Pitch Deck](https://microsoft.seismic.com/Link/Content/DCGVRdMVmbJTF8mJWQDXHfPM7Qbj)
 - [Azure Speech L100 Pitch Deck](https://microsoft.seismic.com/Link/Content/DCRcfJDDjPJjGGHW7dQ3qdG8gCcP)
