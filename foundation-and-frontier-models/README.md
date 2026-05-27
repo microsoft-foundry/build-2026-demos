@@ -7,7 +7,7 @@
 3. Managed Compute in Foundry Models
 4. Tented Model Announcement
 
-__Official PPT for demo booth: (Models PPT for Build 2026)[https://microsoft-my.sharepoint.com/:p:/p/meerakurup/cQqCkNumeYLBR56L4Fe-LXPMEgUCwHVqo0r54yt4GQhGFsrSOw]__
+__Official PPT for demo booth: [Models PPT for Build 2026](https://microsoft-my.sharepoint.com/:p:/p/meerakurup/cQqCkNumeYLBR56L4Fe-LXPMEgUCwHVqo0r54yt4GQhGFsrSOw)__
 
 ### 1 - New MAI Models
 
