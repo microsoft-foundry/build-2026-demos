@@ -198,3 +198,5 @@ More will be announced on the day of Build 2026.
 
 * [From zero to teammate in 25 minutes: Build a Teams agent live](https://build.microsoft.com/en-US/sessions/DEM332?source=sessions)
 * [Build agents where work happens: chats, channels, and meetings in Microsoft Teams](https://build.microsoft.com/en-US/sessions/DEM334?source=sessions)
+* [Turn APIs, tools, and data into real agent velocity](https://build.microsoft.com/en-US/sessions/DEM331?source=sessions)
+
