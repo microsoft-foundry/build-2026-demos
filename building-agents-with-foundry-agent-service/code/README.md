@@ -21,6 +21,7 @@ A guided, hands-on tour of **Microsoft Foundry Agent Service**. Every scenario i
 | 09 | [Prompt → Hosted: When & Why](./09-hosted-agent-intro/) | Concepts | The migration playbook |
 | 10 | [Hosted: Deep Research Agent](./10-hosted-research-agent/) | Agent Framework | Plan→execute loops in a container |
 | 11 | [Hosted: Multi-Agent Triage](./11-hosted-multi-agent/) | Agent Framework | Specialist agents handing off work |
+| 12 | [Hosted: Foundry Toolbox](./12-hosted-toolbox-agent/) | Agent Framework + Toolbox | Centralized tool registry, MCP-style discovery |
 
 ---
 
@@ -99,7 +100,8 @@ build-2026/
 ├─ 01-hello-agent/
 ├─ 02-streaming/
 ├─ ...
-└─ 11-hosted-multi-agent/
+├─ 11-hosted-multi-agent/
+└─ 12-hosted-toolbox-agent/
 ```
 
 Every scenario folder follows the same shape:

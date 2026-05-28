@@ -1,0 +1,15 @@
+name: toolbox-agent
+description: Hosted Agent Framework agent that discovers tools from a Foundry Toolbox.
+language: python
+entrypoint: main.py
+agentYaml: agent.yaml
+requirements: requirements.txt
+
+# Provision a Toolbox called "agent-tools" alongside the agent, pre-loaded with
+# Web Search + Code Interpreter. Add/remove entries here to change the toolset
+# — the agent picks them up automatically; no code change required.
+toolbox:
+  name: agent-tools
+  tools:
+    - type: web_search
+    - type: code_interpreter
