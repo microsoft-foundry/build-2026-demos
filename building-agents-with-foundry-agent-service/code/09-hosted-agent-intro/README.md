@@ -40,7 +40,7 @@ You've now built eight Prompt agents. Why would you ever need anything else?
 
 [`prompt_version.py`](./prompt_version.py) is exactly Scenario 03 — kept here for easy comparison.
 
-[`hosted_version/`](./hosted_version/) contains the equivalent **Hosted agent** written with Microsoft Agent Framework: identical function tool, identical instructions, identical behavior — packaged as a container.
+[`hosted_version/`](./hosted_version/) contains the equivalent **Hosted agent** written with Microsoft Agent Framework: identical function tool, identical instructions, identical behavior — packaged as a container. You can convert your prompt agent / workflows YAML to code using VS Code by following the steps [here](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/vs-code-agents-workflow-low-code#convert-a-yaml-workflow-to-agent-framework-code)
 
 The diff (in pseudo-form):
 
