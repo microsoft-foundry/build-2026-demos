@@ -44,7 +44,21 @@ During Microsoft Build 2026, you'll have the opportunity to present and share th
 
 ### Attendee-Facing Deck & Demo
 
-* Build 2026 EMU Foundry Control Plane Station Deck
+* **Booth rolling deck:** [`foundry-control-plane-booth-deck.pptx`](foundry-control-plane-booth-deck.pptx) — all-white, auto-advancing (9s, looped) kiosk deck for the screen at the station.
+* **Talking points & demo walkthrough:** [`TalkingPoints-FoundryControlPlane-booth.md`](TalkingPoints-FoundryControlPlane-booth.md) — the 15-second pitch, the four pillars, buyer personas, the Operate-tab demo flow, and conversation starters.
+* **Operate-tab screenshots** (in [`images/`](images/)) for reference:
+
+<p align="center">
+  <img src="images/operate-tab.png" alt="Operate tab — fleet at a glance" width="90%" />
+  <br/><em>The Operate tab — agents running, 7-day cost, and severity-ranked alerts.</em>
+  <br/><br/>
+  <img src="images/agent-monitor.png" alt="Per-agent Monitor view" width="90%" />
+  <br/><em>Drill into any agent — quality &amp; safety evals tracked over time, red-teaming built in.</em>
+  <br/><br/>
+  <img src="images/fleet-coverage.png" alt="Fleet coverage — native and third-party" width="90%" />
+  <br/><em>Whole-fleet coverage — Foundry-native + open-source / third-party, with Defender risk levels.</em>
+</p>
+
 * Demo Link: <https://aka.ms/foundrycontrolplane-demo>
 * Code-first walkthrough: 
 
@@ -56,7 +70,31 @@ More will be announced on the day of Build 2026.
 
 ## Build 2026 Foundry Control Plane Sessions
 
-<p align="center">
-  <!-- Placeholder: Build 2026 Foundry Control Plane sessions schedule image -->
-  <em>Build 2026 Foundry Control Plane sessions schedule image goes here.</em>
-</p>
+Booth-related sessions, curated from the EMU Tracker (Session Map booth mapping + AI Schedule title/abstract relevance) and grouped by theme. Full abstracts and where-to-send-attendees notes are in [`TalkingPoints-FoundryControlPlane-booth.md`](TalkingPoints-FoundryControlPlane-booth.md).
+
+### Observe & Operate
+
+| Code | Type | Title |
+|------|------|-------|
+| BRK252 | Breakout | From observability to ROI for AI agents |
+| LAB540 | Lab | Observe, optimize & protect hosted agents |
+| LTG429 | Lightning | Debug & operate agents with Azure Monitor |
+| LTG451 | Lightning | Agentic FinOps: cost & quality in Foundry |
+
+### Govern & Control Plane
+
+| Code | Type | Title |
+|------|------|-------|
+| BRK251 | Breakout | Secure, enterprise-ready agents with Agent 365 |
+| OD840 | Pre-recorded | Enable enterprise agents with Agent 365 SDK |
+| OD831 | Pre-recorded | Govern models, tools & agents with API Management |
+| LTG467 | Lightning | Secure AI agents: AI Gateway, tools & trust |
+
+### Guardrails, Evals & Trust
+
+| Code | Type | Title |
+|------|------|-------|
+| BRK250 | Breakout | Govern open-source AI agents, any framework |
+| LTG430 | Lightning | Shield your agents: universal control layer |
+| TT682 | Table Talk | Trusted AI built for production |
+| DEM369 | Demo | Responsible AI: principles to engineering |
