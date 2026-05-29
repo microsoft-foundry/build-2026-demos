@@ -61,3 +61,11 @@ The video culminates in a Cost Savings Analysis, where the results are striking:
 <video src="https://github.com/user-attachments/assets/742b488b-73d9-48b3-8e83-2db1b7aa8488" controls width="100%"></video>
 
 This video walks through using the Model router Foundry Models and demonstrates how it intelligently routes queries to the most capable and cost-efficient AI model in real time based on complexity and performance. Using a fictional smart sportswear brand called Zava, the demo shows a customer-facing chatbot powered by the model router dynamically selecting different underlying models depending on whether a query is simple or complex. Watch how the model router achieves 10.5x faster latency at a fraction of the cost with comparable accuracy, all within the Microsoft Foundry.
+
+---
+
+# Model Router Deck
+
+[model-router-PAC-session-may-2026.pdf](./model-router-PAC-session-may-2026.pdf)
+
+The Model Router presentation from the May 2026 PAC session. Covers what Model Router is and how it works, the four-stage routing pipeline, routing modes (Balanced, Cost, Quality), the 28-model / 6-provider pool, automatic failover, policy enforcement, fine-tuning support (coming soon), and lab results showing empirical routing decisions across 8 agent demos — including a routing decision tree and per-model traffic distribution.
