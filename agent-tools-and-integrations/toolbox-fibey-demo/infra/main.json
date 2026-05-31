@@ -1,0 +1,1849 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.41.2.15936",
+      "templateHash": "13160704237407277100"
+    }
+  },
+  "parameters": {
+    "environmentName": {
+      "type": "string",
+      "metadata": {
+        "description": "Unique environment name used for resource naming."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Azure region for all resources."
+      }
+    },
+    "tags": {
+      "type": "object",
+      "defaultValue": {
+        "azd-env-name": "[parameters('environmentName')]"
+      },
+      "metadata": {
+        "description": "Tags applied to all resources."
+      }
+    },
+    "uiImageName": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Container image for the ui service."
+      }
+    },
+    "gatewayImageName": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Container image for the gateway service."
+      }
+    },
+    "inventoryMcpImageName": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Container image for the inventory-mcp service."
+      }
+    },
+    "workOrdersApiImageName": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Container image for the work-orders-api service."
+      }
+    },
+    "statusDashboardImageName": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Container image for the status-dashboard service."
+      }
+    },
+    "foundryProjectEndpoint": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Azure AI Foundry project endpoint used by the gateway."
+      }
+    },
+    "foundryModel": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Azure AI Foundry model deployment name used by the gateway."
+      }
+    },
+    "toolboxMcpUrl": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Foundry Toolbox MCP endpoint used by the gateway."
+      }
+    }
+  },
+  "variables": {
+    "resourceToken": "[toLower(uniqueString(subscription().subscriptionId, resourceGroup().id, parameters('environmentName')))]",
+    "sanitizedEnvironmentName": "[replace(toLower(parameters('environmentName')), '-', '')]",
+    "containerAppsEnvironmentName": "[format('{0}-cae', parameters('environmentName'))]",
+    "logAnalyticsWorkspaceName": "[format('{0}-logs', parameters('environmentName'))]",
+    "registryName": "[format('acr{0}{1}', take(variables('sanitizedEnvironmentName'), 15), take(variables('resourceToken'), 8))]",
+    "storageAccountName": "[format('st{0}{1}', take(variables('sanitizedEnvironmentName'), 10), take(variables('resourceToken'), 12))]",
+    "searchServiceName": "[format('{0}-search', parameters('environmentName'))]",
+    "uiAppName": "[format('{0}-ui', parameters('environmentName'))]",
+    "gatewayAppName": "[format('{0}-gateway', parameters('environmentName'))]",
+    "inventoryMcpAppName": "[format('{0}-inventory-mcp', parameters('environmentName'))]",
+    "workOrdersApiAppName": "[format('{0}-work-orders-api', parameters('environmentName'))]",
+    "statusDashboardAppName": "[format('{0}-status-dashboard', parameters('environmentName'))]"
+  },
+  "resources": {
+    "storageAccountRef": {
+      "existing": true,
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2023-05-01",
+      "name": "[variables('storageAccountName')]"
+    },
+    "searchBlobReaderRole": {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2022-04-01",
+      "scope": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+      "name": "[guid(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), variables('searchServiceName'), 'Storage Blob Data Reader')]",
+      "properties": {
+        "roleDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '2a2b9908-6ea1-4ae2-8e65-a410df84e7d1')]",
+        "principalId": "[reference('aiSearch').outputs.principalId.value]",
+        "principalType": "ServicePrincipal"
+      },
+      "dependsOn": [
+        "aiSearch"
+      ]
+    },
+    "logAnalytics": {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "log-analytics",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "name": {
+            "value": "[variables('logAnalyticsWorkspaceName')]"
+          },
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "tags": {
+            "value": "[parameters('tags')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "languageVersion": "2.0",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.41.2.15936",
+              "templateHash": "3201726708654637917"
+            }
+          },
+          "parameters": {
+            "name": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of the Log Analytics workspace."
+              }
+            },
+            "location": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure region for the Log Analytics workspace."
+              }
+            },
+            "tags": {
+              "type": "object",
+              "defaultValue": {},
+              "metadata": {
+                "description": "Tags applied to the Log Analytics workspace."
+              }
+            }
+          },
+          "resources": {
+            "workspace": {
+              "type": "Microsoft.OperationalInsights/workspaces",
+              "apiVersion": "2023-09-01",
+              "name": "[parameters('name')]",
+              "location": "[parameters('location')]",
+              "tags": "[parameters('tags')]",
+              "properties": {
+                "retentionInDays": 30,
+                "sku": {
+                  "name": "PerGB2018"
+                }
+              }
+            }
+          },
+          "outputs": {
+            "id": {
+              "type": "string",
+              "metadata": {
+                "description": "Resource ID of the Log Analytics workspace."
+              },
+              "value": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('name'))]"
+            },
+            "workspaceName": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of the Log Analytics workspace."
+              },
+              "value": "[parameters('name')]"
+            },
+            "customerId": {
+              "type": "string",
+              "metadata": {
+                "description": "Customer ID for the Log Analytics workspace."
+              },
+              "value": "[reference('workspace').customerId]"
+            },
+            "sharedKey": {
+              "type": "securestring",
+              "metadata": {
+                "description": "Primary shared key for the Log Analytics workspace."
+              },
+              "value": "[listKeys('workspace', '2023-09-01').primarySharedKey]"
+            }
+          }
+        }
+      }
+    },
+    "containerRegistry": {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "container-registry",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "name": {
+            "value": "[variables('registryName')]"
+          },
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "tags": {
+            "value": "[parameters('tags')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "languageVersion": "2.0",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.41.2.15936",
+              "templateHash": "1107233057285225373"
+            }
+          },
+          "parameters": {
+            "name": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of the Azure Container Registry."
+              }
+            },
+            "location": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure region for the Azure Container Registry."
+              }
+            },
+            "tags": {
+              "type": "object",
+              "defaultValue": {},
+              "metadata": {
+                "description": "Tags applied to the Azure Container Registry."
+              }
+            }
+          },
+          "resources": {
+            "containerRegistry": {
+              "type": "Microsoft.ContainerRegistry/registries",
+              "apiVersion": "2023-07-01",
+              "name": "[parameters('name')]",
+              "location": "[parameters('location')]",
+              "tags": "[parameters('tags')]",
+              "sku": {
+                "name": "Basic"
+              },
+              "properties": {
+                "adminUserEnabled": true
+              }
+            }
+          },
+          "outputs": {
+            "id": {
+              "type": "string",
+              "metadata": {
+                "description": "Resource ID of the Azure Container Registry."
+              },
+              "value": "[resourceId('Microsoft.ContainerRegistry/registries', parameters('name'))]"
+            },
+            "registryName": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of the Azure Container Registry."
+              },
+              "value": "[parameters('name')]"
+            },
+            "loginServer": {
+              "type": "string",
+              "metadata": {
+                "description": "Login server for the Azure Container Registry."
+              },
+              "value": "[reference('containerRegistry').loginServer]"
+            },
+            "username": {
+              "type": "string",
+              "metadata": {
+                "description": "Admin username for the Azure Container Registry."
+              },
+              "value": "[parameters('name')]"
+            },
+            "password": {
+              "type": "securestring",
+              "metadata": {
+                "description": "Admin password for the Azure Container Registry."
+              },
+              "value": "[listCredentials('containerRegistry', '2023-07-01').passwords[0].value]"
+            }
+          }
+        }
+      }
+    },
+    "storageAccount": {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "storage-account",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "name": {
+            "value": "[variables('storageAccountName')]"
+          },
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "tags": {
+            "value": "[parameters('tags')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.41.2.15936",
+              "templateHash": "10360196020432989351"
+            }
+          },
+          "parameters": {
+            "name": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of the storage account."
+              }
+            },
+            "location": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure region for the storage account."
+              }
+            },
+            "tags": {
+              "type": "object",
+              "defaultValue": {},
+              "metadata": {
+                "description": "Tags applied to the storage account."
+              }
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Storage/storageAccounts",
+              "apiVersion": "2023-05-01",
+              "name": "[parameters('name')]",
+              "location": "[parameters('location')]",
+              "tags": "[parameters('tags')]",
+              "sku": {
+                "name": "Standard_LRS"
+              },
+              "kind": "StorageV2",
+              "properties": {
+                "accessTier": "Hot",
+                "allowBlobPublicAccess": false,
+                "minimumTlsVersion": "TLS1_2",
+                "supportsHttpsTrafficOnly": true
+              }
+            },
+            {
+              "type": "Microsoft.Storage/storageAccounts/blobServices",
+              "apiVersion": "2023-05-01",
+              "name": "[format('{0}/{1}', parameters('name'), 'default')]",
+              "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('name'))]"
+              ]
+            },
+            {
+              "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+              "apiVersion": "2023-05-01",
+              "name": "[format('{0}/{1}/{2}', parameters('name'), 'default', 'foundry-iq-docs')]",
+              "properties": {
+                "publicAccess": "None"
+              },
+              "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('name'), 'default')]"
+              ]
+            }
+          ],
+          "outputs": {
+            "id": {
+              "type": "string",
+              "metadata": {
+                "description": "Resource ID of the storage account."
+              },
+              "value": "[resourceId('Microsoft.Storage/storageAccounts', parameters('name'))]"
+            },
+            "name": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of the storage account."
+              },
+              "value": "[parameters('name')]"
+            },
+            "containerName": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of the blob container used for FoundryIQ documents."
+              },
+              "value": "foundry-iq-docs"
+            }
+          }
+        }
+      }
+    },
+    "aiSearch": {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "ai-search",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "name": {
+            "value": "[variables('searchServiceName')]"
+          },
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "tags": {
+            "value": "[parameters('tags')]"
+          },
+          "sku": {
+            "value": "basic"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.41.2.15936",
+              "templateHash": "2374467270194551111"
+            }
+          },
+          "parameters": {
+            "name": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of the Azure AI Search service."
+              }
+            },
+            "location": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure region for the search service."
+              }
+            },
+            "tags": {
+              "type": "object",
+              "defaultValue": {},
+              "metadata": {
+                "description": "Tags applied to the search service."
+              }
+            },
+            "sku": {
+              "type": "string",
+              "defaultValue": "basic",
+              "allowedValues": [
+                "basic",
+                "standard",
+                "standard2",
+                "standard3"
+              ],
+              "metadata": {
+                "description": "SKU for the search service."
+              }
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Search/searchServices",
+              "apiVersion": "2024-06-01-preview",
+              "name": "[parameters('name')]",
+              "location": "[parameters('location')]",
+              "tags": "[parameters('tags')]",
+              "sku": {
+                "name": "[parameters('sku')]"
+              },
+              "identity": {
+                "type": "SystemAssigned"
+              },
+              "properties": {
+                "hostingMode": "default",
+                "partitionCount": 1,
+                "replicaCount": 1,
+                "publicNetworkAccess": "enabled",
+                "semanticSearch": "standard"
+              }
+            }
+          ],
+          "outputs": {
+            "id": {
+              "type": "string",
+              "metadata": {
+                "description": "Resource ID of the search service."
+              },
+              "value": "[resourceId('Microsoft.Search/searchServices', parameters('name'))]"
+            },
+            "name": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of the search service."
+              },
+              "value": "[parameters('name')]"
+            },
+            "endpoint": {
+              "type": "string",
+              "metadata": {
+                "description": "Endpoint URL of the search service."
+              },
+              "value": "[format('https://{0}.search.windows.net', parameters('name'))]"
+            },
+            "principalId": {
+              "type": "string",
+              "metadata": {
+                "description": "Principal ID for the search service managed identity."
+              },
+              "value": "[reference(resourceId('Microsoft.Search/searchServices', parameters('name')), '2024-06-01-preview', 'full').identity.principalId]"
+            }
+          }
+        }
+      }
+    },
+    "containerAppsEnvironment": {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "container-apps-environment",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "name": {
+            "value": "[variables('containerAppsEnvironmentName')]"
+          },
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "logAnalyticsWorkspaceCustomerId": {
+            "value": "[reference('logAnalytics').outputs.customerId.value]"
+          },
+          "logAnalyticsWorkspaceSharedKey": {
+            "value": "[listOutputsWithSecureValues('logAnalytics', '2025-04-01').sharedKey]"
+          },
+          "tags": {
+            "value": "[parameters('tags')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.41.2.15936",
+              "templateHash": "8110149657757258846"
+            }
+          },
+          "parameters": {
+            "name": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of the Container Apps environment."
+              }
+            },
+            "location": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure region for the Container Apps environment."
+              }
+            },
+            "logAnalyticsWorkspaceCustomerId": {
+              "type": "string",
+              "metadata": {
+                "description": "Log Analytics workspace customer ID for Container Apps logs."
+              }
+            },
+            "logAnalyticsWorkspaceSharedKey": {
+              "type": "securestring",
+              "metadata": {
+                "description": "Log Analytics workspace shared key for Container Apps logs."
+              }
+            },
+            "tags": {
+              "type": "object",
+              "defaultValue": {},
+              "metadata": {
+                "description": "Tags applied to the Container Apps environment."
+              }
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.App/managedEnvironments",
+              "apiVersion": "2024-03-01",
+              "name": "[parameters('name')]",
+              "location": "[parameters('location')]",
+              "tags": "[parameters('tags')]",
+              "properties": {
+                "appLogsConfiguration": {
+                  "destination": "log-analytics",
+                  "logAnalyticsConfiguration": {
+                    "customerId": "[parameters('logAnalyticsWorkspaceCustomerId')]",
+                    "sharedKey": "[parameters('logAnalyticsWorkspaceSharedKey')]"
+                  }
+                }
+              }
+            }
+          ],
+          "outputs": {
+            "id": {
+              "type": "string",
+              "metadata": {
+                "description": "Resource ID of the Container Apps environment."
+              },
+              "value": "[resourceId('Microsoft.App/managedEnvironments', parameters('name'))]"
+            },
+            "environmentName": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of the Container Apps environment."
+              },
+              "value": "[parameters('name')]"
+            }
+          }
+        }
+      },
+      "dependsOn": [
+        "logAnalytics"
+      ]
+    },
+    "inventoryMcp": {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "inventory-mcp-app",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "name": {
+            "value": "[variables('inventoryMcpAppName')]"
+          },
+          "serviceName": {
+            "value": "inventory-mcp"
+          },
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "environmentId": {
+            "value": "[reference('containerAppsEnvironment').outputs.id.value]"
+          },
+          "containerImage": {
+            "value": "[parameters('inventoryMcpImageName')]"
+          },
+          "targetPort": {
+            "value": 8001
+          },
+          "env": {
+            "value": []
+          },
+          "registryServer": {
+            "value": "[reference('containerRegistry').outputs.loginServer.value]"
+          },
+          "registryUsername": {
+            "value": "[reference('containerRegistry').outputs.username.value]"
+          },
+          "registryPassword": {
+            "value": "[listOutputsWithSecureValues('containerRegistry', '2025-04-01').password]"
+          },
+          "tags": {
+            "value": "[parameters('tags')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.41.2.15936",
+              "templateHash": "9991215104587409259"
+            }
+          },
+          "parameters": {
+            "name": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of the Container App."
+              }
+            },
+            "serviceName": {
+              "type": "string",
+              "metadata": {
+                "description": "azd service name associated with the Container App."
+              }
+            },
+            "location": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure region for the Container App."
+              }
+            },
+            "environmentId": {
+              "type": "string",
+              "metadata": {
+                "description": "Resource ID of the Container Apps environment."
+              }
+            },
+            "containerImage": {
+              "type": "string",
+              "metadata": {
+                "description": "Container image to deploy."
+              }
+            },
+            "targetPort": {
+              "type": "int",
+              "metadata": {
+                "description": "Ingress target port for the container."
+              }
+            },
+            "env": {
+              "type": "array",
+              "metadata": {
+                "description": "Environment variables to inject into the container."
+              }
+            },
+            "registryServer": {
+              "type": "string",
+              "metadata": {
+                "description": "Container registry server used for pulling the image."
+              }
+            },
+            "registryUsername": {
+              "type": "string",
+              "metadata": {
+                "description": "Container registry username used for pulling the image."
+              }
+            },
+            "registryPassword": {
+              "type": "securestring",
+              "metadata": {
+                "description": "Container registry password used for pulling the image."
+              }
+            },
+            "minReplicas": {
+              "type": "int",
+              "defaultValue": 1,
+              "metadata": {
+                "description": "Minimum replica count for the Container App."
+              }
+            },
+            "maxReplicas": {
+              "type": "int",
+              "defaultValue": 3,
+              "metadata": {
+                "description": "Maximum replica count for the Container App."
+              }
+            },
+            "tags": {
+              "type": "object",
+              "defaultValue": {},
+              "metadata": {
+                "description": "Tags applied to the Container App."
+              }
+            }
+          },
+          "variables": {
+            "resolvedContainerImage": "[if(empty(parameters('containerImage')), 'mcr.microsoft.com/azuredocs/containerapps-helloworld:latest', parameters('containerImage'))]",
+            "appTags": "[union(parameters('tags'), createObject('azd-service-name', parameters('serviceName')))]"
+          },
+          "resources": [
+            {
+              "type": "Microsoft.App/containerApps",
+              "apiVersion": "2024-03-01",
+              "name": "[parameters('name')]",
+              "location": "[parameters('location')]",
+              "tags": "[variables('appTags')]",
+              "properties": {
+                "managedEnvironmentId": "[parameters('environmentId')]",
+                "configuration": {
+                  "activeRevisionsMode": "Single",
+                  "ingress": {
+                    "external": true,
+                    "targetPort": "[parameters('targetPort')]",
+                    "transport": "auto"
+                  },
+                  "registries": [
+                    {
+                      "server": "[parameters('registryServer')]",
+                      "username": "[parameters('registryUsername')]",
+                      "passwordSecretRef": "registry-password"
+                    }
+                  ],
+                  "secrets": [
+                    {
+                      "name": "registry-password",
+                      "value": "[parameters('registryPassword')]"
+                    }
+                  ]
+                },
+                "template": {
+                  "containers": [
+                    {
+                      "name": "[parameters('serviceName')]",
+                      "image": "[variables('resolvedContainerImage')]",
+                      "env": "[parameters('env')]",
+                      "resources": {
+                        "cpu": "[json('0.5')]",
+                        "memory": "1Gi"
+                      }
+                    }
+                  ],
+                  "scale": {
+                    "minReplicas": "[parameters('minReplicas')]",
+                    "maxReplicas": "[parameters('maxReplicas')]"
+                  }
+                }
+              }
+            }
+          ],
+          "outputs": {
+            "id": {
+              "type": "string",
+              "metadata": {
+                "description": "Resource ID of the Container App."
+              },
+              "value": "[resourceId('Microsoft.App/containerApps', parameters('name'))]"
+            },
+            "fqdn": {
+              "type": "string",
+              "metadata": {
+                "description": "Fully qualified domain name of the Container App ingress endpoint."
+              },
+              "value": "[reference(resourceId('Microsoft.App/containerApps', parameters('name')), '2024-03-01').configuration.ingress.fqdn]"
+            }
+          }
+        }
+      },
+      "dependsOn": [
+        "containerAppsEnvironment",
+        "containerRegistry"
+      ]
+    },
+    "workOrdersApi": {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "work-orders-api-app",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "name": {
+            "value": "[variables('workOrdersApiAppName')]"
+          },
+          "serviceName": {
+            "value": "work-orders-api"
+          },
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "environmentId": {
+            "value": "[reference('containerAppsEnvironment').outputs.id.value]"
+          },
+          "containerImage": {
+            "value": "[parameters('workOrdersApiImageName')]"
+          },
+          "targetPort": {
+            "value": 8002
+          },
+          "env": {
+            "value": []
+          },
+          "registryServer": {
+            "value": "[reference('containerRegistry').outputs.loginServer.value]"
+          },
+          "registryUsername": {
+            "value": "[reference('containerRegistry').outputs.username.value]"
+          },
+          "registryPassword": {
+            "value": "[listOutputsWithSecureValues('containerRegistry', '2025-04-01').password]"
+          },
+          "tags": {
+            "value": "[parameters('tags')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.41.2.15936",
+              "templateHash": "9991215104587409259"
+            }
+          },
+          "parameters": {
+            "name": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of the Container App."
+              }
+            },
+            "serviceName": {
+              "type": "string",
+              "metadata": {
+                "description": "azd service name associated with the Container App."
+              }
+            },
+            "location": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure region for the Container App."
+              }
+            },
+            "environmentId": {
+              "type": "string",
+              "metadata": {
+                "description": "Resource ID of the Container Apps environment."
+              }
+            },
+            "containerImage": {
+              "type": "string",
+              "metadata": {
+                "description": "Container image to deploy."
+              }
+            },
+            "targetPort": {
+              "type": "int",
+              "metadata": {
+                "description": "Ingress target port for the container."
+              }
+            },
+            "env": {
+              "type": "array",
+              "metadata": {
+                "description": "Environment variables to inject into the container."
+              }
+            },
+            "registryServer": {
+              "type": "string",
+              "metadata": {
+                "description": "Container registry server used for pulling the image."
+              }
+            },
+            "registryUsername": {
+              "type": "string",
+              "metadata": {
+                "description": "Container registry username used for pulling the image."
+              }
+            },
+            "registryPassword": {
+              "type": "securestring",
+              "metadata": {
+                "description": "Container registry password used for pulling the image."
+              }
+            },
+            "minReplicas": {
+              "type": "int",
+              "defaultValue": 1,
+              "metadata": {
+                "description": "Minimum replica count for the Container App."
+              }
+            },
+            "maxReplicas": {
+              "type": "int",
+              "defaultValue": 3,
+              "metadata": {
+                "description": "Maximum replica count for the Container App."
+              }
+            },
+            "tags": {
+              "type": "object",
+              "defaultValue": {},
+              "metadata": {
+                "description": "Tags applied to the Container App."
+              }
+            }
+          },
+          "variables": {
+            "resolvedContainerImage": "[if(empty(parameters('containerImage')), 'mcr.microsoft.com/azuredocs/containerapps-helloworld:latest', parameters('containerImage'))]",
+            "appTags": "[union(parameters('tags'), createObject('azd-service-name', parameters('serviceName')))]"
+          },
+          "resources": [
+            {
+              "type": "Microsoft.App/containerApps",
+              "apiVersion": "2024-03-01",
+              "name": "[parameters('name')]",
+              "location": "[parameters('location')]",
+              "tags": "[variables('appTags')]",
+              "properties": {
+                "managedEnvironmentId": "[parameters('environmentId')]",
+                "configuration": {
+                  "activeRevisionsMode": "Single",
+                  "ingress": {
+                    "external": true,
+                    "targetPort": "[parameters('targetPort')]",
+                    "transport": "auto"
+                  },
+                  "registries": [
+                    {
+                      "server": "[parameters('registryServer')]",
+                      "username": "[parameters('registryUsername')]",
+                      "passwordSecretRef": "registry-password"
+                    }
+                  ],
+                  "secrets": [
+                    {
+                      "name": "registry-password",
+                      "value": "[parameters('registryPassword')]"
+                    }
+                  ]
+                },
+                "template": {
+                  "containers": [
+                    {
+                      "name": "[parameters('serviceName')]",
+                      "image": "[variables('resolvedContainerImage')]",
+                      "env": "[parameters('env')]",
+                      "resources": {
+                        "cpu": "[json('0.5')]",
+                        "memory": "1Gi"
+                      }
+                    }
+                  ],
+                  "scale": {
+                    "minReplicas": "[parameters('minReplicas')]",
+                    "maxReplicas": "[parameters('maxReplicas')]"
+                  }
+                }
+              }
+            }
+          ],
+          "outputs": {
+            "id": {
+              "type": "string",
+              "metadata": {
+                "description": "Resource ID of the Container App."
+              },
+              "value": "[resourceId('Microsoft.App/containerApps', parameters('name'))]"
+            },
+            "fqdn": {
+              "type": "string",
+              "metadata": {
+                "description": "Fully qualified domain name of the Container App ingress endpoint."
+              },
+              "value": "[reference(resourceId('Microsoft.App/containerApps', parameters('name')), '2024-03-01').configuration.ingress.fqdn]"
+            }
+          }
+        }
+      },
+      "dependsOn": [
+        "containerAppsEnvironment",
+        "containerRegistry"
+      ]
+    },
+    "statusDashboard": {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "status-dashboard-app",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "name": {
+            "value": "[variables('statusDashboardAppName')]"
+          },
+          "serviceName": {
+            "value": "status-dashboard"
+          },
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "environmentId": {
+            "value": "[reference('containerAppsEnvironment').outputs.id.value]"
+          },
+          "containerImage": {
+            "value": "[parameters('statusDashboardImageName')]"
+          },
+          "targetPort": {
+            "value": 8003
+          },
+          "env": {
+            "value": []
+          },
+          "registryServer": {
+            "value": "[reference('containerRegistry').outputs.loginServer.value]"
+          },
+          "registryUsername": {
+            "value": "[reference('containerRegistry').outputs.username.value]"
+          },
+          "registryPassword": {
+            "value": "[listOutputsWithSecureValues('containerRegistry', '2025-04-01').password]"
+          },
+          "tags": {
+            "value": "[parameters('tags')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.41.2.15936",
+              "templateHash": "9991215104587409259"
+            }
+          },
+          "parameters": {
+            "name": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of the Container App."
+              }
+            },
+            "serviceName": {
+              "type": "string",
+              "metadata": {
+                "description": "azd service name associated with the Container App."
+              }
+            },
+            "location": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure region for the Container App."
+              }
+            },
+            "environmentId": {
+              "type": "string",
+              "metadata": {
+                "description": "Resource ID of the Container Apps environment."
+              }
+            },
+            "containerImage": {
+              "type": "string",
+              "metadata": {
+                "description": "Container image to deploy."
+              }
+            },
+            "targetPort": {
+              "type": "int",
+              "metadata": {
+                "description": "Ingress target port for the container."
+              }
+            },
+            "env": {
+              "type": "array",
+              "metadata": {
+                "description": "Environment variables to inject into the container."
+              }
+            },
+            "registryServer": {
+              "type": "string",
+              "metadata": {
+                "description": "Container registry server used for pulling the image."
+              }
+            },
+            "registryUsername": {
+              "type": "string",
+              "metadata": {
+                "description": "Container registry username used for pulling the image."
+              }
+            },
+            "registryPassword": {
+              "type": "securestring",
+              "metadata": {
+                "description": "Container registry password used for pulling the image."
+              }
+            },
+            "minReplicas": {
+              "type": "int",
+              "defaultValue": 1,
+              "metadata": {
+                "description": "Minimum replica count for the Container App."
+              }
+            },
+            "maxReplicas": {
+              "type": "int",
+              "defaultValue": 3,
+              "metadata": {
+                "description": "Maximum replica count for the Container App."
+              }
+            },
+            "tags": {
+              "type": "object",
+              "defaultValue": {},
+              "metadata": {
+                "description": "Tags applied to the Container App."
+              }
+            }
+          },
+          "variables": {
+            "resolvedContainerImage": "[if(empty(parameters('containerImage')), 'mcr.microsoft.com/azuredocs/containerapps-helloworld:latest', parameters('containerImage'))]",
+            "appTags": "[union(parameters('tags'), createObject('azd-service-name', parameters('serviceName')))]"
+          },
+          "resources": [
+            {
+              "type": "Microsoft.App/containerApps",
+              "apiVersion": "2024-03-01",
+              "name": "[parameters('name')]",
+              "location": "[parameters('location')]",
+              "tags": "[variables('appTags')]",
+              "properties": {
+                "managedEnvironmentId": "[parameters('environmentId')]",
+                "configuration": {
+                  "activeRevisionsMode": "Single",
+                  "ingress": {
+                    "external": true,
+                    "targetPort": "[parameters('targetPort')]",
+                    "transport": "auto"
+                  },
+                  "registries": [
+                    {
+                      "server": "[parameters('registryServer')]",
+                      "username": "[parameters('registryUsername')]",
+                      "passwordSecretRef": "registry-password"
+                    }
+                  ],
+                  "secrets": [
+                    {
+                      "name": "registry-password",
+                      "value": "[parameters('registryPassword')]"
+                    }
+                  ]
+                },
+                "template": {
+                  "containers": [
+                    {
+                      "name": "[parameters('serviceName')]",
+                      "image": "[variables('resolvedContainerImage')]",
+                      "env": "[parameters('env')]",
+                      "resources": {
+                        "cpu": "[json('0.5')]",
+                        "memory": "1Gi"
+                      }
+                    }
+                  ],
+                  "scale": {
+                    "minReplicas": "[parameters('minReplicas')]",
+                    "maxReplicas": "[parameters('maxReplicas')]"
+                  }
+                }
+              }
+            }
+          ],
+          "outputs": {
+            "id": {
+              "type": "string",
+              "metadata": {
+                "description": "Resource ID of the Container App."
+              },
+              "value": "[resourceId('Microsoft.App/containerApps', parameters('name'))]"
+            },
+            "fqdn": {
+              "type": "string",
+              "metadata": {
+                "description": "Fully qualified domain name of the Container App ingress endpoint."
+              },
+              "value": "[reference(resourceId('Microsoft.App/containerApps', parameters('name')), '2024-03-01').configuration.ingress.fqdn]"
+            }
+          }
+        }
+      },
+      "dependsOn": [
+        "containerAppsEnvironment",
+        "containerRegistry"
+      ]
+    },
+    "gateway": {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "gateway-app",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "name": {
+            "value": "[variables('gatewayAppName')]"
+          },
+          "serviceName": {
+            "value": "gateway"
+          },
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "environmentId": {
+            "value": "[reference('containerAppsEnvironment').outputs.id.value]"
+          },
+          "containerImage": {
+            "value": "[parameters('gatewayImageName')]"
+          },
+          "targetPort": {
+            "value": 8000
+          },
+          "env": {
+            "value": [
+              {
+                "name": "FOUNDRY_PROJECT_ENDPOINT",
+                "value": "[parameters('foundryProjectEndpoint')]"
+              },
+              {
+                "name": "FOUNDRY_MODEL",
+                "value": "[parameters('foundryModel')]"
+              },
+              {
+                "name": "TOOLBOX_MCP_URL",
+                "value": "[parameters('toolboxMcpUrl')]"
+              },
+              {
+                "name": "INVENTORY_MCP_URL",
+                "value": "[format('https://{0}', reference('inventoryMcp').outputs.fqdn.value)]"
+              },
+              {
+                "name": "WORK_ORDERS_API_URL",
+                "value": "[format('https://{0}', reference('workOrdersApi').outputs.fqdn.value)]"
+              },
+              {
+                "name": "STATUS_DASHBOARD_URL",
+                "value": "[format('https://{0}', reference('statusDashboard').outputs.fqdn.value)]"
+              }
+            ]
+          },
+          "registryServer": {
+            "value": "[reference('containerRegistry').outputs.loginServer.value]"
+          },
+          "registryUsername": {
+            "value": "[reference('containerRegistry').outputs.username.value]"
+          },
+          "registryPassword": {
+            "value": "[listOutputsWithSecureValues('containerRegistry', '2025-04-01').password]"
+          },
+          "tags": {
+            "value": "[parameters('tags')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.41.2.15936",
+              "templateHash": "9991215104587409259"
+            }
+          },
+          "parameters": {
+            "name": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of the Container App."
+              }
+            },
+            "serviceName": {
+              "type": "string",
+              "metadata": {
+                "description": "azd service name associated with the Container App."
+              }
+            },
+            "location": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure region for the Container App."
+              }
+            },
+            "environmentId": {
+              "type": "string",
+              "metadata": {
+                "description": "Resource ID of the Container Apps environment."
+              }
+            },
+            "containerImage": {
+              "type": "string",
+              "metadata": {
+                "description": "Container image to deploy."
+              }
+            },
+            "targetPort": {
+              "type": "int",
+              "metadata": {
+                "description": "Ingress target port for the container."
+              }
+            },
+            "env": {
+              "type": "array",
+              "metadata": {
+                "description": "Environment variables to inject into the container."
+              }
+            },
+            "registryServer": {
+              "type": "string",
+              "metadata": {
+                "description": "Container registry server used for pulling the image."
+              }
+            },
+            "registryUsername": {
+              "type": "string",
+              "metadata": {
+                "description": "Container registry username used for pulling the image."
+              }
+            },
+            "registryPassword": {
+              "type": "securestring",
+              "metadata": {
+                "description": "Container registry password used for pulling the image."
+              }
+            },
+            "minReplicas": {
+              "type": "int",
+              "defaultValue": 1,
+              "metadata": {
+                "description": "Minimum replica count for the Container App."
+              }
+            },
+            "maxReplicas": {
+              "type": "int",
+              "defaultValue": 3,
+              "metadata": {
+                "description": "Maximum replica count for the Container App."
+              }
+            },
+            "tags": {
+              "type": "object",
+              "defaultValue": {},
+              "metadata": {
+                "description": "Tags applied to the Container App."
+              }
+            }
+          },
+          "variables": {
+            "resolvedContainerImage": "[if(empty(parameters('containerImage')), 'mcr.microsoft.com/azuredocs/containerapps-helloworld:latest', parameters('containerImage'))]",
+            "appTags": "[union(parameters('tags'), createObject('azd-service-name', parameters('serviceName')))]"
+          },
+          "resources": [
+            {
+              "type": "Microsoft.App/containerApps",
+              "apiVersion": "2024-03-01",
+              "name": "[parameters('name')]",
+              "location": "[parameters('location')]",
+              "tags": "[variables('appTags')]",
+              "properties": {
+                "managedEnvironmentId": "[parameters('environmentId')]",
+                "configuration": {
+                  "activeRevisionsMode": "Single",
+                  "ingress": {
+                    "external": true,
+                    "targetPort": "[parameters('targetPort')]",
+                    "transport": "auto"
+                  },
+                  "registries": [
+                    {
+                      "server": "[parameters('registryServer')]",
+                      "username": "[parameters('registryUsername')]",
+                      "passwordSecretRef": "registry-password"
+                    }
+                  ],
+                  "secrets": [
+                    {
+                      "name": "registry-password",
+                      "value": "[parameters('registryPassword')]"
+                    }
+                  ]
+                },
+                "template": {
+                  "containers": [
+                    {
+                      "name": "[parameters('serviceName')]",
+                      "image": "[variables('resolvedContainerImage')]",
+                      "env": "[parameters('env')]",
+                      "resources": {
+                        "cpu": "[json('0.5')]",
+                        "memory": "1Gi"
+                      }
+                    }
+                  ],
+                  "scale": {
+                    "minReplicas": "[parameters('minReplicas')]",
+                    "maxReplicas": "[parameters('maxReplicas')]"
+                  }
+                }
+              }
+            }
+          ],
+          "outputs": {
+            "id": {
+              "type": "string",
+              "metadata": {
+                "description": "Resource ID of the Container App."
+              },
+              "value": "[resourceId('Microsoft.App/containerApps', parameters('name'))]"
+            },
+            "fqdn": {
+              "type": "string",
+              "metadata": {
+                "description": "Fully qualified domain name of the Container App ingress endpoint."
+              },
+              "value": "[reference(resourceId('Microsoft.App/containerApps', parameters('name')), '2024-03-01').configuration.ingress.fqdn]"
+            }
+          }
+        }
+      },
+      "dependsOn": [
+        "containerAppsEnvironment",
+        "containerRegistry",
+        "inventoryMcp",
+        "statusDashboard",
+        "workOrdersApi"
+      ]
+    },
+    "ui": {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "ui-app",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "name": {
+            "value": "[variables('uiAppName')]"
+          },
+          "serviceName": {
+            "value": "ui"
+          },
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "environmentId": {
+            "value": "[reference('containerAppsEnvironment').outputs.id.value]"
+          },
+          "containerImage": {
+            "value": "[parameters('uiImageName')]"
+          },
+          "targetPort": {
+            "value": 80
+          },
+          "env": {
+            "value": [
+              {
+                "name": "VITE_API_URL",
+                "value": "/api"
+              }
+            ]
+          },
+          "registryServer": {
+            "value": "[reference('containerRegistry').outputs.loginServer.value]"
+          },
+          "registryUsername": {
+            "value": "[reference('containerRegistry').outputs.username.value]"
+          },
+          "registryPassword": {
+            "value": "[listOutputsWithSecureValues('containerRegistry', '2025-04-01').password]"
+          },
+          "tags": {
+            "value": "[parameters('tags')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.41.2.15936",
+              "templateHash": "9991215104587409259"
+            }
+          },
+          "parameters": {
+            "name": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of the Container App."
+              }
+            },
+            "serviceName": {
+              "type": "string",
+              "metadata": {
+                "description": "azd service name associated with the Container App."
+              }
+            },
+            "location": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure region for the Container App."
+              }
+            },
+            "environmentId": {
+              "type": "string",
+              "metadata": {
+                "description": "Resource ID of the Container Apps environment."
+              }
+            },
+            "containerImage": {
+              "type": "string",
+              "metadata": {
+                "description": "Container image to deploy."
+              }
+            },
+            "targetPort": {
+              "type": "int",
+              "metadata": {
+                "description": "Ingress target port for the container."
+              }
+            },
+            "env": {
+              "type": "array",
+              "metadata": {
+                "description": "Environment variables to inject into the container."
+              }
+            },
+            "registryServer": {
+              "type": "string",
+              "metadata": {
+                "description": "Container registry server used for pulling the image."
+              }
+            },
+            "registryUsername": {
+              "type": "string",
+              "metadata": {
+                "description": "Container registry username used for pulling the image."
+              }
+            },
+            "registryPassword": {
+              "type": "securestring",
+              "metadata": {
+                "description": "Container registry password used for pulling the image."
+              }
+            },
+            "minReplicas": {
+              "type": "int",
+              "defaultValue": 1,
+              "metadata": {
+                "description": "Minimum replica count for the Container App."
+              }
+            },
+            "maxReplicas": {
+              "type": "int",
+              "defaultValue": 3,
+              "metadata": {
+                "description": "Maximum replica count for the Container App."
+              }
+            },
+            "tags": {
+              "type": "object",
+              "defaultValue": {},
+              "metadata": {
+                "description": "Tags applied to the Container App."
+              }
+            }
+          },
+          "variables": {
+            "resolvedContainerImage": "[if(empty(parameters('containerImage')), 'mcr.microsoft.com/azuredocs/containerapps-helloworld:latest', parameters('containerImage'))]",
+            "appTags": "[union(parameters('tags'), createObject('azd-service-name', parameters('serviceName')))]"
+          },
+          "resources": [
+            {
+              "type": "Microsoft.App/containerApps",
+              "apiVersion": "2024-03-01",
+              "name": "[parameters('name')]",
+              "location": "[parameters('location')]",
+              "tags": "[variables('appTags')]",
+              "properties": {
+                "managedEnvironmentId": "[parameters('environmentId')]",
+                "configuration": {
+                  "activeRevisionsMode": "Single",
+                  "ingress": {
+                    "external": true,
+                    "targetPort": "[parameters('targetPort')]",
+                    "transport": "auto"
+                  },
+                  "registries": [
+                    {
+                      "server": "[parameters('registryServer')]",
+                      "username": "[parameters('registryUsername')]",
+                      "passwordSecretRef": "registry-password"
+                    }
+                  ],
+                  "secrets": [
+                    {
+                      "name": "registry-password",
+                      "value": "[parameters('registryPassword')]"
+                    }
+                  ]
+                },
+                "template": {
+                  "containers": [
+                    {
+                      "name": "[parameters('serviceName')]",
+                      "image": "[variables('resolvedContainerImage')]",
+                      "env": "[parameters('env')]",
+                      "resources": {
+                        "cpu": "[json('0.5')]",
+                        "memory": "1Gi"
+                      }
+                    }
+                  ],
+                  "scale": {
+                    "minReplicas": "[parameters('minReplicas')]",
+                    "maxReplicas": "[parameters('maxReplicas')]"
+                  }
+                }
+              }
+            }
+          ],
+          "outputs": {
+            "id": {
+              "type": "string",
+              "metadata": {
+                "description": "Resource ID of the Container App."
+              },
+              "value": "[resourceId('Microsoft.App/containerApps', parameters('name'))]"
+            },
+            "fqdn": {
+              "type": "string",
+              "metadata": {
+                "description": "Fully qualified domain name of the Container App ingress endpoint."
+              },
+              "value": "[reference(resourceId('Microsoft.App/containerApps', parameters('name')), '2024-03-01').configuration.ingress.fqdn]"
+            }
+          }
+        }
+      },
+      "dependsOn": [
+        "containerAppsEnvironment",
+        "containerRegistry"
+      ]
+    }
+  },
+  "outputs": {
+    "uiFqdn": {
+      "type": "string",
+      "metadata": {
+        "description": "Fully qualified domain name for the ui container app."
+      },
+      "value": "[reference('ui').outputs.fqdn.value]"
+    },
+    "gatewayFqdn": {
+      "type": "string",
+      "metadata": {
+        "description": "Fully qualified domain name for the gateway container app."
+      },
+      "value": "[reference('gateway').outputs.fqdn.value]"
+    },
+    "inventoryMcpFqdn": {
+      "type": "string",
+      "metadata": {
+        "description": "Fully qualified domain name for the inventory-mcp container app."
+      },
+      "value": "[reference('inventoryMcp').outputs.fqdn.value]"
+    },
+    "workOrdersApiFqdn": {
+      "type": "string",
+      "metadata": {
+        "description": "Fully qualified domain name for the work-orders-api container app."
+      },
+      "value": "[reference('workOrdersApi').outputs.fqdn.value]"
+    },
+    "statusDashboardFqdn": {
+      "type": "string",
+      "metadata": {
+        "description": "Fully qualified domain name for the status-dashboard container app."
+      },
+      "value": "[reference('statusDashboard').outputs.fqdn.value]"
+    },
+    "storageAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Storage account name for FoundryIQ documents."
+      },
+      "value": "[reference('storageAccount').outputs.name.value]"
+    },
+    "searchServiceName": {
+      "type": "string",
+      "metadata": {
+        "description": "Azure AI Search service name."
+      },
+      "value": "[reference('aiSearch').outputs.name.value]"
+    },
+    "searchServiceEndpoint": {
+      "type": "string",
+      "metadata": {
+        "description": "Azure AI Search endpoint."
+      },
+      "value": "[reference('aiSearch').outputs.endpoint.value]"
+    },
+    "registryLoginServer": {
+      "type": "string",
+      "metadata": {
+        "description": "Container registry login server used for service images."
+      },
+      "value": "[reference('containerRegistry').outputs.loginServer.value]"
+    }
+  }
+}

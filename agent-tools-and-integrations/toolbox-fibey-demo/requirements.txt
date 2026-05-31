@@ -1,0 +1,11 @@
+# agent-framework[foundry] is required because hosted.py imports
+# `from agent_framework.foundry import FoundryChatClient`. The foundry
+# submodule is an optional extra; installing the bare package leaves
+# agent_framework.foundry unimportable and the container crashes at
+# startup so /readiness never returns 200 -> 424 session_not_ready.
+agent-framework[foundry]>=1.4.0
+agent-framework-foundry-hosting
+azure-identity
+httpx
+mcp
+python-dotenv
