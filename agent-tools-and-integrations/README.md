@@ -21,8 +21,7 @@ Check out the Microsoft Build 2026 Agent Tools & Integrations Expert content!
 
 At the Expert Meet Up, you'll have the chance to answer questions and share your expertise, showcase demos and product decks, and keep attendees informed on the newest event updates and product announcements for Microsoft Foundry.
 
-I'd like to keep track of feedback, all up questions in this doc too: [link]
-thanks, Q
+**Build booth rotating deck:** [Agent Tools & Integrations slides](https://onedrive.cloud.microsoft/:p:/a@mm6ya34q/S/cQpyNILknB5TTK7N4s_2kOAeEgUCS4Pw1ozaODt-reqmeOc0Qg)
 
 ## Build 2026 Agent Tools & Integrations Announcements
 
