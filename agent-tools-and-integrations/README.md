@@ -5,6 +5,7 @@
 - [Build 2026 Announcements](#build-2026-agent-tools--integrations-announcements)
 - [What Are Foundry Toolboxes?](#what-are-foundry-toolboxes)
 - [Demo Flow](#demo-flow)
+- [Demo Samples](#demo-samples)
 - [Content Understanding](#content-understanding)
   - [Features worth highlighting](#features-worth-highlighting)
   - [Pre-reqs](#pre-reqs-set-these-up-ahead-of-time)
@@ -13,7 +14,6 @@
   - [Hooking CU into an agent](#hooking-cu-into-an-agent-bonus-only-if-asked)
   - [Known gaps & gotchas](#known-gaps--gotchas-read-these-so-you-dont-get-caught-out)
   - [Rude FAQ](#rude-faq)
-- [Sample Code](#sample-code)
 - [Documentation Links](#documentation-links)
 - [Sessions](#agent-tools-and-integrations-sessions)
 
@@ -92,6 +92,14 @@ Demonstrate how Toolboxes are created, configured, and consumed directly in the 
 * One endpoint, many tools — simplifies agent development.
 * Centralized auth and governance — IT stays in control.
 * Framework-agnostic — works with any MCP-compatible agent.
+
+---
+
+## Demo Samples
+
+End-to-end sample projects that show Foundry Toolboxes in action — useful as a follow-up to the Toolbox & Tools demo above for attendees who want runnable code.
+
+- [**Fibey Field Ops (`toolbox-fibey-demo`)**](./toolbox-fibey-demo/) — Fiber field-operations agent built on a Foundry Toolbox. A Foundry-hosted agent (Microsoft Agent Framework) consumes the Toolbox's unified MCP endpoint and dynamically loads its skills from the Toolbox at startup, so updating tools or skills in the Toolbox flows through without redeploying the agent. Includes Inventory MCP, Work Orders API, FoundryIQ knowledge, a status dashboard, a FastAPI gateway, a React + Tailwind chat UI, and Bicep/azd infra.
 
 ---
 
@@ -183,10 +191,6 @@ Recommended: set up a sample custom analyzer in CU Studio ahead of time so you c
 **Sample files:** [Azure Document Intelligence sample data folder](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/main/Data) — invoices, receipts, contracts, IDs, and more.
 
 ---
-
-## Sample Code
-
-- [**Fibey Field Ops (toolbox-fibey-demo)**](./toolbox-fibey-demo/) — End-to-end fiber field-operations demo built on a Foundry Toolbox. A Foundry-hosted agent (Microsoft Agent Framework) loads skills dynamically from a Toolbox MCP endpoint and uses bundled tools (Inventory MCP, Work Orders API, FoundryIQ, status dashboard) to help technicians on the job. Includes FastAPI gateway, React + Tailwind UI, and Bicep/azd infra.
 
 ### Documentation Links
 
