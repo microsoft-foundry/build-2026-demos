@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+requiredVersions:
+    extensions:
+        azure.ai.agents: '>=0.1.0-preview'
+name: fibey-agent
+metadata:
+    template: fibey-agent
+services:
+    agent-service:
+        project: .
+        host: containerapp
+        language: docker
+        docker:
+            path: ./Dockerfile.agent-service
+    fibey-agent:
+        project: .
+        host: azure.ai.agent
+        language: docker
+        docker:
+            path: ./Dockerfile.agent
+            remoteBuild: true
+        config:
+            container:
+                resources:
+                    cpu: "1"
+                    memory: 2Gi
+            deployments:
+                - model:
+                    format: OpenAI
+                    name: gpt-4.1-mini
+                    version: "2025-04-14"
+                  name: gpt-4.1-mini
+                  sku:
+                    capacity: 10
+                    name: GlobalStandard
+            startupCommand: python -m fibey.agent.hosted
+    gateway:
+        project: .
+        host: containerapp
+        language: docker
+        docker:
+            path: ./Dockerfile
+    inventory-mcp:
+        project: services/inventory-mcp
+        host: containerapp
+        language: docker
+        docker:
+            path: ./Dockerfile
+    status-dashboard:
+        project: services/status-dashboard
+        host: containerapp
+        language: docker
+        docker:
+            path: ./Dockerfile
+    ui:
+        project: ui
+        host: containerapp
+        language: docker
+        docker:
+            path: ./Dockerfile
+    work-orders-api:
+        project: services/work-orders-api
+        host: containerapp
+        language: docker
+        docker:
+            path: ./Dockerfile
+infra:
+    provider: bicep
+    path: infra
+    module: main
