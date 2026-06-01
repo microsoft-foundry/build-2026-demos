@@ -23,6 +23,8 @@ At the Expert Meet Up, you'll have the chance to answer questions and share your
 
 **Build booth rotating deck:** [Agent Tools & Integrations slides](https://onedrive.cloud.microsoft/:p:/a@mm6ya34q/S/cQpyNILknB5TTK7N4s_2kOAeEgUCS4Pw1ozaODt-reqmeOc0Qg)
 
+Feel free to reach out to Q for support, thanks!
+
 ## Build 2026 Agent Tools & Integrations Announcements
 
 * **Toolboxes in Foundry are now in public preview.** Toolboxes are reusable, centrally managed bundles of tools (APIs, MCP servers, custom connectors) that any AI agent can consume through a single MCP-compatible endpoint. Build once, consume everywhere — no more duplicating tool integrations across agents.
