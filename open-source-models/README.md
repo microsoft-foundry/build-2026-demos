@@ -178,5 +178,7 @@ _Demonstrate the end-to-end loop from custom training and Bring Your Own Weights
 
 ## Documentation Links
 
+* [Open-Source Models Booth Rotating Deck](https://microsoft-my.sharepoint.com/:p:/r/personal/gulsimoosimi_microsoft_com/_layouts/15/Doc.aspx?sourcedoc=%7B3846cd41-35e0-49c2-ad83-9573a597b5c4%7D&action=edit&wdPreviousSession=84065315-1303-6cb4-8f5f-b5f617e1f33b&share=cQpBzUY44DXCSa2DlXOll7XEEgUCqiZ7ZiBzHK5n-wL6gFnRaw )
+* [KBYG Deck](https://microsoft-my.sharepoint.com/:p:/p/gulsimoosimi/cQoP7RSBj_BjSJ1v9zojXLLKEgUCxetN42qK3Px-zqsTUwgaOw)
+* [KBYG Recording](https://teams.microsoft.com/l/meetingrecap?driveId=b%21kUYRKWdoPEK77XgKOq2S8Hm9hQxqoxpAuO76KhaeyhRPTAOKc7FuTbUZFTcVsaNN&driveItemId=01QBE23Y4UB7KAMOPLKBBYBHRAEB7GR3LY&sitePath=https%3A%2F%2Fmicrosoft-my.sharepoint.com%2F%3Av%3A%2Fp%2Fgulsimoosimi%2FIQCUD9QGOetQQ4CeICB-aO14ARweECTz508T8hivLr_t2YE&fileUrl=https%3A%2F%2Fmicrosoft-my.sharepoint.com%2F%3Av%3A%2Fp%2Fgulsimoosimi%2FIQCUD9QGOetQQ4CeICB-aO14ARweECTz508T8hivLr_t2YE&iCalUid=040000008200E00074C5B7101A82E008000000002B7D52A56FE1DC01000000000000000010000000FEDB0359F0FAA64BB05DDC2A15A26683&threadId=19%3Ameeting_YWY2YWE5YWYtYjA4NS00ZDZmLTg1YjYtOGMyYjliMTg0MTdj%40thread.v2&organizerId=3267c6ba-2655-4b0b-80cc-ebcfd392a598&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47&callId=f6ddb41a-6cc0-46bf-b430-5001dfa43658&threadType=Meeting&meetingType=Scheduled&subType=RecapSharingLink_RecapChiclet)
 
-- KBYG — Open-Source Models presentation: <https://microsoft-my.sharepoint.com/:p:/p/gulsimoosimi/cQoP7RSBj_BjSJ1v9zojXLLKEgUCxetN42qK3Px-zqsTUwgaOw>
