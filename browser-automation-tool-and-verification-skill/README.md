@@ -7,48 +7,12 @@ Welcome to the Microsoft Build 2026 Browser Automation Tool & Verification Skill
 * **Browser Automation tool in Foundry Toolbox — Public Preview.** A new built-in Foundry Toolbox tool that provisions remote Chromium browsers (backed by Azure Playwright Workspaces) and exposes them to any hosted agent over a single MCP endpoint. Agents drive the browser through Playwright CLI commands — no per-agent browser plumbing required.
 * **Azure Playwright Workspaces — Generally Available.** The managed cloud browser service that powers the Browser Automation tool. Parallel, region-aware browser sessions with live-view URLs and recording capture.
 * **`/verify` Copilot CLI skill — public sample available.** An end-to-end app verification pipeline driven from Copilot CLI: verify a running app, author Playwright tests for uncovered flows, classify and heal failing tests. Distributed as a portable `.github/skills/verify/` folder via [`Azure/playwright-workspaces`](https://github.com/Azure/playwright-workspaces/tree/main/samples/app-verification-skills).
-* **TBD** Browser Automation tool roadmap highlight.
-* **TBD** Verify-skill roadmap highlight.
 
-## Station Roles & Responsibilities
+## Demo Samples
 
-> _Placeholder — update with the Build 2026 expert shift logistics, check-in location, booth ID, conversation counter / Contact Me QR code instructions, and on-site contact for the Browser Automation Tool & Verification Skill station._
+The three demo samples live in their own repositories so each can evolve with its own maintainers, releases, and CI.
 
-* Shift Check-In:
-* During Your Shift:
-* Engagement:
-* Demo & Station Deck Prep:
-* Professionalism:
-* **Click the clicker to keep track of each attendee visiting the booth.**
-
-<p align="center">
-  <!-- Placeholder: Build 2026 Browser Automation Tool & Verification Skill station map / signage image -->
-  <em>Station map and signage images go here.</em>
-  <br/><br/>
-  <!-- Placeholder: Build 2026 booth photo -->
-  <em>Booth photo goes here.</em>
-  <br/><br/>
-  <!-- Placeholder: Build 2026 expert shift schedule -->
-  <em>Expert shift schedule goes here.</em>
-</p>
-
-## Station Resources
-
-During Microsoft Build 2026, you'll have the opportunity to present and share these materials with attendees at the Browser Automation Tool & Verification Skill Expert Meet Up Station. Within this `browser-automation-tool-and-verification-skill` folder, you will find the following resources:
-
-### Internal
-
-* Build 2026 EMU Browser Automation Tool & Verification Skill Know Before You Go (KBYG)
-* GENERAL Microsoft Build Expert KBYG Deck.pdf
-
-### Attendee-Facing Deck & Demo
-
-* Build 2026 EMU Browser Automation Tool & Verification Skill Station Deck
-* Demo Link: _TBD_
-
-The three demo samples live in their own repositories so each can evolve with its own maintainers, releases, and CI:
-
-#### Sample 1 — BYO Browser Automation Agent
+### Sample 1 — BYO Browser Automation Agent
 
 > **Repo:** [`microsoft-foundry/foundry-samples` → `samples/python/hosted-agents/bring-your-own/responses/browser-automation`](https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents/bring-your-own/responses/browser-automation)
 
@@ -61,7 +25,7 @@ A **Bring Your Own** hosted agent in Python that talks the Responses protocol di
 
 Reach for this sample when you need raw SDK control over streaming, multi-session lifecycles, or custom tool orchestration that the higher-level framework abstracts away.
 
-#### Sample 2 — Microsoft Agent Framework Browser Automation Agent
+### Sample 2 — Microsoft Agent Framework Browser Automation Agent
 
 > **Repo:** [`microsoft-foundry/foundry-samples` → `samples/python/hosted-agents/agent-framework/responses/14-browser-automation-agent`](https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents/agent-framework/responses/14-browser-automation-agent)
 
@@ -69,7 +33,7 @@ A hosted agent built with [Microsoft Agent Framework](https://github.com/microso
 
 Recommended starting point for common single-session browser-automation scenarios — general browsing, web scraping, form filling. Sample 1's README itself points readers here when they don't need its raw-SDK extras.
 
-#### Sample 3 — `/verify` Copilot CLI Skill
+### Sample 3 — `/verify` Copilot CLI Skill
 
 > **Repo:** [`Azure/playwright-workspaces` → `samples/app-verification-skills`](https://github.com/Azure/playwright-workspaces/tree/main/samples/app-verification-skills)
 
@@ -81,20 +45,10 @@ A Copilot CLI skill, not a hosted agent — a different layer of the stack. Targ
 
 All test execution runs on Azure Playwright Workspaces cloud browsers, with video and trace artifacts uploaded for inspection. The skill ships as a portable `.github/skills/verify/` folder that Copilot CLI auto-detects on clone — no plugin install. The sample bundles a runnable invoice-processing demo app with the skill pre-wired so reviewers can try it end-to-end in one minute.
 
-### Documentation Links
-
-More will be announced on the day of Build 2026.
+## Documentation Links
 
 * Microsoft Foundry — Hosted Agents overview: <https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agents>
 * Microsoft Foundry — Hosted Agents quickstart with `azd`: <https://learn.microsoft.com/azure/foundry/agents/quickstarts/quickstart-hosted-agent?pivots=azd>
 * Microsoft Agent Framework: <https://github.com/microsoft/agent-framework>
 * Azure Playwright Workspaces documentation: <https://aka.ms/pww/docs>
 * Playwright CLI: <https://github.com/microsoft/playwright-cli>
-
-## Build 2026 Browser Automation Tool & Verification Skill Sessions
-
-> _Placeholder — replace with the curated session list once the Build 2026 schedule is finalized. Mirror the table format used by sibling station READMEs (`Code | Type | Title`)._
-
-| Code | Type | Title |
-|------|------|-------|
-| TBD  | TBD  | TBD   |
