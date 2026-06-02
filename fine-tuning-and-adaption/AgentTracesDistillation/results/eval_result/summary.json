@@ -1,0 +1,252 @@
+{
+  "tau": 0.7,
+  "seeds": [
+    7,
+    17,
+    27
+  ],
+  "by_set": {
+    "train": {
+      "student": {
+        "n_scenarios": 80,
+        "tau": 0.7,
+        "metrics": {
+          "pass^1": 0.7792,
+          "pass^2": 0.6833,
+          "pass^3": 0.625
+        },
+        "per_pass": [
+          {
+            "pass": "baseline__mt__student__gpt-4.1-nano.v2.pass1.json",
+            "avg_combined": 0.768,
+            "avg_decision": 0.754,
+            "avg_tools": 0.83,
+            "avg_financial": 0.77,
+            "avg_communication": 0.711,
+            "n_scenarios": 80
+          },
+          {
+            "pass": "baseline__mt__student__gpt-4.1-nano.v2.pass2.json",
+            "avg_combined": 0.798,
+            "avg_decision": 0.78,
+            "avg_tools": 0.854,
+            "avg_financial": 0.799,
+            "avg_communication": 0.756,
+            "n_scenarios": 80
+          },
+          {
+            "pass": "baseline__mt__student__gpt-4.1-nano.v2.pass3.json",
+            "avg_combined": 0.783,
+            "avg_decision": 0.762,
+            "avg_tools": 0.839,
+            "avg_financial": 0.778,
+            "avg_communication": 0.754,
+            "n_scenarios": 80
+          }
+        ]
+      },
+      "teacher": {
+        "n_scenarios": 80,
+        "tau": 0.7,
+        "metrics": {
+          "pass^1": 0.9667,
+          "pass^2": 0.9625,
+          "pass^3": 0.9625
+        },
+        "per_pass": [
+          {
+            "pass": "baseline__mt__teacher__demo1-retail-agent-langraph-responses.v2.pass1.json",
+            "avg_combined": 0.894,
+            "avg_decision": 0.876,
+            "avg_tools": 0.875,
+            "avg_financial": 0.951,
+            "avg_communication": 0.891,
+            "n_scenarios": 80
+          },
+          {
+            "pass": "baseline__mt__teacher__demo1-retail-agent-langraph-responses.v2.pass2.json",
+            "avg_combined": 0.901,
+            "avg_decision": 0.893,
+            "avg_tools": 0.872,
+            "avg_financial": 0.945,
+            "avg_communication": 0.905,
+            "n_scenarios": 80
+          },
+          {
+            "pass": "baseline__mt__teacher__demo1-retail-agent-langraph-responses.v2.pass3.json",
+            "avg_combined": 0.894,
+            "avg_decision": 0.881,
+            "avg_tools": 0.874,
+            "avg_financial": 0.963,
+            "avg_communication": 0.876,
+            "n_scenarios": 80
+          }
+        ]
+      },
+      "ft": {
+        "n_scenarios": 80,
+        "tau": 0.7,
+        "metrics": {
+          "pass^1": 0.8958,
+          "pass^2": 0.8375,
+          "pass^3": 0.8125
+        },
+        "per_pass": [
+          {
+            "pass": "baseline__mt__ft__gpt-4.1-nano-demo1.v2.pass1.json",
+            "avg_combined": 0.839,
+            "avg_decision": 0.81,
+            "avg_tools": 0.874,
+            "avg_financial": 0.864,
+            "avg_communication": 0.821,
+            "n_scenarios": 80
+          },
+          {
+            "pass": "baseline__mt__ft__gpt-4.1-nano-demo1.v2.pass2.json",
+            "avg_combined": 0.846,
+            "avg_decision": 0.811,
+            "avg_tools": 0.875,
+            "avg_financial": 0.872,
+            "avg_communication": 0.842,
+            "n_scenarios": 80
+          },
+          {
+            "pass": "baseline__mt__ft__gpt-4.1-nano-demo1.v2.pass3.json",
+            "avg_combined": 0.844,
+            "avg_decision": 0.816,
+            "avg_tools": 0.866,
+            "avg_financial": 0.884,
+            "avg_communication": 0.827,
+            "n_scenarios": 80
+          }
+        ]
+      },
+      "uplift_ft_vs_student": {
+        "pass^1": 0.1166,
+        "pass^2": 0.1542,
+        "pass^3": 0.1875
+      }
+    },
+    "validation": {
+      "student": {
+        "n_scenarios": 20,
+        "tau": 0.7,
+        "metrics": {
+          "pass^1": 0.5167,
+          "pass^2": 0.3833,
+          "pass^3": 0.35
+        },
+        "per_pass": [
+          {
+            "pass": "baseline__mt__student__gpt-4.1-nano.v2.pass1.json",
+            "avg_combined": 0.678,
+            "avg_decision": 0.655,
+            "avg_tools": 0.829,
+            "avg_financial": 0.608,
+            "avg_communication": 0.598,
+            "n_scenarios": 20
+          },
+          {
+            "pass": "baseline__mt__student__gpt-4.1-nano.v2.pass2.json",
+            "avg_combined": 0.676,
+            "avg_decision": 0.655,
+            "avg_tools": 0.833,
+            "avg_financial": 0.533,
+            "avg_communication": 0.657,
+            "n_scenarios": 20
+          },
+          {
+            "pass": "baseline__mt__student__gpt-4.1-nano.v2.pass3.json",
+            "avg_combined": 0.637,
+            "avg_decision": 0.622,
+            "avg_tools": 0.787,
+            "avg_financial": 0.567,
+            "avg_communication": 0.545,
+            "n_scenarios": 20
+          }
+        ]
+      },
+      "teacher": {
+        "n_scenarios": 20,
+        "tau": 0.7,
+        "metrics": {
+          "pass^1": 0.9,
+          "pass^2": 0.9,
+          "pass^3": 0.9
+        },
+        "per_pass": [
+          {
+            "pass": "baseline__mt__teacher__demo1-retail-agent-langraph-responses.v2.pass1.json",
+            "avg_combined": 0.871,
+            "avg_decision": 0.86,
+            "avg_tools": 0.87,
+            "avg_financial": 0.9,
+            "avg_communication": 0.861,
+            "n_scenarios": 20
+          },
+          {
+            "pass": "baseline__mt__teacher__demo1-retail-agent-langraph-responses.v2.pass2.json",
+            "avg_combined": 0.866,
+            "avg_decision": 0.86,
+            "avg_tools": 0.87,
+            "avg_financial": 0.9,
+            "avg_communication": 0.837,
+            "n_scenarios": 20
+          },
+          {
+            "pass": "baseline__mt__teacher__demo1-retail-agent-langraph-responses.v2.pass3.json",
+            "avg_combined": 0.852,
+            "avg_decision": 0.825,
+            "avg_tools": 0.87,
+            "avg_financial": 0.883,
+            "avg_communication": 0.844,
+            "n_scenarios": 20
+          }
+        ]
+      },
+      "ft": {
+        "n_scenarios": 20,
+        "tau": 0.7,
+        "metrics": {
+          "pass^1": 0.8667,
+          "pass^2": 0.8,
+          "pass^3": 0.75
+        },
+        "per_pass": [
+          {
+            "pass": "baseline__mt__ft__gpt-4.1-nano-demo1.v2.pass1.json",
+            "avg_combined": 0.803,
+            "avg_decision": 0.772,
+            "avg_tools": 0.85,
+            "avg_financial": 0.792,
+            "avg_communication": 0.809,
+            "n_scenarios": 20
+          },
+          {
+            "pass": "baseline__mt__ft__gpt-4.1-nano-demo1.v2.pass2.json",
+            "avg_combined": 0.802,
+            "avg_decision": 0.807,
+            "avg_tools": 0.869,
+            "avg_financial": 0.742,
+            "avg_communication": 0.768,
+            "n_scenarios": 20
+          },
+          {
+            "pass": "baseline__mt__ft__gpt-4.1-nano-demo1.v2.pass3.json",
+            "avg_combined": 0.821,
+            "avg_decision": 0.815,
+            "avg_tools": 0.874,
+            "avg_financial": 0.8,
+            "avg_communication": 0.788,
+            "n_scenarios": 20
+          }
+        ]
+      },
+      "uplift_ft_vs_student": {
+        "pass^1": 0.35,
+        "pass^2": 0.4167,
+        "pass^3": 0.4
+      }
+    }
+  }
+}

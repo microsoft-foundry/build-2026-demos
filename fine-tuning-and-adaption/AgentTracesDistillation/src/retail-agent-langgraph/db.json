@@ -1,0 +1,1584 @@
+{
+  "today": "2026-07-15",
+  "customers": {
+    "C001": {
+      "id": "C001",
+      "name": "Sofia Martinez",
+      "email": "sofia.martinez@example.com",
+      "loyalty_tier": "platinum"
+    },
+    "C002": {
+      "id": "C002",
+      "name": "Ava Chen",
+      "email": "ava.chen@example.com",
+      "loyalty_tier": "standard"
+    },
+    "C003": {
+      "id": "C003",
+      "name": "Yusuf Rossi",
+      "email": "yusuf.rossi@example.com",
+      "loyalty_tier": "gold"
+    },
+    "C004": {
+      "id": "C004",
+      "name": "Emma Kim",
+      "email": "emma.kim@example.com",
+      "loyalty_tier": "standard"
+    },
+    "C005": {
+      "id": "C005",
+      "name": "Noah Brown",
+      "email": "noah.brown@example.com",
+      "loyalty_tier": "platinum"
+    },
+    "C006": {
+      "id": "C006",
+      "name": "Mei Tanaka",
+      "email": "mei.tanaka@example.com",
+      "loyalty_tier": "standard"
+    },
+    "C007": {
+      "id": "C007",
+      "name": "Liam O'Connor",
+      "email": "liam.oconnor@example.com",
+      "loyalty_tier": "gold"
+    },
+    "C008": {
+      "id": "C008",
+      "name": "Aisha Patel",
+      "email": "aisha.patel@example.com",
+      "loyalty_tier": "platinum"
+    },
+    "C009": {
+      "id": "C009",
+      "name": "Diego Rivera",
+      "email": "diego.rivera@example.com",
+      "loyalty_tier": "standard"
+    },
+    "C010": {
+      "id": "C010",
+      "name": "Riley Park",
+      "email": "riley.park@example.com",
+      "loyalty_tier": "gold"
+    }
+  },
+  "products": {
+    "P001": {
+      "id": "P001",
+      "name": "Wireless Headphones",
+      "category": "electronics",
+      "price": 149.99,
+      "on_sale": false
+    },
+    "P002": {
+      "id": "P002",
+      "name": "Mechanical Keyboard",
+      "category": "electronics",
+      "price": 129.99,
+      "on_sale": false,
+      "variants": [
+        {
+          "sku": "P002-BLK",
+          "variant": "Black"
+        },
+        {
+          "sku": "P002-WHT",
+          "variant": "White"
+        },
+        {
+          "sku": "P002-RGB",
+          "variant": "RGB"
+        }
+      ]
+    },
+    "P002-BLK": {
+      "id": "P002",
+      "name": "Mechanical Keyboard",
+      "category": "electronics",
+      "price": 129.99,
+      "on_sale": false,
+      "variants": [
+        {
+          "sku": "P002-BLK",
+          "variant": "Black"
+        },
+        {
+          "sku": "P002-WHT",
+          "variant": "White"
+        },
+        {
+          "sku": "P002-RGB",
+          "variant": "RGB"
+        }
+      ],
+      "selected_variant": "Black"
+    },
+    "P002-WHT": {
+      "id": "P002",
+      "name": "Mechanical Keyboard",
+      "category": "electronics",
+      "price": 129.99,
+      "on_sale": false,
+      "variants": [
+        {
+          "sku": "P002-BLK",
+          "variant": "Black"
+        },
+        {
+          "sku": "P002-WHT",
+          "variant": "White"
+        },
+        {
+          "sku": "P002-RGB",
+          "variant": "RGB"
+        }
+      ],
+      "selected_variant": "White"
+    },
+    "P002-RGB": {
+      "id": "P002",
+      "name": "Mechanical Keyboard",
+      "category": "electronics",
+      "price": 129.99,
+      "on_sale": false,
+      "variants": [
+        {
+          "sku": "P002-BLK",
+          "variant": "Black"
+        },
+        {
+          "sku": "P002-WHT",
+          "variant": "White"
+        },
+        {
+          "sku": "P002-RGB",
+          "variant": "RGB"
+        }
+      ],
+      "selected_variant": "RGB"
+    },
+    "P003": {
+      "id": "P003",
+      "name": "Smart Watch",
+      "category": "electronics",
+      "price": 299.99,
+      "on_sale": false,
+      "variants": [
+        {
+          "sku": "P003-S",
+          "variant": "Small"
+        },
+        {
+          "sku": "P003-M",
+          "variant": "Medium"
+        },
+        {
+          "sku": "P003-L",
+          "variant": "Large"
+        }
+      ]
+    },
+    "P003-S": {
+      "id": "P003",
+      "name": "Smart Watch",
+      "category": "electronics",
+      "price": 299.99,
+      "on_sale": false,
+      "variants": [
+        {
+          "sku": "P003-S",
+          "variant": "Small"
+        },
+        {
+          "sku": "P003-M",
+          "variant": "Medium"
+        },
+        {
+          "sku": "P003-L",
+          "variant": "Large"
+        }
+      ],
+      "selected_variant": "Small"
+    },
+    "P003-M": {
+      "id": "P003",
+      "name": "Smart Watch",
+      "category": "electronics",
+      "price": 299.99,
+      "on_sale": false,
+      "variants": [
+        {
+          "sku": "P003-S",
+          "variant": "Small"
+        },
+        {
+          "sku": "P003-M",
+          "variant": "Medium"
+        },
+        {
+          "sku": "P003-L",
+          "variant": "Large"
+        }
+      ],
+      "selected_variant": "Medium"
+    },
+    "P003-L": {
+      "id": "P003",
+      "name": "Smart Watch",
+      "category": "electronics",
+      "price": 299.99,
+      "on_sale": false,
+      "variants": [
+        {
+          "sku": "P003-S",
+          "variant": "Small"
+        },
+        {
+          "sku": "P003-M",
+          "variant": "Medium"
+        },
+        {
+          "sku": "P003-L",
+          "variant": "Large"
+        }
+      ],
+      "selected_variant": "Large"
+    },
+    "P004": {
+      "id": "P004",
+      "name": "Bluetooth Speaker",
+      "category": "electronics",
+      "price": 79.99,
+      "on_sale": false
+    },
+    "P005": {
+      "id": "P005",
+      "name": "Electric Kettle",
+      "category": "electronics",
+      "price": 59.99,
+      "on_sale": false
+    },
+    "P006": {
+      "id": "P006",
+      "name": "Merino Wool Sweater",
+      "category": "apparel",
+      "price": 89.99,
+      "on_sale": false,
+      "variants": [
+        {
+          "sku": "P006-S",
+          "variant": "Small"
+        },
+        {
+          "sku": "P006-M",
+          "variant": "Medium"
+        },
+        {
+          "sku": "P006-L",
+          "variant": "Large"
+        },
+        {
+          "sku": "P006-XL",
+          "variant": "XL"
+        }
+      ]
+    },
+    "P006-S": {
+      "id": "P006",
+      "name": "Merino Wool Sweater",
+      "category": "apparel",
+      "price": 89.99,
+      "on_sale": false,
+      "variants": [
+        {
+          "sku": "P006-S",
+          "variant": "Small"
+        },
+        {
+          "sku": "P006-M",
+          "variant": "Medium"
+        },
+        {
+          "sku": "P006-L",
+          "variant": "Large"
+        },
+        {
+          "sku": "P006-XL",
+          "variant": "XL"
+        }
+      ],
+      "selected_variant": "Small"
+    },
+    "P006-M": {
+      "id": "P006",
+      "name": "Merino Wool Sweater",
+      "category": "apparel",
+      "price": 89.99,
+      "on_sale": false,
+      "variants": [
+        {
+          "sku": "P006-S",
+          "variant": "Small"
+        },
+        {
+          "sku": "P006-M",
+          "variant": "Medium"
+        },
+        {
+          "sku": "P006-L",
+          "variant": "Large"
+        },
+        {
+          "sku": "P006-XL",
+          "variant": "XL"
+        }
+      ],
+      "selected_variant": "Medium"
+    },
+    "P006-L": {
+      "id": "P006",
+      "name": "Merino Wool Sweater",
+      "category": "apparel",
+      "price": 89.99,
+      "on_sale": false,
+      "variants": [
+        {
+          "sku": "P006-S",
+          "variant": "Small"
+        },
+        {
+          "sku": "P006-M",
+          "variant": "Medium"
+        },
+        {
+          "sku": "P006-L",
+          "variant": "Large"
+        },
+        {
+          "sku": "P006-XL",
+          "variant": "XL"
+        }
+      ],
+      "selected_variant": "Large"
+    },
+    "P006-XL": {
+      "id": "P006",
+      "name": "Merino Wool Sweater",
+      "category": "apparel",
+      "price": 89.99,
+      "on_sale": false,
+      "variants": [
+        {
+          "sku": "P006-S",
+          "variant": "Small"
+        },
+        {
+          "sku": "P006-M",
+          "variant": "Medium"
+        },
+        {
+          "sku": "P006-L",
+          "variant": "Large"
+        },
+        {
+          "sku": "P006-XL",
+          "variant": "XL"
+        }
+      ],
+      "selected_variant": "XL"
+    },
+    "P007": {
+      "id": "P007",
+      "name": "Trail Hiking Boots",
+      "category": "apparel",
+      "price": 159.99,
+      "on_sale": false,
+      "variants": [
+        {
+          "sku": "P007-9",
+          "variant": "Size 9"
+        },
+        {
+          "sku": "P007-10",
+          "variant": "Size 10"
+        },
+        {
+          "sku": "P007-11",
+          "variant": "Size 11"
+        }
+      ]
+    },
+    "P007-9": {
+      "id": "P007",
+      "name": "Trail Hiking Boots",
+      "category": "apparel",
+      "price": 159.99,
+      "on_sale": false,
+      "variants": [
+        {
+          "sku": "P007-9",
+          "variant": "Size 9"
+        },
+        {
+          "sku": "P007-10",
+          "variant": "Size 10"
+        },
+        {
+          "sku": "P007-11",
+          "variant": "Size 11"
+        }
+      ],
+      "selected_variant": "Size 9"
+    },
+    "P007-10": {
+      "id": "P007",
+      "name": "Trail Hiking Boots",
+      "category": "apparel",
+      "price": 159.99,
+      "on_sale": false,
+      "variants": [
+        {
+          "sku": "P007-9",
+          "variant": "Size 9"
+        },
+        {
+          "sku": "P007-10",
+          "variant": "Size 10"
+        },
+        {
+          "sku": "P007-11",
+          "variant": "Size 11"
+        }
+      ],
+      "selected_variant": "Size 10"
+    },
+    "P007-11": {
+      "id": "P007",
+      "name": "Trail Hiking Boots",
+      "category": "apparel",
+      "price": 159.99,
+      "on_sale": false,
+      "variants": [
+        {
+          "sku": "P007-9",
+          "variant": "Size 9"
+        },
+        {
+          "sku": "P007-10",
+          "variant": "Size 10"
+        },
+        {
+          "sku": "P007-11",
+          "variant": "Size 11"
+        }
+      ],
+      "selected_variant": "Size 11"
+    },
+    "P008": {
+      "id": "P008",
+      "name": "Running Jacket",
+      "category": "apparel",
+      "price": 119.99,
+      "on_sale": false
+    },
+    "P009": {
+      "id": "P009",
+      "name": "LED Desk Lamp",
+      "category": "electronics",
+      "price": 45.99,
+      "on_sale": false
+    },
+    "P010": {
+      "id": "P010",
+      "name": "Premium Yoga Mat",
+      "category": "home",
+      "price": 69.99,
+      "on_sale": false
+    },
+    "P011": {
+      "id": "P011",
+      "name": "Canvas Tote Bag",
+      "category": "apparel",
+      "price": 34.99,
+      "on_sale": false
+    },
+    "P012": {
+      "id": "P012",
+      "name": "Face Serum Set",
+      "category": "personal_care",
+      "price": 89.99,
+      "on_sale": false
+    },
+    "P013": {
+      "id": "P013",
+      "name": "Urban Sneakers",
+      "category": "apparel",
+      "price": 64.99,
+      "on_sale": true
+    },
+    "P014": {
+      "id": "P014",
+      "name": "Stainless Water Bottle",
+      "category": "home",
+      "price": 24.99,
+      "on_sale": true
+    },
+    "P015": {
+      "id": "P015",
+      "name": "Hair Styling Kit",
+      "category": "personal_care",
+      "price": 49.99,
+      "on_sale": false
+    }
+  },
+  "orders": {
+    "ORD-001": {
+      "order_id": "ORD-001",
+      "customer_id": "C001",
+      "order_date": "2026-06-28",
+      "promised_delivery": "2026-07-03",
+      "line_items": [
+        {
+          "item_id": "LI-001",
+          "product_id": "P006",
+          "sku": "P006-M",
+          "name": "Merino Wool Sweater",
+          "category": "apparel",
+          "qty": 1,
+          "unit_price": 89.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "subtotal": 89.99,
+      "tax": 7.2,
+      "total": 97.19,
+      "payment_method": "credit_card",
+      "fulfillment": {
+        "LI-001": {
+          "status": "delivered",
+          "ship_date": "2026-07-01",
+          "delivery_date": "2026-07-05",
+          "promised_delivery_date": "2026-07-03",
+          "carrier": "FedEx",
+          "tracking": "TRK-ORD-001-LI-001",
+          "late_delivery": false
+        }
+      }
+    },
+    "ORD-002": {
+      "order_id": "ORD-002",
+      "customer_id": "C002",
+      "order_date": "2026-05-30",
+      "promised_delivery": "2026-06-05",
+      "line_items": [
+        {
+          "item_id": "LI-002",
+          "product_id": "P001",
+          "sku": "P001",
+          "name": "Wireless Headphones",
+          "category": "electronics",
+          "qty": 1,
+          "unit_price": 149.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "subtotal": 149.99,
+      "tax": 12.0,
+      "total": 161.99,
+      "payment_method": "credit_card",
+      "fulfillment": {
+        "LI-002": {
+          "status": "delivered",
+          "ship_date": "2026-06-03",
+          "delivery_date": "2026-06-10",
+          "promised_delivery_date": "2026-06-05",
+          "carrier": "UPS",
+          "tracking": "TRK-ORD-002-LI-002",
+          "late_delivery": true
+        }
+      }
+    },
+    "ORD-003": {
+      "order_id": "ORD-003",
+      "customer_id": "C003",
+      "order_date": "2026-06-18",
+      "promised_delivery": "2026-06-23",
+      "line_items": [
+        {
+          "item_id": "LI-003",
+          "product_id": "P002",
+          "sku": "P002-BLK",
+          "name": "Mechanical Keyboard",
+          "category": "electronics",
+          "qty": 1,
+          "unit_price": 129.99,
+          "discount_pct": 0,
+          "variant": ""
+        },
+        {
+          "item_id": "LI-004",
+          "product_id": "P013",
+          "sku": "P013",
+          "name": "Urban Sneakers",
+          "category": "apparel",
+          "qty": 1,
+          "unit_price": 64.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "subtotal": 194.98,
+      "tax": 15.6,
+      "total": 210.58,
+      "payment_method": "debit_card",
+      "fulfillment": {
+        "LI-003": {
+          "status": "delivered",
+          "ship_date": "2026-06-21",
+          "delivery_date": "2026-06-25",
+          "promised_delivery_date": "2026-06-23",
+          "carrier": "FedEx",
+          "tracking": "TRK-ORD-003-LI-003",
+          "late_delivery": false
+        },
+        "LI-004": {
+          "status": "delivered",
+          "ship_date": "2026-06-21",
+          "delivery_date": "2026-06-25",
+          "promised_delivery_date": "2026-06-23",
+          "carrier": "FedEx",
+          "tracking": "TRK-ORD-003-LI-004",
+          "late_delivery": false
+        }
+      }
+    },
+    "ORD-004": {
+      "order_id": "ORD-004",
+      "customer_id": "C004",
+      "order_date": "2026-06-30",
+      "promised_delivery": "2026-07-05",
+      "line_items": [
+        {
+          "item_id": "LI-005",
+          "product_id": "P009",
+          "sku": "P009",
+          "name": "LED Desk Lamp",
+          "category": "electronics",
+          "qty": 1,
+          "unit_price": 45.99,
+          "discount_pct": 0,
+          "variant": ""
+        },
+        {
+          "item_id": "LI-006",
+          "product_id": "P012",
+          "sku": "P012",
+          "name": "Face Serum Set",
+          "category": "personal_care",
+          "qty": 1,
+          "unit_price": 89.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "subtotal": 135.98,
+      "tax": 10.88,
+      "total": 146.86,
+      "payment_method": "credit_card",
+      "fulfillment": {
+        "LI-005": {
+          "status": "delivered",
+          "ship_date": "2026-07-03",
+          "delivery_date": "2026-07-08",
+          "promised_delivery_date": "2026-07-05",
+          "carrier": "USPS",
+          "tracking": "TRK-ORD-004-LI-005",
+          "late_delivery": true
+        },
+        "LI-006": {
+          "status": "delivered",
+          "ship_date": "2026-07-03",
+          "delivery_date": "2026-07-08",
+          "promised_delivery_date": "2026-07-05",
+          "carrier": "USPS",
+          "tracking": "TRK-ORD-004-LI-006",
+          "late_delivery": true
+        }
+      }
+    },
+    "ORD-005": {
+      "order_id": "ORD-005",
+      "customer_id": "C005",
+      "order_date": "2026-05-15",
+      "promised_delivery": "2026-05-22",
+      "line_items": [
+        {
+          "item_id": "LI-007",
+          "product_id": "P003",
+          "sku": "P003-M",
+          "name": "Smart Watch",
+          "category": "electronics",
+          "qty": 1,
+          "unit_price": 299.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "subtotal": 299.99,
+      "tax": 24.0,
+      "total": 323.99,
+      "payment_method": "credit_card",
+      "fulfillment": {
+        "LI-007": {
+          "status": "delivered",
+          "ship_date": "2026-05-19",
+          "delivery_date": "2026-05-26",
+          "promised_delivery_date": "2026-05-22",
+          "carrier": "FedEx",
+          "tracking": "TRK-ORD-005-LI-007",
+          "late_delivery": true
+        }
+      }
+    },
+    "ORD-006": {
+      "order_id": "ORD-006",
+      "customer_id": "C002",
+      "order_date": "2026-06-20",
+      "promised_delivery": "2026-06-25",
+      "line_items": [
+        {
+          "item_id": "LI-008",
+          "product_id": "P010",
+          "sku": "P010",
+          "name": "Premium Yoga Mat",
+          "category": "home",
+          "qty": 1,
+          "unit_price": 69.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "subtotal": 69.99,
+      "tax": 5.6,
+      "total": 75.59,
+      "payment_method": "paypal",
+      "fulfillment": {
+        "LI-008": {
+          "status": "lost",
+          "ship_date": "2026-06-22",
+          "delivery_date": null,
+          "promised_delivery_date": "2026-06-25",
+          "carrier": "USPS",
+          "tracking": "TRK-ORD-006-LI-008",
+          "late_delivery": false
+        }
+      }
+    },
+    "ORD-007": {
+      "order_id": "ORD-007",
+      "customer_id": "C003",
+      "order_date": "2026-05-28",
+      "promised_delivery": "2026-06-02",
+      "line_items": [
+        {
+          "item_id": "LI-009",
+          "product_id": "P008",
+          "sku": "P008",
+          "name": "Running Jacket",
+          "category": "apparel",
+          "qty": 1,
+          "unit_price": 119.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "subtotal": 119.99,
+      "tax": 9.6,
+      "total": 129.59,
+      "payment_method": "credit_card",
+      "fulfillment": {
+        "LI-009": {
+          "status": "delivered",
+          "ship_date": "2026-06-01",
+          "delivery_date": "2026-06-05",
+          "promised_delivery_date": "2026-06-02",
+          "carrier": "FedEx",
+          "tracking": "TRK-ORD-007-LI-009",
+          "late_delivery": false
+        }
+      }
+    },
+    "ORD-008": {
+      "order_id": "ORD-008",
+      "customer_id": "C001",
+      "order_date": "2026-05-10",
+      "promised_delivery": "2026-05-18",
+      "line_items": [
+        {
+          "item_id": "LI-010",
+          "product_id": "P005",
+          "sku": "P005",
+          "name": "Electric Kettle",
+          "category": "electronics",
+          "qty": 1,
+          "unit_price": 59.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "subtotal": 59.99,
+      "tax": 4.8,
+      "total": 64.79,
+      "payment_method": "credit_card",
+      "fulfillment": {
+        "LI-010": {
+          "status": "delivered",
+          "ship_date": "2026-05-14",
+          "delivery_date": "2026-05-21",
+          "promised_delivery_date": "2026-05-18",
+          "carrier": "UPS",
+          "tracking": "TRK-ORD-008-LI-010",
+          "late_delivery": false
+        }
+      }
+    },
+    "ORD-009": {
+      "order_id": "ORD-009",
+      "customer_id": "C004",
+      "order_date": "2026-07-01",
+      "promised_delivery": "2026-07-05",
+      "line_items": [
+        {
+          "item_id": "LI-011",
+          "product_id": "P014",
+          "sku": "P014",
+          "name": "Stainless Water Bottle",
+          "category": "home",
+          "qty": 1,
+          "unit_price": 24.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "subtotal": 24.99,
+      "tax": 2.0,
+      "total": 26.99,
+      "payment_method": "credit_card",
+      "fulfillment": {
+        "LI-011": {
+          "status": "delivered",
+          "ship_date": "2026-07-03",
+          "delivery_date": "2026-07-05",
+          "promised_delivery_date": "2026-07-05",
+          "carrier": "FedEx",
+          "tracking": "TRK-ORD-009-LI-011",
+          "late_delivery": false
+        }
+      }
+    },
+    "ORD-010": {
+      "order_id": "ORD-010",
+      "customer_id": "C005",
+      "order_date": "2026-06-25",
+      "promised_delivery": "2026-06-30",
+      "line_items": [
+        {
+          "item_id": "LI-012",
+          "product_id": "P007",
+          "sku": "P007-10",
+          "name": "Trail Hiking Boots",
+          "category": "apparel",
+          "qty": 1,
+          "unit_price": 159.99,
+          "discount_pct": 0,
+          "variant": ""
+        },
+        {
+          "item_id": "LI-013",
+          "product_id": "P004",
+          "sku": "P004",
+          "name": "Bluetooth Speaker",
+          "category": "electronics",
+          "qty": 1,
+          "unit_price": 79.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "subtotal": 239.98,
+      "tax": 19.2,
+      "total": 259.18,
+      "payment_method": "credit_card",
+      "fulfillment": {
+        "LI-012": {
+          "status": "delivered",
+          "ship_date": "2026-06-28",
+          "delivery_date": "2026-07-03",
+          "promised_delivery_date": "2026-06-30",
+          "carrier": "FedEx",
+          "tracking": "TRK-ORD-010-LI-012",
+          "late_delivery": false
+        },
+        "LI-013": {
+          "status": "delivered",
+          "ship_date": "2026-06-28",
+          "delivery_date": "2026-07-03",
+          "promised_delivery_date": "2026-06-30",
+          "carrier": "FedEx",
+          "tracking": "TRK-ORD-010-LI-013",
+          "late_delivery": false
+        }
+      }
+    },
+    "ORD-011": {
+      "order_id": "ORD-011",
+      "customer_id": "C002",
+      "order_date": "2026-06-28",
+      "promised_delivery": "2026-07-03",
+      "line_items": [
+        {
+          "item_id": "LI-014",
+          "product_id": "P015",
+          "sku": "P015",
+          "name": "Hair Styling Kit",
+          "category": "personal_care",
+          "qty": 1,
+          "unit_price": 49.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "subtotal": 49.99,
+      "tax": 4.0,
+      "total": 53.99,
+      "payment_method": "credit_card",
+      "fulfillment": {
+        "LI-014": {
+          "status": "delivered",
+          "ship_date": "2026-07-01",
+          "delivery_date": "2026-07-05",
+          "promised_delivery_date": "2026-07-03",
+          "carrier": "UPS",
+          "tracking": "TRK-ORD-011-LI-014",
+          "late_delivery": false
+        }
+      }
+    },
+    "ORD-012": {
+      "order_id": "ORD-012",
+      "customer_id": "C003",
+      "order_date": "2026-07-14",
+      "promised_delivery": "2026-07-19",
+      "line_items": [
+        {
+          "item_id": "LI-015",
+          "product_id": "P002",
+          "sku": "P002-WHT",
+          "name": "Mechanical Keyboard",
+          "category": "electronics",
+          "qty": 1,
+          "unit_price": 129.99,
+          "discount_pct": 0,
+          "variant": ""
+        },
+        {
+          "item_id": "LI-016",
+          "product_id": "P011",
+          "sku": "P011",
+          "name": "Canvas Tote Bag",
+          "category": "apparel",
+          "qty": 1,
+          "unit_price": 34.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "subtotal": 164.98,
+      "tax": 13.2,
+      "total": 178.18,
+      "payment_method": "credit_card",
+      "fulfillment": {
+        "LI-015": {
+          "status": "processing",
+          "ship_date": null,
+          "delivery_date": null,
+          "promised_delivery_date": "2026-07-19",
+          "carrier": null,
+          "tracking": "TRK-ORD-012-LI-015",
+          "late_delivery": false
+        },
+        "LI-016": {
+          "status": "processing",
+          "ship_date": null,
+          "delivery_date": null,
+          "promised_delivery_date": "2026-07-19",
+          "carrier": null,
+          "tracking": "TRK-ORD-012-LI-016",
+          "late_delivery": false
+        }
+      }
+    },
+    "ORD-H01": {
+      "order_id": "ORD-H01",
+      "customer_id": "C006",
+      "order_date": "2026-06-25",
+      "promised_delivery": "2026-06-30",
+      "total": 97.19,
+      "subtotal": 89.99,
+      "tax": 7.2,
+      "payment_method": "credit_card",
+      "line_items": [
+        {
+          "item_id": "LI-H01",
+          "product_id": "P006",
+          "sku": "P006-L",
+          "name": "Merino Wool Sweater",
+          "category": "apparel",
+          "qty": 1,
+          "unit_price": 89.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "fulfillment": {
+        "LI-H01": {
+          "status": "delivered",
+          "ship_date": "2026-06-28",
+          "delivery_date": "2026-07-02",
+          "promised_delivery_date": "2026-06-30",
+          "carrier": "FedEx",
+          "tracking": "TRK-ORDH01-LIH01",
+          "late_delivery": false
+        }
+      }
+    },
+    "ORD-H02": {
+      "order_id": "ORD-H02",
+      "customer_id": "C009",
+      "order_date": "2026-06-22",
+      "promised_delivery": "2026-06-27",
+      "total": 162.0,
+      "subtotal": 149.99,
+      "tax": 12.01,
+      "payment_method": "paypal",
+      "line_items": [
+        {
+          "item_id": "LI-H02",
+          "product_id": "P001",
+          "sku": "P001",
+          "name": "Wireless Headphones",
+          "category": "electronics",
+          "qty": 1,
+          "unit_price": 149.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "fulfillment": {
+        "LI-H02": {
+          "status": "lost",
+          "ship_date": "2026-06-24",
+          "delivery_date": null,
+          "promised_delivery_date": "2026-06-27",
+          "carrier": "USPS",
+          "tracking": "TRK-ORDH02-LIH02",
+          "late_delivery": false
+        }
+      }
+    },
+    "ORD-H03": {
+      "order_id": "ORD-H03",
+      "customer_id": "C007",
+      "order_date": "2026-07-13",
+      "promised_delivery": "2026-07-18",
+      "total": 178.18,
+      "subtotal": 164.98,
+      "tax": 13.2,
+      "payment_method": "credit_card",
+      "line_items": [
+        {
+          "item_id": "LI-H03A",
+          "product_id": "P002",
+          "sku": "P002-WHT",
+          "name": "Mechanical Keyboard",
+          "category": "electronics",
+          "qty": 1,
+          "unit_price": 129.99,
+          "discount_pct": 0,
+          "variant": ""
+        },
+        {
+          "item_id": "LI-H03B",
+          "product_id": "P011",
+          "sku": "P011",
+          "name": "Canvas Tote Bag",
+          "category": "apparel",
+          "qty": 1,
+          "unit_price": 34.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "fulfillment": {
+        "LI-H03A": {
+          "status": "processing",
+          "ship_date": null,
+          "delivery_date": null,
+          "promised_delivery_date": "2026-07-18",
+          "carrier": null,
+          "tracking": "TRK-ORDH03-LIH03A",
+          "late_delivery": false
+        },
+        "LI-H03B": {
+          "status": "processing",
+          "ship_date": null,
+          "delivery_date": null,
+          "promised_delivery_date": "2026-07-18",
+          "carrier": null,
+          "tracking": "TRK-ORDH03-LIH03B",
+          "late_delivery": false
+        }
+      }
+    },
+    "ORD-H04": {
+      "order_id": "ORD-H04",
+      "customer_id": "C010",
+      "order_date": "2026-07-05",
+      "promised_delivery": "2026-07-10",
+      "total": 64.79,
+      "subtotal": 59.99,
+      "tax": 4.8,
+      "payment_method": "credit_card",
+      "line_items": [
+        {
+          "item_id": "LI-H04",
+          "product_id": "P005",
+          "sku": "P005",
+          "name": "Electric Kettle",
+          "category": "electronics",
+          "qty": 1,
+          "unit_price": 59.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "fulfillment": {
+        "LI-H04": {
+          "status": "delivered",
+          "ship_date": "2026-07-08",
+          "delivery_date": "2026-07-12",
+          "promised_delivery_date": "2026-07-10",
+          "carrier": "UPS",
+          "tracking": "TRK-ORDH04-LIH04",
+          "late_delivery": false
+        }
+      }
+    },
+    "ORD-H05": {
+      "order_id": "ORD-H05",
+      "customer_id": "C008",
+      "order_date": "2026-06-28",
+      "promised_delivery": "2026-07-03",
+      "total": 70.19,
+      "subtotal": 64.99,
+      "tax": 5.2,
+      "payment_method": "credit_card",
+      "line_items": [
+        {
+          "item_id": "LI-H05",
+          "product_id": "P013",
+          "sku": "P013-9",
+          "name": "Urban Sneakers",
+          "category": "apparel",
+          "qty": 1,
+          "unit_price": 64.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "fulfillment": {
+        "LI-H05": {
+          "status": "delivered",
+          "ship_date": "2026-07-01",
+          "delivery_date": "2026-07-05",
+          "promised_delivery_date": "2026-07-03",
+          "carrier": "FedEx",
+          "tracking": "TRK-ORDH05-LIH05",
+          "late_delivery": false
+        }
+      }
+    },
+    "ORD-H06": {
+      "order_id": "ORD-H06",
+      "customer_id": "C006",
+      "order_date": "2026-06-30",
+      "promised_delivery": "2026-07-05",
+      "total": 53.99,
+      "subtotal": 49.99,
+      "tax": 4.0,
+      "payment_method": "credit_card",
+      "line_items": [
+        {
+          "item_id": "LI-H06",
+          "product_id": "P015",
+          "sku": "P015",
+          "name": "Hair Styling Kit",
+          "category": "personal_care",
+          "qty": 1,
+          "unit_price": 49.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "fulfillment": {
+        "LI-H06": {
+          "status": "delivered",
+          "ship_date": "2026-07-03",
+          "delivery_date": "2026-07-07",
+          "promised_delivery_date": "2026-07-05",
+          "carrier": "USPS",
+          "tracking": "TRK-ORDH06-LIH06",
+          "late_delivery": false
+        }
+      }
+    },
+    "ORD-H07": {
+      "order_id": "ORD-H07",
+      "customer_id": "C007",
+      "order_date": "2026-06-15",
+      "promised_delivery": "2026-06-20",
+      "total": 210.58,
+      "subtotal": 194.98,
+      "tax": 15.6,
+      "payment_method": "debit_card",
+      "line_items": [
+        {
+          "item_id": "LI-H07A",
+          "product_id": "P002",
+          "sku": "P002-RGB",
+          "name": "Mechanical Keyboard",
+          "category": "electronics",
+          "qty": 1,
+          "unit_price": 129.99,
+          "discount_pct": 0,
+          "variant": ""
+        },
+        {
+          "item_id": "LI-H07B",
+          "product_id": "P013",
+          "sku": "P013-10",
+          "name": "Urban Sneakers",
+          "category": "apparel",
+          "qty": 1,
+          "unit_price": 64.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "fulfillment": {
+        "LI-H07A": {
+          "status": "delivered",
+          "ship_date": "2026-06-18",
+          "delivery_date": "2026-06-22",
+          "promised_delivery_date": "2026-06-20",
+          "carrier": "FedEx",
+          "tracking": "TRK-ORDH07-LIH07A",
+          "late_delivery": false
+        },
+        "LI-H07B": {
+          "status": "delivered",
+          "ship_date": "2026-06-18",
+          "delivery_date": "2026-06-22",
+          "promised_delivery_date": "2026-06-20",
+          "carrier": "FedEx",
+          "tracking": "TRK-ORDH07-LIH07B",
+          "late_delivery": false
+        }
+      }
+    },
+    "ORD-H08": {
+      "order_id": "ORD-H08",
+      "customer_id": "C009",
+      "order_date": "2026-05-28",
+      "promised_delivery": "2026-06-02",
+      "total": 323.99,
+      "subtotal": 299.99,
+      "tax": 24.0,
+      "payment_method": "credit_card",
+      "line_items": [
+        {
+          "item_id": "LI-H08",
+          "product_id": "P003",
+          "sku": "P003-S",
+          "name": "Smart Watch",
+          "category": "electronics",
+          "qty": 1,
+          "unit_price": 299.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "fulfillment": {
+        "LI-H08": {
+          "status": "delivered",
+          "ship_date": "2026-06-01",
+          "delivery_date": "2026-06-20",
+          "promised_delivery_date": "2026-06-02",
+          "carrier": "FedEx",
+          "tracking": "TRK-ORDH08-LIH08",
+          "late_delivery": true
+        }
+      }
+    },
+    "ORD-H09": {
+      "order_id": "ORD-H09",
+      "customer_id": "C010",
+      "order_date": "2026-07-12",
+      "promised_delivery": "2026-07-17",
+      "total": 124.18,
+      "subtotal": 114.98,
+      "tax": 9.2,
+      "payment_method": "paypal",
+      "line_items": [
+        {
+          "item_id": "LI-H09A",
+          "product_id": "P004",
+          "sku": "P004",
+          "name": "Bluetooth Speaker",
+          "category": "electronics",
+          "qty": 1,
+          "unit_price": 79.99,
+          "discount_pct": 0,
+          "variant": ""
+        },
+        {
+          "item_id": "LI-H09B",
+          "product_id": "P011",
+          "sku": "P011",
+          "name": "Canvas Tote Bag",
+          "category": "apparel",
+          "qty": 1,
+          "unit_price": 34.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "fulfillment": {
+        "LI-H09A": {
+          "status": "processing",
+          "ship_date": null,
+          "delivery_date": null,
+          "promised_delivery_date": "2026-07-17",
+          "carrier": null,
+          "tracking": "TRK-ORDH09-LIH09A",
+          "late_delivery": false
+        },
+        "LI-H09B": {
+          "status": "processing",
+          "ship_date": null,
+          "delivery_date": null,
+          "promised_delivery_date": "2026-07-17",
+          "carrier": null,
+          "tracking": "TRK-ORDH09-LIH09B",
+          "late_delivery": false
+        }
+      }
+    },
+    "ORD-H10": {
+      "order_id": "ORD-H10",
+      "customer_id": "C008",
+      "order_date": "2026-06-25",
+      "promised_delivery": "2026-06-30",
+      "total": 129.59,
+      "subtotal": 119.99,
+      "tax": 9.6,
+      "payment_method": "credit_card",
+      "line_items": [
+        {
+          "item_id": "LI-H10",
+          "product_id": "P008",
+          "sku": "P008-M",
+          "name": "Running Jacket",
+          "category": "apparel",
+          "qty": 1,
+          "unit_price": 119.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "fulfillment": {
+        "LI-H10": {
+          "status": "delivered",
+          "ship_date": "2026-06-28",
+          "delivery_date": "2026-07-02",
+          "promised_delivery_date": "2026-06-30",
+          "carrier": "FedEx",
+          "tracking": "TRK-ORDH10-LIH10",
+          "late_delivery": false
+        }
+      }
+    },
+    "ORD-H10B": {
+      "order_id": "ORD-H10B",
+      "customer_id": "C008",
+      "order_date": "2026-06-28",
+      "promised_delivery": "2026-07-03",
+      "total": 26.99,
+      "subtotal": 24.99,
+      "tax": 2.0,
+      "payment_method": "credit_card",
+      "line_items": [
+        {
+          "item_id": "LI-H10B",
+          "product_id": "P014",
+          "sku": "P014",
+          "name": "Stainless Water Bottle",
+          "category": "home",
+          "qty": 1,
+          "unit_price": 24.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "fulfillment": {
+        "LI-H10B": {
+          "status": "delivered",
+          "ship_date": "2026-07-01",
+          "delivery_date": "2026-07-05",
+          "promised_delivery_date": "2026-07-03",
+          "carrier": "FedEx",
+          "tracking": "TRK-ORDH10B-LIH10B",
+          "late_delivery": false
+        }
+      }
+    },
+    "ORD-H11": {
+      "order_id": "ORD-H11",
+      "customer_id": "C006",
+      "order_date": "2026-07-01",
+      "promised_delivery": "2026-07-06",
+      "total": 140.39,
+      "subtotal": 129.99,
+      "tax": 10.4,
+      "payment_method": "credit_card",
+      "line_items": [
+        {
+          "item_id": "LI-H11",
+          "product_id": "P002",
+          "sku": "P002-RGB",
+          "name": "Mechanical Keyboard",
+          "category": "electronics",
+          "qty": 1,
+          "unit_price": 129.99,
+          "discount_pct": 0,
+          "variant": "RGB"
+        }
+      ],
+      "fulfillment": {
+        "LI-H11": {
+          "status": "delivered",
+          "ship_date": "2026-07-03",
+          "delivery_date": "2026-07-06",
+          "promised_delivery_date": "2026-07-06",
+          "carrier": "UPS",
+          "tracking": "TRK-ORDH11-LIH11",
+          "late_delivery": false
+        }
+      }
+    },
+    "ORD-H12": {
+      "order_id": "ORD-H12",
+      "customer_id": "C010",
+      "order_date": "2026-06-15",
+      "promised_delivery": "2026-06-20",
+      "total": 75.59,
+      "subtotal": 69.99,
+      "tax": 5.6,
+      "payment_method": "credit_card",
+      "line_items": [
+        {
+          "item_id": "LI-H12",
+          "product_id": "P010",
+          "sku": "P010",
+          "name": "Premium Yoga Mat",
+          "category": "home",
+          "qty": 1,
+          "unit_price": 69.99,
+          "discount_pct": 0,
+          "variant": ""
+        }
+      ],
+      "fulfillment": {
+        "LI-H12": {
+          "status": "delivered",
+          "ship_date": "2026-06-19",
+          "delivery_date": "2026-07-02",
+          "promised_delivery_date": "2026-06-20",
+          "carrier": "USPS",
+          "tracking": "TRK-ORDH12-LIH12",
+          "late_delivery": true
+        }
+      }
+    }
+  },
+  "inventory": {
+    "P002-BLK": {
+      "in_stock": true,
+      "quantity": 15
+    },
+    "P002-WHT": {
+      "in_stock": true,
+      "quantity": 3
+    },
+    "P002-RGB": {
+      "in_stock": false,
+      "quantity": 0,
+      "restock_date": "2026-08-01"
+    },
+    "P003-S": {
+      "in_stock": true,
+      "quantity": 8
+    },
+    "P003-M": {
+      "in_stock": false,
+      "quantity": 0,
+      "restock_date": "2026-07-25"
+    },
+    "P003-L": {
+      "in_stock": true,
+      "quantity": 2
+    },
+    "P006-S": {
+      "in_stock": true,
+      "quantity": 20
+    },
+    "P006-M": {
+      "in_stock": true,
+      "quantity": 12
+    },
+    "P006-L": {
+      "in_stock": false,
+      "quantity": 0,
+      "restock_date": "2026-07-20"
+    },
+    "P006-XL": {
+      "in_stock": true,
+      "quantity": 5
+    },
+    "P007-9": {
+      "in_stock": true,
+      "quantity": 4
+    },
+    "P007-10": {
+      "in_stock": true,
+      "quantity": 6
+    },
+    "P007-11": {
+      "in_stock": false,
+      "quantity": 0,
+      "restock_date": "2026-08-15"
+    }
+  }
+}

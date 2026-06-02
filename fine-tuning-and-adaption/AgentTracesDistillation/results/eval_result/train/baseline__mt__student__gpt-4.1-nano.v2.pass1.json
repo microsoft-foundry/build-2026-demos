@@ -1,0 +1,1756 @@
+{
+  "model": "gpt-4.1-nano",
+  "scorer_version": "v2",
+  "n_scenarios": 80,
+  "avg_decision_correctness": 0.754,
+  "avg_tool_usage": 0.83,
+  "avg_financial_accuracy": 0.77,
+  "avg_communication_quality": 0.711,
+  "avg_combined": 0.768,
+  "by_difficulty": {
+    "hard": {
+      "count": 80,
+      "avg_combined": 0.768,
+      "avg_decision": 0.754,
+      "avg_tools": 0.83,
+      "avg_financial": 0.77,
+      "avg_communication": 0.711
+    }
+  },
+  "by_category": {
+    "late_delivery_interactions": {
+      "count": 8,
+      "avg_combined": 0.716,
+      "avg_decision": 0.667,
+      "avg_tools": 0.833,
+      "avg_financial": 0.552,
+      "avg_communication": 0.819
+    },
+    "personal_care_opened_sealed": {
+      "count": 4,
+      "avg_combined": 0.693,
+      "avg_decision": 0.775,
+      "avg_tools": 0.773,
+      "avg_financial": 0.375,
+      "avg_communication": 0.767
+    },
+    "multi_item_mixed_outcomes": {
+      "count": 8,
+      "avg_combined": 0.752,
+      "avg_decision": 0.799,
+      "avg_tools": 0.848,
+      "avg_financial": 0.727,
+      "avg_communication": 0.577
+    },
+    "counter_factual_claims": {
+      "count": 4,
+      "avg_combined": 0.667,
+      "avg_decision": 0.669,
+      "avg_tools": 0.818,
+      "avg_financial": 0.667,
+      "avg_communication": 0.479
+    },
+    "tool_sequence_trap": {
+      "count": 4,
+      "avg_combined": 0.662,
+      "avg_decision": 0.6,
+      "avg_tools": 0.855,
+      "avg_financial": 0.75,
+      "avg_communication": 0.442
+    },
+    "sale_defective_edge": {
+      "count": 7,
+      "avg_combined": 0.836,
+      "avg_decision": 0.871,
+      "avg_tools": 0.897,
+      "avg_financial": 0.786,
+      "avg_communication": 0.748
+    },
+    "out_of_scope": {
+      "count": 3,
+      "avg_combined": 0.664,
+      "avg_decision": 0.667,
+      "avg_tools": 0.746,
+      "avg_financial": 1.0,
+      "avg_communication": 0.222
+    },
+    "boundary_date_arithmetic": {
+      "count": 10,
+      "avg_combined": 0.866,
+      "avg_decision": 0.86,
+      "avg_tools": 0.871,
+      "avg_financial": 0.95,
+      "avg_communication": 0.785
+    },
+    "long_distracting_context": {
+      "count": 9,
+      "avg_combined": 0.788,
+      "avg_decision": 0.711,
+      "avg_tools": 0.824,
+      "avg_financial": 0.852,
+      "avg_communication": 0.811
+    },
+    "restocking_fee_math": {
+      "count": 7,
+      "avg_combined": 0.756,
+      "avg_decision": 0.707,
+      "avg_tools": 0.816,
+      "avg_financial": 0.738,
+      "avg_communication": 0.786
+    },
+    "adversarial_policy_bypass": {
+      "count": 7,
+      "avg_combined": 0.73,
+      "avg_decision": 0.671,
+      "avg_tools": 0.875,
+      "avg_financial": 0.619,
+      "avg_communication": 0.762
+    },
+    "ambiguity_clarification": {
+      "count": 5,
+      "avg_combined": 0.911,
+      "avg_decision": 1.0,
+      "avg_tools": 0.75,
+      "avg_financial": 1.0,
+      "avg_communication": 0.867
+    },
+    "wrong_identity": {
+      "count": 4,
+      "avg_combined": 0.759,
+      "avg_decision": 0.675,
+      "avg_tools": 0.74,
+      "avg_financial": 1.0,
+      "avg_communication": 0.692
+    }
+  },
+  "errors": 0,
+  "per_scenario": [
+    {
+      "scenario_id": "1",
+      "scenario_name": "H036: late_delivery_interactions",
+      "difficulty": "hard",
+      "category": "late_delivery_interactions",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.745,
+      "financial_accuracy": 0.333,
+      "communication_quality": 0.5,
+      "combined": 0.651,
+      "error": null,
+      "response_preview": "You're welcome! I'm glad I could assist. If you have any more questions or need help in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "2",
+      "scenario_name": "H066: personal_care_opened_sealed",
+      "difficulty": "hard",
+      "category": "personal_care_opened_sealed",
+      "decision_correctness": 0.6,
+      "tool_usage": 0.697,
+      "financial_accuracy": 0.0,
+      "communication_quality": 0.9,
+      "combined": 0.564,
+      "error": null,
+      "response_preview": "You're welcome, Emma. If you have any other questions or need further assistance in the future, feel free to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy"
+      ]
+    },
+    {
+      "scenario_id": "3",
+      "scenario_name": "H015: multi_item_mixed_outcomes",
+      "difficulty": "hard",
+      "category": "multi_item_mixed_outcomes",
+      "decision_correctness": 0.567,
+      "tool_usage": 0.845,
+      "financial_accuracy": 0.25,
+      "communication_quality": 0.35,
+      "combined": 0.53,
+      "error": null,
+      "response_preview": "You're very welcome! I'm glad I could assist. If you have any more questions or need help in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution",
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "4",
+      "scenario_name": "H059: counter_factual_claims",
+      "difficulty": "hard",
+      "category": "counter_factual_claims",
+      "decision_correctness": 0.425,
+      "tool_usage": 0.909,
+      "financial_accuracy": 0.667,
+      "communication_quality": 0.3,
+      "combined": 0.569,
+      "error": null,
+      "response_preview": "You're very welcome! I'm glad I could assist. If you have any more questions or need help in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "5",
+      "scenario_name": "H084: tool_sequence_trap",
+      "difficulty": "hard",
+      "category": "tool_sequence_trap",
+      "decision_correctness": 0.7,
+      "tool_usage": 0.858,
+      "financial_accuracy": 0.5,
+      "communication_quality": 0.333,
+      "combined": 0.626,
+      "error": null,
+      "response_preview": "You're very welcome! I'm glad I could assist. If you need any further help in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_inventory",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "6",
+      "scenario_name": "H022: sale_defective_edge",
+      "difficulty": "hard",
+      "category": "sale_defective_edge",
+      "decision_correctness": 1.0,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.6,
+      "combined": 0.897,
+      "error": null,
+      "response_preview": "The store credit of $64.99 has been successfully issued for your defective Urban Sneakers. You will receive a confirmation email shortly, and the credit should be processed within 5-7 business days. \n",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "7",
+      "scenario_name": "H079: out_of_scope",
+      "difficulty": "hard",
+      "category": "out_of_scope",
+      "decision_correctness": 0.0,
+      "tool_usage": 0.689,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.333,
+      "combined": 0.439,
+      "error": null,
+      "response_preview": "You're welcome! If you have any other questions or need assistance with a future order or post-purchase issue, feel free to ask. Have a great day!",
+      "actual_tools": [
+        "check_inventory"
+      ]
+    },
+    {
+      "scenario_id": "8",
+      "scenario_name": "H096: boundary_date_arithmetic",
+      "difficulty": "hard",
+      "category": "boundary_date_arithmetic",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.6,
+      "combined": 0.845,
+      "error": null,
+      "response_preview": "You're welcome! I'm glad I could assist. If you need help again in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "9",
+      "scenario_name": "H001: long_distracting_context",
+      "difficulty": "hard",
+      "category": "long_distracting_context",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.886,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.85,
+      "combined": 0.889,
+      "error": null,
+      "response_preview": "Your request for a full refund has been successfully processed. You will receive the refund of $89.99 to your credit card within 5-7 business days. A confirmation email has been sent to you.\n\nIf you n",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "10",
+      "scenario_name": "H049: restocking_fee_math",
+      "difficulty": "hard",
+      "category": "restocking_fee_math",
+      "decision_correctness": 0.75,
+      "tool_usage": 0.909,
+      "financial_accuracy": 0.667,
+      "communication_quality": 0.9,
+      "combined": 0.803,
+      "error": null,
+      "response_preview": "Your refund of $149.99 for the defective wireless headphones has been processed. A prepaid return label will be sent to your email shortly. The refund should be reflected on your credit card within 5-",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "11",
+      "scenario_name": "H070: adversarial_policy_bypass",
+      "difficulty": "hard",
+      "category": "adversarial_policy_bypass",
+      "decision_correctness": 0.8,
+      "tool_usage": 0.72,
+      "financial_accuracy": 0.5,
+      "communication_quality": 1.0,
+      "combined": 0.76,
+      "error": null,
+      "response_preview": "You're welcome. If you have any other questions or need assistance in the future, feel free to reach out. Thank you for shopping with us!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status"
+      ]
+    },
+    {
+      "scenario_id": "12",
+      "scenario_name": "H086: ambiguity_clarification",
+      "difficulty": "hard",
+      "category": "ambiguity_clarification",
+      "decision_correctness": 1.0,
+      "tool_usage": 0.775,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.944,
+      "error": null,
+      "response_preview": "You're welcome! Take your time to find the order details. Once you have the correct information, feel free to reach out again, and I'll be happy to assist you with your return. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_order_details",
+        "get_order_details",
+        "get_order_details",
+        "get_order_details"
+      ]
+    },
+    {
+      "scenario_id": "13",
+      "scenario_name": "H091: wrong_identity",
+      "difficulty": "hard",
+      "category": "wrong_identity",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.675,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.866,
+      "error": null,
+      "response_preview": "Your refund request for the Merino Wool Sweater has been successfully submitted. You will receive a refund of $89.99 to your credit card within 5-7 business days. A confirmation email has been sent to",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "14",
+      "scenario_name": "H037: late_delivery_interactions",
+      "difficulty": "hard",
+      "category": "late_delivery_interactions",
+      "decision_correctness": 0.5,
+      "tool_usage": 0.909,
+      "financial_accuracy": 0.667,
+      "communication_quality": 0.9,
+      "combined": 0.716,
+      "error": null,
+      "response_preview": "You're welcome! I'm glad I could assist. If you have any more questions or need help in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "15",
+      "scenario_name": "H030: late_delivery_interactions",
+      "difficulty": "hard",
+      "category": "late_delivery_interactions",
+      "decision_correctness": 0.9,
+      "tool_usage": 0.689,
+      "financial_accuracy": 0.667,
+      "communication_quality": 0.9,
+      "combined": 0.801,
+      "error": null,
+      "response_preview": "The $10 shipping credit has been successfully issued for your late delivery. You should receive a confirmation email shortly. If you need further assistance, please let me know!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "16",
+      "scenario_name": "H032: late_delivery_interactions",
+      "difficulty": "hard",
+      "category": "late_delivery_interactions",
+      "decision_correctness": 0.333,
+      "tool_usage": 0.909,
+      "financial_accuracy": 0.167,
+      "communication_quality": 0.7,
+      "combined": 0.517,
+      "error": null,
+      "response_preview": "You're very welcome! I'm glad I could assist. If you have any more questions or need further help in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "17",
+      "scenario_name": "H062: counter_factual_claims",
+      "difficulty": "hard",
+      "category": "counter_factual_claims",
+      "decision_correctness": 0.4,
+      "tool_usage": 0.8,
+      "financial_accuracy": 0.0,
+      "communication_quality": 0.933,
+      "combined": 0.527,
+      "error": null,
+      "response_preview": "You're welcome! If you have any other questions or need further assistance in the future, feel free to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status"
+      ]
+    },
+    {
+      "scenario_id": "18",
+      "scenario_name": "H012: multi_item_mixed_outcomes",
+      "difficulty": "hard",
+      "category": "multi_item_mixed_outcomes",
+      "decision_correctness": 0.825,
+      "tool_usage": 0.909,
+      "financial_accuracy": 0.75,
+      "communication_quality": 0.55,
+      "combined": 0.776,
+      "error": null,
+      "response_preview": "You're welcome! I'm glad I could assist. If you have any more questions or need help in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "check_resolution_policy",
+        "check_inventory",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "19",
+      "scenario_name": "H017: multi_item_mixed_outcomes",
+      "difficulty": "hard",
+      "category": "multi_item_mixed_outcomes",
+      "decision_correctness": 0.925,
+      "tool_usage": 0.848,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.463,
+      "combined": 0.828,
+      "error": null,
+      "response_preview": "Your refund for the sweater has been successfully processed. You will receive a confirmation email shortly. The refund should appear on your credit card within 5-7 business days.\n\nIf you need further ",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_order_details",
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "check_resolution_policy",
+        "check_inventory",
+        "calculate_resolution",
+        "submit_resolution",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "20",
+      "scenario_name": "H020: multi_item_mixed_outcomes",
+      "difficulty": "hard",
+      "category": "multi_item_mixed_outcomes",
+      "decision_correctness": 0.925,
+      "tool_usage": 0.845,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.275,
+      "combined": 0.79,
+      "error": null,
+      "response_preview": "You're very welcome! I'm glad I could assist you. If you have any more questions in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution",
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "21",
+      "scenario_name": "H023: sale_defective_edge",
+      "difficulty": "hard",
+      "category": "sale_defective_edge",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.767,
+      "combined": 0.878,
+      "error": null,
+      "response_preview": "You're very welcome! I'm glad I could assist. If you need any further help in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "22",
+      "scenario_name": "H082: tool_sequence_trap",
+      "difficulty": "hard",
+      "category": "tool_sequence_trap",
+      "decision_correctness": 0.0,
+      "tool_usage": 0.745,
+      "financial_accuracy": 0.5,
+      "communication_quality": 0.567,
+      "combined": 0.4,
+      "error": null,
+      "response_preview": "You're welcome! I'm glad I could help clarify things for you. If you have any more questions or need assistance in the future, feel free to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "calculate_resolution"
+      ]
+    },
+    {
+      "scenario_id": "23",
+      "scenario_name": "H013: multi_item_mixed_outcomes",
+      "difficulty": "hard",
+      "category": "multi_item_mixed_outcomes",
+      "decision_correctness": 0.8,
+      "tool_usage": 0.776,
+      "financial_accuracy": 0.4,
+      "communication_quality": 0.463,
+      "combined": 0.646,
+      "error": null,
+      "response_preview": "Your order has been successfully canceled, and a full refund will be issued to your credit card. You will receive a confirmation email shortly. If you need further assistance, just let me know!",
+      "actual_tools": [
+        "get_order_details",
+        "check_resolution_policy",
+        "check_resolution_policy",
+        "check_inventory",
+        "calculate_resolution",
+        "submit_resolution",
+        "get_order_details",
+        "get_fulfillment_status",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "24",
+      "scenario_name": "H025: sale_defective_edge",
+      "difficulty": "hard",
+      "category": "sale_defective_edge",
+      "decision_correctness": 1.0,
+      "tool_usage": 0.896,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.6,
+      "combined": 0.894,
+      "error": null,
+      "response_preview": "You're very welcome! I'm glad I could assist. If you have any more questions or need further help in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "25",
+      "scenario_name": "H034: late_delivery_interactions",
+      "difficulty": "hard",
+      "category": "late_delivery_interactions",
+      "decision_correctness": 0.5,
+      "tool_usage": 0.858,
+      "financial_accuracy": 0.25,
+      "communication_quality": 1.0,
+      "combined": 0.64,
+      "error": null,
+      "response_preview": "You're very welcome! I'm glad I could assist. If you have any more questions or need further help in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_inventory",
+        "check_inventory",
+        "check_inventory",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "26",
+      "scenario_name": "H063: counter_factual_claims",
+      "difficulty": "hard",
+      "category": "counter_factual_claims",
+      "decision_correctness": 1.0,
+      "tool_usage": 0.675,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.333,
+      "combined": 0.785,
+      "error": null,
+      "response_preview": "You're welcome! Take your time to gather the details, and whenever you're ready, just reach out. I'll be here to assist you with your return or any other questions. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_order_details",
+        "get_order_details",
+        "check_resolution_policy"
+      ]
+    },
+    {
+      "scenario_id": "27",
+      "scenario_name": "H002: long_distracting_context",
+      "difficulty": "hard",
+      "category": "long_distracting_context",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.886,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.919,
+      "error": null,
+      "response_preview": "The refund of $119.99 for your Running Jacket has been successfully processed. You will receive a confirmation email shortly. The amount will be credited back to your credit card within 5-7 business d",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "28",
+      "scenario_name": "H003: long_distracting_context",
+      "difficulty": "hard",
+      "category": "long_distracting_context",
+      "decision_correctness": 1.0,
+      "tool_usage": 0.886,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.85,
+      "combined": 0.942,
+      "error": null,
+      "response_preview": "Your refund of $119.99 has been successfully processed and a confirmation has been sent to your email. You should see the amount credited to your credit card within 5-7 business days. \n\nIf you need fu",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "check_inventory",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "29",
+      "scenario_name": "H004: long_distracting_context",
+      "difficulty": "hard",
+      "category": "long_distracting_context",
+      "decision_correctness": 0.0,
+      "tool_usage": 0.564,
+      "financial_accuracy": 0.0,
+      "communication_quality": 0.4,
+      "combined": 0.221,
+      "error": null,
+      "response_preview": "You're welcome! I'm glad I could assist. If you have any other questions or need help in the future, feel free to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status"
+      ]
+    },
+    {
+      "scenario_id": "30",
+      "scenario_name": "H008: long_distracting_context",
+      "difficulty": "hard",
+      "category": "long_distracting_context",
+      "decision_correctness": 0.7,
+      "tool_usage": 0.745,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.85,
+      "combined": 0.801,
+      "error": null,
+      "response_preview": "A full refund of $69.99 has been processed to your PayPal account for the lost yoga mat. You should receive the refund within 5-7 business days. If you need further assistance, feel free to ask!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_inventory",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "31",
+      "scenario_name": "H009: long_distracting_context",
+      "difficulty": "hard",
+      "category": "long_distracting_context",
+      "decision_correctness": 0.7,
+      "tool_usage": 0.745,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.831,
+      "error": null,
+      "response_preview": "You're very welcome! I'm glad I could assist. If you have any more questions or need help in the future, don't hesitate to reach out. Have a safe flight and take care!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_inventory",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "32",
+      "scenario_name": "H011: long_distracting_context",
+      "difficulty": "hard",
+      "category": "long_distracting_context",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.85,
+      "combined": 0.895,
+      "error": null,
+      "response_preview": "You're welcome! I'm glad I could assist you. If you have any more questions or need help in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "33",
+      "scenario_name": "H014: multi_item_mixed_outcomes",
+      "difficulty": "hard",
+      "category": "multi_item_mixed_outcomes",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.767,
+      "combined": 0.878,
+      "error": null,
+      "response_preview": "You're very welcome! I'm glad I could assist. If you have any more questions or need help in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "check_inventory",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "34",
+      "scenario_name": "H016: multi_item_mixed_outcomes",
+      "difficulty": "hard",
+      "category": "multi_item_mixed_outcomes",
+      "decision_correctness": 0.825,
+      "tool_usage": 0.837,
+      "financial_accuracy": 0.75,
+      "communication_quality": 0.85,
+      "combined": 0.818,
+      "error": null,
+      "response_preview": "You're welcome! If you have any other questions or need assistance in the future, feel free to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution",
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy"
+      ]
+    },
+    {
+      "scenario_id": "35",
+      "scenario_name": "H018: multi_item_mixed_outcomes",
+      "difficulty": "hard",
+      "category": "multi_item_mixed_outcomes",
+      "decision_correctness": 0.675,
+      "tool_usage": 0.818,
+      "financial_accuracy": 0.667,
+      "communication_quality": 0.9,
+      "combined": 0.754,
+      "error": null,
+      "response_preview": "You're welcome! I'm glad I could assist. If you have any more questions or need further help in the future, feel free to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "check_inventory",
+        "calculate_resolution"
+      ]
+    },
+    {
+      "scenario_id": "36",
+      "scenario_name": "H024: sale_defective_edge",
+      "difficulty": "hard",
+      "category": "sale_defective_edge",
+      "decision_correctness": 0.8,
+      "tool_usage": 0.9,
+      "financial_accuracy": 0.5,
+      "communication_quality": 1.0,
+      "combined": 0.805,
+      "error": null,
+      "response_preview": "You're welcome! I'm glad I could assist. If you have any other questions or need help with anything else in the future, feel free to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy"
+      ]
+    },
+    {
+      "scenario_id": "37",
+      "scenario_name": "H026: sale_defective_edge",
+      "difficulty": "hard",
+      "category": "sale_defective_edge",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.886,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.6,
+      "combined": 0.839,
+      "error": null,
+      "response_preview": "Your refund of $89.99 for the Merino Wool Sweater has been successfully processed. You will receive a confirmation email shortly, and the amount will be credited to your credit card within 5-7 busines",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "38",
+      "scenario_name": "H027: sale_defective_edge",
+      "difficulty": "hard",
+      "category": "sale_defective_edge",
+      "decision_correctness": 0.8,
+      "tool_usage": 0.9,
+      "financial_accuracy": 0.5,
+      "communication_quality": 0.667,
+      "combined": 0.738,
+      "error": null,
+      "response_preview": "You're welcome! I'm glad I could clarify the policy for you. If you have any other questions or need further assistance in the future, feel free to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy"
+      ]
+    },
+    {
+      "scenario_id": "39",
+      "scenario_name": "H028: sale_defective_edge",
+      "difficulty": "hard",
+      "category": "sale_defective_edge",
+      "decision_correctness": 0.8,
+      "tool_usage": 0.879,
+      "financial_accuracy": 0.5,
+      "communication_quality": 1.0,
+      "combined": 0.8,
+      "error": null,
+      "response_preview": "You're welcome. If you have any other questions or need further assistance with a different item or issue, feel free to ask. I'm here to help!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy"
+      ]
+    },
+    {
+      "scenario_id": "40",
+      "scenario_name": "H029: late_delivery_interactions",
+      "difficulty": "hard",
+      "category": "late_delivery_interactions",
+      "decision_correctness": 0.75,
+      "tool_usage": 0.909,
+      "financial_accuracy": 0.667,
+      "communication_quality": 0.9,
+      "combined": 0.803,
+      "error": null,
+      "response_preview": "Your refund of $149.99 for the defective wireless headphones has been successfully processed. You will also receive a $10 shipping credit due to the late delivery. The refund will be credited to your ",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "41",
+      "scenario_name": "H033: late_delivery_interactions",
+      "difficulty": "hard",
+      "category": "late_delivery_interactions",
+      "decision_correctness": 0.5,
+      "tool_usage": 0.909,
+      "financial_accuracy": 0.667,
+      "communication_quality": 0.65,
+      "combined": 0.666,
+      "error": null,
+      "response_preview": "Your refund of $299.99 for the defective smart watch has been successfully processed. A prepaid return label will be provided for you to send back the item. You should receive a confirmation email sho",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "42",
+      "scenario_name": "H039: boundary_date_arithmetic",
+      "difficulty": "hard",
+      "category": "boundary_date_arithmetic",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.896,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.922,
+      "error": null,
+      "response_preview": "You're very welcome! I'm glad I could assist. If you ever need help again, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "43",
+      "scenario_name": "H040: boundary_date_arithmetic",
+      "difficulty": "hard",
+      "category": "boundary_date_arithmetic",
+      "decision_correctness": 0.8,
+      "tool_usage": 0.9,
+      "financial_accuracy": 0.5,
+      "communication_quality": 1.0,
+      "combined": 0.805,
+      "error": null,
+      "response_preview": "You're welcome! If you have any other questions or need further assistance with anything else, feel free to ask. I'm here to help. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy"
+      ]
+    },
+    {
+      "scenario_id": "44",
+      "scenario_name": "H041: boundary_date_arithmetic",
+      "difficulty": "hard",
+      "category": "boundary_date_arithmetic",
+      "decision_correctness": 1.0,
+      "tool_usage": 0.886,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.85,
+      "combined": 0.942,
+      "error": null,
+      "response_preview": "You're very welcome! I'm glad I could assist. If you have any more questions or need help in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "45",
+      "scenario_name": "H042: boundary_date_arithmetic",
+      "difficulty": "hard",
+      "category": "boundary_date_arithmetic",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.767,
+      "combined": 0.878,
+      "error": null,
+      "response_preview": "Your return has been successfully processed, and a refund of $110.49 has been issued to your credit card. You will receive a confirmation email shortly. The refund should be reflected in your account ",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "46",
+      "scenario_name": "H043: boundary_date_arithmetic",
+      "difficulty": "hard",
+      "category": "boundary_date_arithmetic",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.925,
+      "error": null,
+      "response_preview": "You're very welcome! I'm glad I could assist. If you have any more questions in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "47",
+      "scenario_name": "H044: boundary_date_arithmetic",
+      "difficulty": "hard",
+      "category": "boundary_date_arithmetic",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.767,
+      "combined": 0.878,
+      "error": null,
+      "response_preview": "You're welcome! I'm glad I could assist. If you need any more help in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "48",
+      "scenario_name": "H045: boundary_date_arithmetic",
+      "difficulty": "hard",
+      "category": "boundary_date_arithmetic",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.727,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.1,
+      "combined": 0.699,
+      "error": null,
+      "response_preview": "Your return has been successfully processed. You will receive a refund of $120.24 to your original debit card within 5-7 business days. A confirmation email has been sent to your email address.\n\nIf yo",
+      "actual_tools": [
+        "check_resolution_policy",
+        "check_resolution_policy",
+        "get_order_details",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "49",
+      "scenario_name": "H046: boundary_date_arithmetic",
+      "difficulty": "hard",
+      "category": "boundary_date_arithmetic",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.886,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.767,
+      "combined": 0.872,
+      "error": null,
+      "response_preview": "You're very welcome! I'm glad I could assist. If you have any more questions or need help in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "50",
+      "scenario_name": "H048: boundary_date_arithmetic",
+      "difficulty": "hard",
+      "category": "boundary_date_arithmetic",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.777,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.892,
+      "error": null,
+      "response_preview": "Your full refund of $119.99 has been successfully processed for the running jacket. You will receive a confirmation email shortly. The refund should appear on your credit card within 5-7 business days",
+      "actual_tools": [
+        "check_resolution_policy",
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "51",
+      "scenario_name": "H050: restocking_fee_math",
+      "difficulty": "hard",
+      "category": "restocking_fee_math",
+      "decision_correctness": 0.8,
+      "tool_usage": 0.72,
+      "financial_accuracy": 0.5,
+      "communication_quality": 1.0,
+      "combined": 0.76,
+      "error": null,
+      "response_preview": "You're welcome! If you have any other questions or need further assistance in the future, feel free to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status"
+      ]
+    },
+    {
+      "scenario_id": "52",
+      "scenario_name": "H051: restocking_fee_math",
+      "difficulty": "hard",
+      "category": "restocking_fee_math",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.886,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.919,
+      "error": null,
+      "response_preview": "Your refund of $120.24 has been successfully processed for the mechanical keyboard due to your changed mind. A restocking fee of $9.75 was applied. You will receive a confirmation email shortly, and t",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "check_inventory",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "53",
+      "scenario_name": "H052: restocking_fee_math",
+      "difficulty": "hard",
+      "category": "restocking_fee_math",
+      "decision_correctness": 0.0,
+      "tool_usage": 0.473,
+      "financial_accuracy": 0.0,
+      "communication_quality": 0.15,
+      "combined": 0.148,
+      "error": null,
+      "response_preview": "You're welcome! If you need any further assistance in the future, feel free to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_order_details",
+        "get_order_details"
+      ]
+    },
+    {
+      "scenario_id": "54",
+      "scenario_name": "H053: restocking_fee_math",
+      "difficulty": "hard",
+      "category": "restocking_fee_math",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.925,
+      "error": null,
+      "response_preview": "You're very welcome! I'm glad I could assist. If you have any more questions or need help in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "55",
+      "scenario_name": "H054: restocking_fee_math",
+      "difficulty": "hard",
+      "category": "restocking_fee_math",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.6,
+      "combined": 0.845,
+      "error": null,
+      "response_preview": "You're welcome! I'm glad I could assist. If you have any more questions or need help in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "56",
+      "scenario_name": "H055: restocking_fee_math",
+      "difficulty": "hard",
+      "category": "restocking_fee_math",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.85,
+      "combined": 0.895,
+      "error": null,
+      "response_preview": "Your refund of $55.49 has been processed to your credit card after a restocking fee of $4.50. You will receive a confirmation email shortly. The refund should be reflected in your account within 5-7 b",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "57",
+      "scenario_name": "H057: counter_factual_claims",
+      "difficulty": "hard",
+      "category": "counter_factual_claims",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.886,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.35,
+      "combined": 0.789,
+      "error": null,
+      "response_preview": "Your request for a full refund has been successfully processed. You will receive the refund of $119.99 to your credit card within 5-7 business days. An email confirmation has been sent to you. \n\nIf yo",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "58",
+      "scenario_name": "H067: personal_care_opened_sealed",
+      "difficulty": "hard",
+      "category": "personal_care_opened_sealed",
+      "decision_correctness": 0.8,
+      "tool_usage": 0.9,
+      "financial_accuracy": 0.5,
+      "communication_quality": 1.0,
+      "combined": 0.805,
+      "error": null,
+      "response_preview": "You're welcome! If you have any other questions or need further assistance in the future, feel free to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy"
+      ]
+    },
+    {
+      "scenario_id": "59",
+      "scenario_name": "H069: personal_care_opened_sealed",
+      "difficulty": "hard",
+      "category": "personal_care_opened_sealed",
+      "decision_correctness": 1.0,
+      "tool_usage": 0.77,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.6,
+      "combined": 0.862,
+      "error": null,
+      "response_preview": "The refund of $49.99 has been successfully processed for your defective hair styling kit motor. You will receive the amount back to your credit card within 5-7 business days. \n\nIf you need further ass",
+      "actual_tools": [
+        "check_resolution_policy",
+        "get_order_details",
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "check_inventory",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "60",
+      "scenario_name": "H071: adversarial_policy_bypass",
+      "difficulty": "hard",
+      "category": "adversarial_policy_bypass",
+      "decision_correctness": 0.8,
+      "tool_usage": 0.9,
+      "financial_accuracy": 0.5,
+      "communication_quality": 0.667,
+      "combined": 0.738,
+      "error": null,
+      "response_preview": "You're welcome! If you need any further assistance in the future, feel free to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy"
+      ]
+    },
+    {
+      "scenario_id": "61",
+      "scenario_name": "H072: adversarial_policy_bypass",
+      "difficulty": "hard",
+      "category": "adversarial_policy_bypass",
+      "decision_correctness": 0.8,
+      "tool_usage": 0.9,
+      "financial_accuracy": 0.5,
+      "communication_quality": 0.667,
+      "combined": 0.738,
+      "error": null,
+      "response_preview": "You're welcome. If you have any other questions or need further assistance with a different item or issue, please don't hesitate to ask. I'm here to help!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy"
+      ]
+    },
+    {
+      "scenario_id": "62",
+      "scenario_name": "H074: adversarial_policy_bypass",
+      "difficulty": "hard",
+      "category": "adversarial_policy_bypass",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.433,
+      "combined": 0.811,
+      "error": null,
+      "response_preview": "You're welcome! The refund of $89.99 has been successfully processed to your credit card. If you have any more questions or need further assistance, feel free to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "63",
+      "scenario_name": "H076: adversarial_policy_bypass",
+      "difficulty": "hard",
+      "category": "adversarial_policy_bypass",
+      "decision_correctness": 0.7,
+      "tool_usage": 0.889,
+      "financial_accuracy": 0.667,
+      "communication_quality": 1.0,
+      "combined": 0.801,
+      "error": null,
+      "response_preview": "You're very welcome! I'm glad I could assist. If you need any further help in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "calculate_resolution"
+      ]
+    },
+    {
+      "scenario_id": "64",
+      "scenario_name": "H077: adversarial_policy_bypass",
+      "difficulty": "hard",
+      "category": "adversarial_policy_bypass",
+      "decision_correctness": 0.75,
+      "tool_usage": 0.909,
+      "financial_accuracy": 0.667,
+      "communication_quality": 0.9,
+      "combined": 0.803,
+      "error": null,
+      "response_preview": "You're welcome! If you have any more questions or need assistance in the future, feel free to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "check_inventory",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "65",
+      "scenario_name": "H080: out_of_scope",
+      "difficulty": "hard",
+      "category": "out_of_scope",
+      "decision_correctness": 1.0,
+      "tool_usage": 0.775,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.333,
+      "combined": 0.81,
+      "error": null,
+      "response_preview": "You're welcome! If you need any further assistance in the future or have other questions, feel free to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_order_details",
+        "get_order_details"
+      ]
+    },
+    {
+      "scenario_id": "66",
+      "scenario_name": "H081: tool_sequence_trap",
+      "difficulty": "hard",
+      "category": "tool_sequence_trap",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.433,
+      "combined": 0.811,
+      "error": null,
+      "response_preview": "Your refund of $89.99 for the Merino Wool Sweater has been successfully processed. You will receive a confirmation email shortly, and the refund should be reflected on your credit card within 5-7 busi",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "67",
+      "scenario_name": "H083: tool_sequence_trap",
+      "difficulty": "hard",
+      "category": "tool_sequence_trap",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.433,
+      "combined": 0.811,
+      "error": null,
+      "response_preview": "Your refund of $89.99 for the Merino Wool Sweater has been successfully processed. You will receive a confirmation email shortly. The refund should appear on your credit card within 5-7 business days.",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "68",
+      "scenario_name": "H087: ambiguity_clarification",
+      "difficulty": "hard",
+      "category": "ambiguity_clarification",
+      "decision_correctness": 1.0,
+      "tool_usage": 0.713,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.667,
+      "combined": 0.861,
+      "error": null,
+      "response_preview": "You're welcome! Take your time to find the order ID. Once you have it, just let me know, and I'll be here to assist you with the return process. If you have any other questions in the meantime, feel f",
+      "actual_tools": [
+        "check_resolution_policy",
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_order_details",
+        "get_fulfillment_status"
+      ]
+    },
+    {
+      "scenario_id": "69",
+      "scenario_name": "H088: ambiguity_clarification",
+      "difficulty": "hard",
+      "category": "ambiguity_clarification",
+      "decision_correctness": 1.0,
+      "tool_usage": 0.713,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.667,
+      "combined": 0.861,
+      "error": null,
+      "response_preview": "Since I am unable to locate your order details, I recommend contacting our customer service directly with your receipt and proof of purchase. They can verify your claim and process the refund promptly",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_order_details",
+        "get_order_details",
+        "get_order_details",
+        "get_order_details",
+        "get_order_details",
+        "check_resolution_policy",
+        "check_inventory",
+        "check_inventory",
+        "check_resolution_policy"
+      ]
+    },
+    {
+      "scenario_id": "70",
+      "scenario_name": "H089: ambiguity_clarification",
+      "difficulty": "hard",
+      "category": "ambiguity_clarification",
+      "decision_correctness": 1.0,
+      "tool_usage": 0.775,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.944,
+      "error": null,
+      "response_preview": "You're welcome! Take your time to find the order details. Once you have them, feel free to reach out, and I'll be happy to assist you further. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_order_details"
+      ]
+    },
+    {
+      "scenario_id": "71",
+      "scenario_name": "H090: ambiguity_clarification",
+      "difficulty": "hard",
+      "category": "ambiguity_clarification",
+      "decision_correctness": 1.0,
+      "tool_usage": 0.775,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.944,
+      "error": null,
+      "response_preview": "You're welcome. Please feel free to reach out again with your receipt or any additional information. I'm here to help whenever you're ready. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_order_details",
+        "get_order_details",
+        "get_order_details",
+        "get_order_details",
+        "get_order_details",
+        "get_fulfillment_status"
+      ]
+    },
+    {
+      "scenario_id": "72",
+      "scenario_name": "H092: wrong_identity",
+      "difficulty": "hard",
+      "category": "wrong_identity",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.767,
+      "combined": 0.878,
+      "error": null,
+      "response_preview": "You're very welcome! I'm glad I could assist you. If you have any more questions or need help in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "73",
+      "scenario_name": "H095: wrong_identity",
+      "difficulty": "hard",
+      "category": "wrong_identity",
+      "decision_correctness": 1.0,
+      "tool_usage": 0.775,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.667,
+      "combined": 0.877,
+      "error": null,
+      "response_preview": "You're welcome! Take your time to find the order details. Once you have the order ID or any additional information, feel free to reach out, and I'll be here to assist you further. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_order_details",
+        "get_order_details"
+      ]
+    },
+    {
+      "scenario_id": "74",
+      "scenario_name": "H097: long_distracting_context",
+      "difficulty": "hard",
+      "category": "long_distracting_context",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.886,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.919,
+      "error": null,
+      "response_preview": "You're welcome! I'm glad I could assist. If you have any more questions in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "75",
+      "scenario_name": "H099: out_of_scope",
+      "difficulty": "hard",
+      "category": "out_of_scope",
+      "decision_correctness": 1.0,
+      "tool_usage": 0.775,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.0,
+      "combined": 0.744,
+      "error": null,
+      "response_preview": "You're welcome! If you need any assistance with orders or returns in the future, feel free to reach out. Have a great day!",
+      "actual_tools": []
+    },
+    {
+      "scenario_id": "76",
+      "scenario_name": "H005: long_distracting_context",
+      "difficulty": "hard",
+      "category": "long_distracting_context",
+      "decision_correctness": 0.6,
+      "tool_usage": 0.909,
+      "financial_accuracy": 0.667,
+      "communication_quality": 0.5,
+      "combined": 0.671,
+      "error": null,
+      "response_preview": "Your request for store credit has been successfully processed. You will receive a store credit of $299.99 for your smart watch. You should receive a confirmation email shortly, and the credit will be ",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "77",
+      "scenario_name": "H038: late_delivery_interactions",
+      "difficulty": "hard",
+      "category": "late_delivery_interactions",
+      "decision_correctness": 1.0,
+      "tool_usage": 0.736,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.934,
+      "error": null,
+      "response_preview": "You're welcome! I'm glad I could assist. If you have any more questions in the future, don't hesitate to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    },
+    {
+      "scenario_id": "78",
+      "scenario_name": "H068: personal_care_opened_sealed",
+      "difficulty": "hard",
+      "category": "personal_care_opened_sealed",
+      "decision_correctness": 0.7,
+      "tool_usage": 0.727,
+      "financial_accuracy": 0.0,
+      "communication_quality": 0.567,
+      "combined": 0.54,
+      "error": null,
+      "response_preview": "You're welcome. If you have any other questions or need further assistance with a different item or issue, please feel free to ask. I'm here to help!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy"
+      ]
+    },
+    {
+      "scenario_id": "79",
+      "scenario_name": "H075: adversarial_policy_bypass",
+      "difficulty": "hard",
+      "category": "adversarial_policy_bypass",
+      "decision_correctness": 0.0,
+      "tool_usage": 0.9,
+      "financial_accuracy": 0.5,
+      "communication_quality": 0.667,
+      "combined": 0.458,
+      "error": null,
+      "response_preview": "You're welcome! If you have any more questions or need assistance in the future, feel free to reach out. Have a great day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy"
+      ]
+    },
+    {
+      "scenario_id": "80",
+      "scenario_name": "H093: wrong_identity",
+      "difficulty": "hard",
+      "category": "wrong_identity",
+      "decision_correctness": 0.0,
+      "tool_usage": 0.6,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.333,
+      "combined": 0.417,
+      "error": null,
+      "response_preview": "You're very welcome! I'm glad I could assist. If you have any more questions or need further help in the future, don't hesitate to reach out. Have a wonderful day!",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ]
+    }
+  ]
+}

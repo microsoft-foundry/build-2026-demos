@@ -1,0 +1,2230 @@
+{
+  "model": "demo1-retail-agent-langraph-responses",
+  "scorer_version": "v2",
+  "hosted": true,
+  "n_scenarios": 20,
+  "avg_decision_correctness": 0.86,
+  "avg_tool_usage": 0.87,
+  "avg_financial_accuracy": 0.9,
+  "avg_communication_quality": 0.861,
+  "avg_combined": 0.871,
+  "by_difficulty": {
+    "hard": {
+      "count": 20,
+      "avg_combined": 0.871,
+      "avg_decision": 0.86,
+      "avg_tools": 0.87,
+      "avg_financial": 0.9,
+      "avg_communication": 0.861
+    }
+  },
+  "by_category": {
+    "multi_item_mixed_outcomes": {
+      "count": 2,
+      "avg_combined": 0.867,
+      "avg_decision": 0.85,
+      "avg_tools": 0.909,
+      "avg_financial": 1.0,
+      "avg_communication": 0.715
+    },
+    "late_delivery_interactions": {
+      "count": 4,
+      "avg_combined": 0.961,
+      "avg_decision": 0.963,
+      "avg_tools": 0.909,
+      "avg_financial": 1.0,
+      "avg_communication": 0.983
+    },
+    "sale_defective_edge": {
+      "count": 1,
+      "avg_combined": 0.432,
+      "avg_decision": 0.0,
+      "avg_tools": 0.727,
+      "avg_financial": 0.5,
+      "avg_communication": 0.75
+    },
+    "wrong_identity": {
+      "count": 1,
+      "avg_combined": 0.958,
+      "avg_decision": 1.0,
+      "avg_tools": 0.833,
+      "avg_financial": 1.0,
+      "avg_communication": 1.0
+    },
+    "long_distracting_context": {
+      "count": 4,
+      "avg_combined": 0.945,
+      "avg_decision": 0.906,
+      "avg_tools": 0.909,
+      "avg_financial": 1.0,
+      "avg_communication": 1.0
+    },
+    "boundary_date_arithmetic": {
+      "count": 1,
+      "avg_combined": 0.851,
+      "avg_decision": 0.925,
+      "avg_tools": 0.909,
+      "avg_financial": 0.5,
+      "avg_communication": 1.0
+    },
+    "restocking_fee_math": {
+      "count": 1,
+      "avg_combined": 0.925,
+      "avg_decision": 0.85,
+      "avg_tools": 0.909,
+      "avg_financial": 1.0,
+      "avg_communication": 1.0
+    },
+    "adversarial_policy_bypass": {
+      "count": 1,
+      "avg_combined": 0.925,
+      "avg_decision": 0.85,
+      "avg_tools": 0.909,
+      "avg_financial": 1.0,
+      "avg_communication": 1.0
+    },
+    "tool_sequence_trap": {
+      "count": 1,
+      "avg_combined": 0.795,
+      "avg_decision": 0.85,
+      "avg_tools": 0.909,
+      "avg_financial": 1.0,
+      "avg_communication": 0.35
+    },
+    "counter_factual_claims": {
+      "count": 1,
+      "avg_combined": 0.847,
+      "avg_decision": 1.0,
+      "avg_tools": 0.909,
+      "avg_financial": 1.0,
+      "avg_communication": 0.35
+    },
+    "personal_care_opened_sealed": {
+      "count": 1,
+      "avg_combined": 0.902,
+      "avg_decision": 0.85,
+      "avg_tools": 0.818,
+      "avg_financial": 1.0,
+      "avg_communication": 1.0
+    },
+    "out_of_scope": {
+      "count": 1,
+      "avg_combined": 0.928,
+      "avg_decision": 1.0,
+      "avg_tools": 0.911,
+      "avg_financial": 1.0,
+      "avg_communication": 0.75
+    },
+    "ambiguity_clarification": {
+      "count": 1,
+      "avg_combined": 0.492,
+      "avg_decision": 0.7,
+      "avg_tools": 0.47,
+      "avg_financial": 0.0,
+      "avg_communication": 0.65
+    }
+  },
+  "errors": 0,
+  "per_scenario": [
+    {
+      "scenario_id": "1",
+      "scenario_name": "HE012: multi_item_mixed_outcomes",
+      "difficulty": "hard",
+      "category": "multi_item_mixed_outcomes",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.662,
+      "combined": 0.857,
+      "error": null,
+      "response_preview": "Your cancellation has been submitted successfully.\n\nConfirmation ID: RES-0B9CEFB2\n\nItems cancelled:\n- Mechanical Keyboard: refund of $129.99\n- Canvas Tote Bag: refund of $34.99\n\nTotal refund: $164.98 ",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ],
+      "response_ids": [
+        "caresp_a1a72710a357260e00xkOj8bf2gz18GaSRep4wlA7wwb2mVEsf",
+        "caresp_a1a72710a357260e00oMgAGxPOA9EPeB0Q1ZtRWpEletcjCmbG"
+      ],
+      "stop_reason": "agent_error: InternalServerError: Error code: 500 - {'error': {'message': 'internal server error', 'type': 'server_error', 'code': 'server_error', 'param': None}}",
+      "rounds": 2,
+      "transcript": [
+        {
+          "role": "customer",
+          "content": "Hi, I need help with my Mechanical Keyboard and Canvas Tote Bag."
+        },
+        {
+          "role": "agent",
+          "content": "Hi! I can help with that.\n\nPlease send:\n1. Your order number  \n2. What you\u2019d like to do for each item:\n   - Mechanical Keyboard: return, exchange, replacement, or report defective/damaged?\n   - Canvas Tote Bag: return, exchange, replacement, or report defective/damaged?\n3. The reason for each item, e.g. defective, doesn\u2019t fit, changed mind, wrong item, damaged in shipping.\n\nOnce I have that, I\u2019ll check the order and eligibility for each item separately."
+        },
+        {
+          "role": "customer",
+          "content": "The order number is ORD-H03. I\u2019d like to cancel both the Mechanical Keyboard and the Canvas Tote Bag because I just changed my mind."
+        },
+        {
+          "role": "agent",
+          "content": "Your cancellation has been submitted successfully.\n\nConfirmation ID: RES-0B9CEFB2\n\nItems cancelled:\n- Mechanical Keyboard: refund of $129.99\n- Canvas Tote Bag: refund of $34.99\n\nTotal refund: $164.98  \nRestocking fees: $0.00  \nRefund method: Original credit card  \nEstimated processing time: 5\u20137 business days\n\nBoth items were still processing and had not shipped, so they were eligible for cancellation with a full refund."
+        },
+        {
+          "role": "customer",
+          "content": "Thank you for confirming and processing the cancellation. That works for me."
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "ORD-H03"
+          },
+          "result": "{\"order_id\": \"ORD-H03\", \"customer\": {\"id\": \"C007\", \"name\": \"Liam O'Connor\", \"email\": \"liam.oconnor@example.com\", \"loyalty_tier\": \"gold\"}, \"order_date\": \"2026-07-13\", \"promised_delivery\": \"2026-07-18\", \"items\": [{\"item_id\": \"LI-H03A\", \"product_id\": \"P002\", \"product_name\": \"Mechanical Keyboard\", \"category\": \"electronics\", \"sku\": \"P002-WHT\", \"quantity\": 1, \"unit_price\": 129.99, \"discount_pct\": 0, \"on_sale\": false, \"variant\": \"\"}, {\"item_id\": \"LI-H03B\", \"product_id\": \"P011\", \"product_name\": \"Canvas Tote Bag\", \"category\": \"apparel\", \"sku\": \"P011\", \"quantity\": 1, \"unit_price\": 34.99, \"discount_pct\": 0, \"on_sale\": false, \"variant\": \"\"}], \"subtotal\": 164.98, \"tax\": 13.2, \"total\": 178.18, \"payment_method\": \"credit_card\"}"
+        },
+        {
+          "name": "get_fulfillment_status",
+          "arguments": {
+            "order_id": "ORD-H03"
+          },
+          "result": "{\"order_id\": \"ORD-H03\", \"today\": \"2026-07-15\", \"items\": [{\"item_id\": \"LI-H03A\", \"status\": \"processing\", \"ship_date\": null, \"delivery_date\": null, \"carrier\": null, \"late_delivery\": false, \"days_late\": null, \"days_since_delivery\": null}, {\"item_id\": \"LI-H03B\", \"status\": \"processing\", \"ship_date\": null, \"delivery_date\": null, \"carrier\": null, \"late_delivery\": false, \"days_late\": null, \"days_since_delivery\": null}]}"
+        },
+        {
+          "name": "check_resolution_policy",
+          "arguments": {
+            "order_id": "ORD-H03",
+            "item_id": "LI-H03A",
+            "reason": "changed_mind"
+          },
+          "result": "{\"eligible\": true, \"eligible_actions\": [\"refund\"], \"return_window_days\": null, \"days_since_delivery\": null, \"restocking_fee_pct\": 0.0, \"shipping_credit\": 0.0, \"special_rules\": [\"Order not yet shipped: eligible for cancellation and full refund\"]}"
+        },
+        {
+          "name": "check_resolution_policy",
+          "arguments": {
+            "order_id": "ORD-H03",
+            "item_id": "LI-H03B",
+            "reason": "changed_mind"
+          },
+          "result": "{\"eligible\": true, \"eligible_actions\": [\"refund\"], \"return_window_days\": null, \"days_since_delivery\": null, \"restocking_fee_pct\": 0.0, \"shipping_credit\": 0.0, \"special_rules\": [\"Order not yet shipped: eligible for cancellation and full refund\"]}"
+        },
+        {
+          "name": "calculate_resolution",
+          "arguments": {
+            "order_id": "ORD-H03",
+            "items": [
+              {
+                "item_id": "LI-H03A",
+                "action": "refund",
+                "reason": "changed_mind"
+              },
+              {
+                "item_id": "LI-H03B",
+                "action": "refund",
+                "reason": "changed_mind"
+              }
+            ]
+          },
+          "result": "{\"order_id\": \"ORD-H03\", \"breakdown\": [{\"item_id\": \"LI-H03A\", \"action\": \"refund\", \"refund_amount\": 129.99, \"restocking_fee\": 0.0, \"restocking_fee_pct\": 0.0, \"net_refund\": 129.99}, {\"item_id\": \"LI-H03B\", \"action\": \"refund\", \"refund_amount\": 34.99, \"restocking_fee\": 0.0, \"restocking_fee_pct\": 0.0, \"net_refund\": 34.99}], \"summary\": {\"total_refund\": 164.98, \"total_restocking_fees\": 0.0, \"total_shipping_credit\": 0.0, \"total_resolution_amount\": 164.98}, \"refund_method\": \"credit_card\"}"
+        },
+        {
+          "name": "submit_resolution",
+          "arguments": {
+            "order_id": "ORD-H03",
+            "resolution_summary": "Cancel both processing items due to changed mind. Refund LI-H03A Mechanical Keyboard $129.99 and LI-H03B Canvas Tote Bag $34.99 to original credit card. Total refund $164.98; no restocking fees."
+          },
+          "result": "{\"confirmation_id\": \"RES-0B9CEFB2\", \"order_id\": \"ORD-H03\", \"status\": \"submitted\", \"summary\": \"Cancel both processing items due to changed mind. Refund LI-H03A Mechanical Keyboard $129.99 and LI-H03B Canvas Tote Bag $34.99 to original credit card. Total refund $164.98; no restocking fees.\", \"customer_notification\": {\"to\": \"liam.oconnor@example.com\", \"name\": \"Liam O'Connor\", \"subject\": \"Zava Resolution Confirmation - RES-0B9CEFB2\"}, \"estimated_processing\": \"5-7 business days\"}"
+        }
+      ]
+    },
+    {
+      "scenario_id": "2",
+      "scenario_name": "HE017: late_delivery_interactions",
+      "difficulty": "hard",
+      "category": "late_delivery_interactions",
+      "decision_correctness": 0.925,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.933,
+      "combined": 0.938,
+      "error": null,
+      "response_preview": "Done \u2014 your return has been submitted.\n\n**Confirmation ID:** RES-B0A34096  \n**Item:** Premium Yoga Mat  \n**Refund:** $69.99 to your original credit card  \n**Late delivery shipping credit:** $10.00  \n*",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ],
+      "response_ids": [
+        "caresp_152cde2b532722a600bZrqgHkLIiECk8wcvTFLer9agqaQm9jk",
+        "caresp_152cde2b532722a600GisDqxf32PYozsBnTYmkvZUUrLqWTrH2",
+        "caresp_152cde2b532722a600h1dO7Hrg0gj61kmwliHMmOY4J8ZCyb5o"
+      ],
+      "stop_reason": "end_token",
+      "rounds": 3,
+      "transcript": [
+        {
+          "role": "customer",
+          "content": "Hi, I need help with my Premium Yoga Mat."
+        },
+        {
+          "role": "agent",
+          "content": "Of course \u2014 I can help with your Premium Yoga Mat.\n\nCould you please share:\n1. Your order number  \n2. What you\u2019d like to do: return, exchange, replacement, or report a shipping issue  \n3. The reason, e.g. defective/damaged, wrong item, doesn\u2019t fit your needs, changed mind, etc.  \n\nOnce I have that, I\u2019ll check the order and eligibility for you."
+        },
+        {
+          "role": "customer",
+          "content": "The order number is ORD-H12. I\u2019d like to return it because I changed my mind about the brand."
+        },
+        {
+          "role": "agent",
+          "content": "Your Premium Yoga Mat is eligible for return.\n\n**Item:** Premium Yoga Mat  \n**Reason:** Changed mind  \n**Status:** Delivered July 2  \n**Return eligibility:** Approved \u2014 you\u2019re within the extended return window.  \nBecause the delivery was more than 2 days late, your Gold return window was extended to **60 days**, and a **$10 shipping credit** applies.\n\n**Refund breakdown:**\n- Item refund: **$69.99**\n- Restocking fee: **$0.00**\n- Late delivery shipping credit: **$10.00**\n- **Total resolution amount: $79.99**\n\nRefund method: **Original credit card**\n\nWould you like me to go ahead and submit this return for processing?"
+        },
+        {
+          "role": "customer",
+          "content": "Yes, please submit the return."
+        },
+        {
+          "role": "agent",
+          "content": "Done \u2014 your return has been submitted.\n\n**Confirmation ID:** RES-B0A34096  \n**Item:** Premium Yoga Mat  \n**Refund:** $69.99 to your original credit card  \n**Late delivery shipping credit:** $10.00  \n**Restocking fee:** $0.00  \n**Total resolution amount:** $79.99  \n\nA confirmation email has been sent to **riley.park@example.com**. Once the return is received, processing is estimated to take **5\u20137 business days**."
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "ORD-H12"
+          },
+          "result": "{\"order_id\": \"ORD-H12\", \"customer\": {\"id\": \"C010\", \"name\": \"Riley Park\", \"email\": \"riley.park@example.com\", \"loyalty_tier\": \"gold\"}, \"order_date\": \"2026-06-15\", \"promised_delivery\": \"2026-06-20\", \"items\": [{\"item_id\": \"LI-H12\", \"product_id\": \"P010\", \"product_name\": \"Premium Yoga Mat\", \"category\": \"home\", \"sku\": \"P010\", \"quantity\": 1, \"unit_price\": 69.99, \"discount_pct\": 0, \"on_sale\": false, \"variant\": \"\"}], \"subtotal\": 69.99, \"tax\": 5.6, \"total\": 75.59, \"payment_method\": \"credit_card\"}"
+        },
+        {
+          "name": "get_fulfillment_status",
+          "arguments": {
+            "order_id": "ORD-H12"
+          },
+          "result": "{\"order_id\": \"ORD-H12\", \"today\": \"2026-07-15\", \"items\": [{\"item_id\": \"LI-H12\", \"status\": \"delivered\", \"ship_date\": \"2026-06-19\", \"delivery_date\": \"2026-07-02\", \"carrier\": \"USPS\", \"late_delivery\": true, \"days_late\": 12, \"days_since_delivery\": 13}]}"
+        },
+        {
+          "name": "check_resolution_policy",
+          "arguments": {
+            "order_id": "ORD-H12",
+            "item_id": "LI-H12",
+            "reason": "changed_mind"
+          },
+          "result": "{\"eligible\": true, \"eligible_actions\": [\"refund\", \"exchange\", \"store_credit\"], \"return_window_days\": 60, \"days_since_delivery\": 13, \"days_remaining\": 47, \"restocking_fee_pct\": 0.0, \"shipping_credit\": 10.0, \"special_rules\": [\"Late delivery: window extended from 45 to 60 days, $10 shipping credit applies\", \"Gold tier: 60-day return window for home\"]}"
+        },
+        {
+          "name": "calculate_resolution",
+          "arguments": {
+            "order_id": "ORD-H12",
+            "items": [
+              {
+                "item_id": "LI-H12",
+                "action": "refund",
+                "reason": "changed_mind"
+              },
+              {
+                "item_id": "LI-H12",
+                "action": "shipping_credit",
+                "reason": "changed_mind"
+              }
+            ]
+          },
+          "result": "{\"order_id\": \"ORD-H12\", \"breakdown\": [{\"item_id\": \"LI-H12\", \"action\": \"refund\", \"refund_amount\": 69.99, \"restocking_fee\": 0.0, \"restocking_fee_pct\": 0.0, \"net_refund\": 69.99}, {\"item_id\": \"LI-H12\", \"action\": \"shipping_credit\", \"amount\": 10.0, \"reason\": \"Late delivery compensation\"}], \"summary\": {\"total_refund\": 69.99, \"total_restocking_fees\": 0.0, \"total_shipping_credit\": 10.0, \"total_resolution_amount\": 79.99}, \"refund_method\": \"credit_card\"}"
+        },
+        {
+          "name": "submit_resolution",
+          "arguments": {
+            "order_id": "ORD-H12",
+            "resolution_summary": "Return approved for LI-H12 Premium Yoga Mat due to changed mind. Refund $69.99 to original credit card with $0.00 restocking fee. Additional $10.00 shipping credit due to late delivery. Total resolution amount $79.99. Prepaid return instructions to be provided."
+          },
+          "result": "{\"confirmation_id\": \"RES-B0A34096\", \"order_id\": \"ORD-H12\", \"status\": \"submitted\", \"summary\": \"Return approved for LI-H12 Premium Yoga Mat due to changed mind. Refund $69.99 to original credit card with $0.00 restocking fee. Additional $10.00 shipping credit due to late delivery. Total resolution amount $79.99. Prepaid return instructions to be provided.\", \"customer_notification\": {\"to\": \"riley.park@example.com\", \"name\": \"Riley Park\", \"subject\": \"Zava Resolution Confirmation - RES-B0A34096\"}, \"estimated_processing\": \"5-7 business days\"}"
+        }
+      ]
+    },
+    {
+      "scenario_id": "3",
+      "scenario_name": "HE023: sale_defective_edge",
+      "difficulty": "hard",
+      "category": "sale_defective_edge",
+      "decision_correctness": 0.0,
+      "tool_usage": 0.727,
+      "financial_accuracy": 0.5,
+      "communication_quality": 0.75,
+      "combined": 0.432,
+      "error": null,
+      "response_preview": "You\u2019re very welcome! I\u2019m glad I could help. Keep your confirmation ID **RES-0666F1AE** handy, and you\u2019ll receive the **$24.99 store credit** once the return is received and processed.",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ],
+      "response_ids": [
+        "caresp_615bcab8bcd6de9300C93fo2DcgpgIKMXqyhiX6DYWrfBmJAiV",
+        "caresp_615bcab8bcd6de9300vtkxy2gjr5Y0zMKwVqocFUUHh34spdI5",
+        "caresp_615bcab8bcd6de9300vV7zZERhcneuFRAAYfkMZOHTmVpbkHax",
+        "caresp_615bcab8bcd6de9300sbFBo2XUDiO0wbcOXtlwMQLHz7yj7dBd"
+      ],
+      "stop_reason": "end_token",
+      "rounds": 4,
+      "transcript": [
+        {
+          "role": "customer",
+          "content": "Hi, I need some help with my Stainless Water Bottle."
+        },
+        {
+          "role": "agent",
+          "content": "Of course \u2014 I can help with that.\n\nPlease send me:\n1. Your **order ID**\n2. What you\u2019d like to do with the Stainless Water Bottle: **return, exchange, replacement, refund, or cancellation**\n3. The reason, e.g. **defective/damaged, wrong item, changed mind, doesn\u2019t fit/meet expectations**, etc.\n\nOnce I have that, I\u2019ll check the order and eligibility for you."
+        },
+        {
+          "role": "customer",
+          "content": "Sure! My order ID is ORD-H10B. I\u2019d like a refund for the Stainless Water Bottle because it doesn\u2019t keep my drinks cold as long as advertised."
+        },
+        {
+          "role": "agent",
+          "content": "Thanks, Aisha. I checked your order **ORD-H10B** for the **Stainless Water Bottle**.\n\nBecause the bottle isn\u2019t performing as advertised, this is treated as a **defective item**. However, the item was purchased **on sale**, and under policy, **defective sale items are eligible for store credit only, not a refund to the original payment method**.\n\nResolution available:\n\n- **Store credit:** **$24.99**\n- **Restocking fee:** **$0.00**\n- **Return shipping:** Prepaid return label provided\n- **Shipping credit:** Not applicable, as delivery was not more than 2 days late\n\nIf you\u2019d like, I can go ahead and issue the **$24.99 store credit** and provide the next return steps."
+        },
+        {
+          "role": "customer",
+          "content": "Yes, please go ahead and issue the $24.99 store credit and send me the return steps."
+        },
+        {
+          "role": "agent",
+          "content": "Done \u2014 I\u2019ve submitted the store credit resolution for your **Stainless Water Bottle**.\n\n**Confirmation ID:** RES-0666F1AE  \n**Store credit amount:** $24.99  \n**Restocking fee:** $0.00  \n**Estimated processing time:** 5\u20137 business days after the return is received\n\nA confirmation email has been sent to **aisha.patel@example.com**.\n\n**Return steps:**\n1. Check your email for the prepaid return label and instructions.\n2. Pack the Stainless Water Bottle securely, including all parts/accessories if available.\n3. Attach the prepaid label to the package.\n4. Drop it off with the listed carrier.\n5. Once the return is received and processed, your **$24.99 store credit** will be issued."
+        },
+        {
+          "role": "customer",
+          "content": "Thank you for your help and the clear instructions. I\u2019ll follow the return steps."
+        },
+        {
+          "role": "agent",
+          "content": "You\u2019re very welcome! I\u2019m glad I could help. Keep your confirmation ID **RES-0666F1AE** handy, and you\u2019ll receive the **$24.99 store credit** once the return is received and processed."
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "ORD-H10B"
+          },
+          "result": "{\"order_id\": \"ORD-H10B\", \"customer\": {\"id\": \"C008\", \"name\": \"Aisha Patel\", \"email\": \"aisha.patel@example.com\", \"loyalty_tier\": \"platinum\"}, \"order_date\": \"2026-06-28\", \"promised_delivery\": \"2026-07-03\", \"items\": [{\"item_id\": \"LI-H10B\", \"product_id\": \"P014\", \"product_name\": \"Stainless Water Bottle\", \"category\": \"home\", \"sku\": \"P014\", \"quantity\": 1, \"unit_price\": 24.99, \"discount_pct\": 0, \"on_sale\": true, \"variant\": \"\"}], \"subtotal\": 24.99, \"tax\": 2.0, \"total\": 26.99, \"payment_method\": \"credit_card\"}"
+        },
+        {
+          "name": "get_fulfillment_status",
+          "arguments": {
+            "order_id": "ORD-H10B"
+          },
+          "result": "{\"order_id\": \"ORD-H10B\", \"today\": \"2026-07-15\", \"items\": [{\"item_id\": \"LI-H10B\", \"status\": \"delivered\", \"ship_date\": \"2026-07-01\", \"delivery_date\": \"2026-07-05\", \"carrier\": \"FedEx\", \"late_delivery\": false, \"days_late\": null, \"days_since_delivery\": 10}]}"
+        },
+        {
+          "name": "check_resolution_policy",
+          "arguments": {
+            "order_id": "ORD-H10B",
+            "item_id": "LI-H10B",
+            "reason": "defective"
+          },
+          "result": "{\"eligible\": true, \"eligible_actions\": [\"store_credit\"], \"return_window_days\": 60, \"days_since_delivery\": 10, \"restocking_fee_pct\": 0.0, \"shipping_credit\": 0.0, \"special_rules\": [\"Defective item: eligible regardless of return window\", \"Sale item exception: defective sale items -> store credit only (not refund)\", \"No restocking fee for defective items\"]}"
+        },
+        {
+          "name": "calculate_resolution",
+          "arguments": {
+            "order_id": "ORD-H10B",
+            "items": [
+              {
+                "item_id": "LI-H10B",
+                "action": "store_credit",
+                "reason": "defective"
+              }
+            ]
+          },
+          "result": "{\"order_id\": \"ORD-H10B\", \"breakdown\": [{\"item_id\": \"LI-H10B\", \"action\": \"store_credit\", \"refund_amount\": 24.99, \"restocking_fee\": 0.0, \"restocking_fee_pct\": 0.0, \"net_refund\": 24.99}], \"summary\": {\"total_refund\": 24.99, \"total_restocking_fees\": 0.0, \"total_shipping_credit\": 0.0, \"total_resolution_amount\": 24.99}, \"refund_method\": \"credit_card\"}"
+        },
+        {
+          "name": "submit_resolution",
+          "arguments": {
+            "order_id": "ORD-H10B",
+            "resolution_summary": "Issue $24.99 store credit for item LI-H10B Stainless Water Bottle due to defective performance. No restocking fee. Defective sale item eligible for store credit only. Prepaid return label to be provided."
+          },
+          "result": "{\"confirmation_id\": \"RES-0666F1AE\", \"order_id\": \"ORD-H10B\", \"status\": \"submitted\", \"summary\": \"Issue $24.99 store credit for item LI-H10B Stainless Water Bottle due to defective performance. No restocking fee. Defective sale item eligible for store credit only. Prepaid return label to be provided.\", \"customer_notification\": {\"to\": \"aisha.patel@example.com\", \"name\": \"Aisha Patel\", \"subject\": \"Zava Resolution Confirmation - RES-0666F1AE\"}, \"estimated_processing\": \"5-7 business days\"}"
+        }
+      ]
+    },
+    {
+      "scenario_id": "4",
+      "scenario_name": "HE046: wrong_identity",
+      "difficulty": "hard",
+      "category": "wrong_identity",
+      "decision_correctness": 1.0,
+      "tool_usage": 0.833,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.958,
+      "error": null,
+      "response_preview": "Your return and refund request has been submitted.\n\n**Confirmation ID:** RES-04160ED1  \n**Item:** Smart Watch \u2014 LI-H08  \n**Refund:** **$299.99** to your original credit card  \n**Restocking fee:** **$0",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ],
+      "response_ids": [
+        "caresp_f1babb3c7665f9cd008AN3ZjV2HjAQA7C0TkZJ4ponLohC0O1D",
+        "caresp_f1babb3c7665f9cd00qLxZYWKIerDnHtIJHcIe3zQ6T079qKaZ",
+        "caresp_f1babb3c7665f9cd00qKuysAhY9o8DULobOwFhllUoX4e0bHWN"
+      ],
+      "stop_reason": "end_token",
+      "rounds": 3,
+      "transcript": [
+        {
+          "role": "customer",
+          "content": "Hi, I need help with my Smart Watch."
+        },
+        {
+          "role": "agent",
+          "content": "Of course \u2014 I can help with your Smart Watch.\n\nPlease send:\n1. Your order number  \n2. What\u2019s wrong or what you\u2019d like to do: return, exchange, replacement, cancellation, or report a shipping issue  \n3. The reason, e.g. defective, damaged in shipping, wrong item, changed mind, doesn\u2019t fit, etc.  \n\nOnce I have the order number, I\u2019ll check the order and eligibility."
+        },
+        {
+          "role": "customer",
+          "content": "The order number is ORD-H08. I\u2019d like to return it because it\u2019s defective."
+        },
+        {
+          "role": "agent",
+          "content": "Your Smart Watch return is eligible.\n\n**Item:** Smart Watch \u2014 LI-H08  \n**Reason:** Defective  \n**Resolution:** Refund to original credit card  \n**Refund amount:** **$299.99**  \n**Restocking fee:** **$0.00** \u2014 defective electronics have no restocking fee  \n**Late delivery credit:** **$10.00** \u2014 the item was delivered more than 2 days after the promised date  \n**Total resolution value:** **$309.99**\n\nA **prepaid return label** will be provided for the defective item.\n\nWould you like me to submit this return and refund request now?"
+        },
+        {
+          "role": "customer",
+          "content": "Yes, please submit the return and refund request."
+        },
+        {
+          "role": "agent",
+          "content": "Your return and refund request has been submitted.\n\n**Confirmation ID:** RES-04160ED1  \n**Item:** Smart Watch \u2014 LI-H08  \n**Refund:** **$299.99** to your original credit card  \n**Restocking fee:** **$0.00**  \n**Late delivery credit:** **$10.00**  \n**Total resolution value:** **$309.99**\n\nA confirmation email has been sent to **diego.rivera@example.com**. You\u2019ll receive a **prepaid return label**, and processing is estimated at **5\u20137 business days**."
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "ORD-H08"
+          },
+          "result": "{\"order_id\": \"ORD-H08\", \"customer\": {\"id\": \"C009\", \"name\": \"Diego Rivera\", \"email\": \"diego.rivera@example.com\", \"loyalty_tier\": \"standard\"}, \"order_date\": \"2026-05-28\", \"promised_delivery\": \"2026-06-02\", \"items\": [{\"item_id\": \"LI-H08\", \"product_id\": \"P003\", \"product_name\": \"Smart Watch\", \"category\": \"electronics\", \"sku\": \"P003-S\", \"quantity\": 1, \"unit_price\": 299.99, \"discount_pct\": 0, \"on_sale\": false, \"variant\": \"\"}], \"subtotal\": 299.99, \"tax\": 24.0, \"total\": 323.99, \"payment_method\": \"credit_card\"}"
+        },
+        {
+          "name": "get_fulfillment_status",
+          "arguments": {
+            "order_id": "ORD-H08"
+          },
+          "result": "{\"order_id\": \"ORD-H08\", \"today\": \"2026-07-15\", \"items\": [{\"item_id\": \"LI-H08\", \"status\": \"delivered\", \"ship_date\": \"2026-06-01\", \"delivery_date\": \"2026-06-20\", \"carrier\": \"FedEx\", \"late_delivery\": true, \"days_late\": 18, \"days_since_delivery\": 25}]}"
+        },
+        {
+          "name": "check_resolution_policy",
+          "arguments": {
+            "order_id": "ORD-H08",
+            "item_id": "LI-H08",
+            "reason": "defective"
+          },
+          "result": "{\"eligible\": true, \"eligible_actions\": [\"refund\", \"replacement\", \"exchange\", \"store_credit\"], \"return_window_days\": 30, \"days_since_delivery\": 25, \"restocking_fee_pct\": 0.0, \"shipping_credit\": 10.0, \"special_rules\": [\"Defective item: eligible regardless of return window or sale status\", \"No restocking fee for defective items\", \"Prepaid return label will be provided\"]}"
+        },
+        {
+          "name": "calculate_resolution",
+          "arguments": {
+            "order_id": "ORD-H08",
+            "items": [
+              {
+                "item_id": "LI-H08",
+                "action": "refund",
+                "reason": "defective"
+              },
+              {
+                "item_id": "LI-H08",
+                "action": "shipping_credit",
+                "reason": "defective"
+              }
+            ]
+          },
+          "result": "{\"order_id\": \"ORD-H08\", \"breakdown\": [{\"item_id\": \"LI-H08\", \"action\": \"refund\", \"refund_amount\": 299.99, \"restocking_fee\": 0.0, \"restocking_fee_pct\": 0.0, \"net_refund\": 299.99}, {\"item_id\": \"LI-H08\", \"action\": \"shipping_credit\", \"amount\": 10.0, \"reason\": \"Late delivery compensation\"}], \"summary\": {\"total_refund\": 299.99, \"total_restocking_fees\": 0.0, \"total_shipping_credit\": 10.0, \"total_resolution_amount\": 309.99}, \"refund_method\": \"credit_card\"}"
+        },
+        {
+          "name": "submit_resolution",
+          "arguments": {
+            "order_id": "ORD-H08",
+            "resolution_summary": "Refund approved for defective Smart Watch (item LI-H08) to original credit card. Refund amount: $299.99. Restocking fee: $0.00. Late delivery shipping credit: $10.00. Total resolution value: $309.99. Prepaid return label to be provided."
+          },
+          "result": "{\"confirmation_id\": \"RES-04160ED1\", \"order_id\": \"ORD-H08\", \"status\": \"submitted\", \"summary\": \"Refund approved for defective Smart Watch (item LI-H08) to original credit card. Refund amount: $299.99. Restocking fee: $0.00. Late delivery shipping credit: $10.00. Total resolution value: $309.99. Prepaid return label to be provided.\", \"customer_notification\": {\"to\": \"diego.rivera@example.com\", \"name\": \"Diego Rivera\", \"subject\": \"Zava Resolution Confirmation - RES-04160ED1\"}, \"estimated_processing\": \"5-7 business days\"}"
+        }
+      ]
+    },
+    {
+      "scenario_id": "5",
+      "scenario_name": "HE005: long_distracting_context",
+      "difficulty": "hard",
+      "category": "long_distracting_context",
+      "decision_correctness": 0.925,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.951,
+      "error": null,
+      "response_preview": "You\u2019re very welcome! Glad I could help.",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ],
+      "response_ids": [
+        "caresp_350dc9f03a0f42fc00zfw2iBH4ShWC50QEmV6UFoowNC0cl46e",
+        "caresp_350dc9f03a0f42fc00LYcdt5Em9UhRJ7fUhvdkcUvR6YbNiG7P",
+        "caresp_350dc9f03a0f42fc00AxLsVZMf1Xn5uTUWQO73bnlKLPYg8Vui",
+        "caresp_350dc9f03a0f42fc00lkBIQXBjSHfJuuSAVQw1zQIXzmQGYc1D"
+      ],
+      "stop_reason": "end_token",
+      "rounds": 4,
+      "transcript": [
+        {
+          "role": "customer",
+          "content": "Hi, I need some help with my yoga mat."
+        },
+        {
+          "role": "agent",
+          "content": "Of course \u2014 I can help with your yoga mat.\n\nCould you please provide:\n1. Your order number  \n2. What you\u2019d like to do: return, exchange, replacement, or report an issue  \n3. The reason, e.g. defective/damaged, wrong item, changed mind, doesn\u2019t meet expectations, etc.\n\nOnce I have that, I\u2019ll check the order and eligibility for you."
+        },
+        {
+          "role": "customer",
+          "content": "Sure! The order number is ORD-H12. I\u2019d like to return it for a refund. I want to switch styles because the mat doesn\u2019t meet my expectations."
+        },
+        {
+          "role": "agent",
+          "content": "Thanks, Riley \u2014 I checked order **ORD-H12** for the **Premium Yoga Mat**.\n\nYour return is **eligible** for a refund because:\n- You\u2019re a **Gold** member.\n- The yoga mat is in the **home** category.\n- It was delivered on **July 2**, and you\u2019re **13 days** from delivery.\n- Your return window is **60 days** because the delivery was late, so you have **47 days remaining**.\n\nResolution details:\n- **Refund to credit card:** **$69.99**\n- **Restocking fee:** **$0.00**\n- **Late delivery shipping credit:** **$10.00**\n- **Total resolution value:** **$79.99**\n\nWould you like me to go ahead and submit the return and shipping credit for processing?"
+        },
+        {
+          "role": "customer",
+          "content": "Yes, please go ahead and submit the return and shipping credit."
+        },
+        {
+          "role": "agent",
+          "content": "All set \u2014 your return and late delivery shipping credit have been submitted.\n\n**Confirmation ID:** RES-E9BD63F0\n\nDetails:\n- **Item:** Premium Yoga Mat\n- **Refund:** $69.99 back to your original credit card\n- **Restocking fee:** $0.00\n- **Late delivery shipping credit:** $10.00\n- **Total resolution value:** $79.99\n\nYou\u2019ll receive a confirmation email at **riley.park@example.com**. Processing is estimated to take **5\u20137 business days**."
+        },
+        {
+          "role": "customer",
+          "content": "Thank you for your help! That works for me."
+        },
+        {
+          "role": "agent",
+          "content": "You\u2019re very welcome! Glad I could help."
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "ORD-H12"
+          },
+          "result": "{\"order_id\": \"ORD-H12\", \"customer\": {\"id\": \"C010\", \"name\": \"Riley Park\", \"email\": \"riley.park@example.com\", \"loyalty_tier\": \"gold\"}, \"order_date\": \"2026-06-15\", \"promised_delivery\": \"2026-06-20\", \"items\": [{\"item_id\": \"LI-H12\", \"product_id\": \"P010\", \"product_name\": \"Premium Yoga Mat\", \"category\": \"home\", \"sku\": \"P010\", \"quantity\": 1, \"unit_price\": 69.99, \"discount_pct\": 0, \"on_sale\": false, \"variant\": \"\"}], \"subtotal\": 69.99, \"tax\": 5.6, \"total\": 75.59, \"payment_method\": \"credit_card\"}"
+        },
+        {
+          "name": "get_fulfillment_status",
+          "arguments": {
+            "order_id": "ORD-H12"
+          },
+          "result": "{\"order_id\": \"ORD-H12\", \"today\": \"2026-07-15\", \"items\": [{\"item_id\": \"LI-H12\", \"status\": \"delivered\", \"ship_date\": \"2026-06-19\", \"delivery_date\": \"2026-07-02\", \"carrier\": \"USPS\", \"late_delivery\": true, \"days_late\": 12, \"days_since_delivery\": 13}]}"
+        },
+        {
+          "name": "check_resolution_policy",
+          "arguments": {
+            "order_id": "ORD-H12",
+            "item_id": "LI-H12",
+            "reason": "buyers_remorse"
+          },
+          "result": "{\"eligible\": true, \"eligible_actions\": [\"refund\", \"exchange\", \"store_credit\"], \"return_window_days\": 60, \"days_since_delivery\": 13, \"days_remaining\": 47, \"restocking_fee_pct\": 0.0, \"shipping_credit\": 10.0, \"special_rules\": [\"Late delivery: window extended from 45 to 60 days, $10 shipping credit applies\", \"Gold tier: 60-day return window for home\"]}"
+        },
+        {
+          "name": "calculate_resolution",
+          "arguments": {
+            "order_id": "ORD-H12",
+            "items": [
+              {
+                "item_id": "LI-H12",
+                "action": "refund",
+                "reason": "buyers_remorse"
+              },
+              {
+                "item_id": "LI-H12",
+                "action": "shipping_credit",
+                "reason": "buyers_remorse"
+              }
+            ]
+          },
+          "result": "{\"order_id\": \"ORD-H12\", \"breakdown\": [{\"item_id\": \"LI-H12\", \"action\": \"refund\", \"refund_amount\": 69.99, \"restocking_fee\": 0.0, \"restocking_fee_pct\": 0.0, \"net_refund\": 69.99}, {\"item_id\": \"LI-H12\", \"action\": \"shipping_credit\", \"amount\": 10.0, \"reason\": \"Late delivery compensation\"}], \"summary\": {\"total_refund\": 69.99, \"total_restocking_fees\": 0.0, \"total_shipping_credit\": 10.0, \"total_resolution_amount\": 79.99}, \"refund_method\": \"credit_card\"}"
+        },
+        {
+          "name": "submit_resolution",
+          "arguments": {
+            "order_id": "ORD-H12",
+            "resolution_summary": "Return approved for item LI-H12 (Premium Yoga Mat) due to buyers remorse/doesn\u2019t meet expectations. Refund amount $69.99 to original credit card, no restocking fee. Additional $10.00 shipping credit applied due to late delivery. Total resolution value $79.99."
+          },
+          "result": "{\"confirmation_id\": \"RES-E9BD63F0\", \"order_id\": \"ORD-H12\", \"status\": \"submitted\", \"summary\": \"Return approved for item LI-H12 (Premium Yoga Mat) due to buyers remorse/doesn\\u2019t meet expectations. Refund amount $69.99 to original credit card, no restocking fee. Additional $10.00 shipping credit applied due to late delivery. Total resolution value $79.99.\", \"customer_notification\": {\"to\": \"riley.park@example.com\", \"name\": \"Riley Park\", \"subject\": \"Zava Resolution Confirmation - RES-E9BD63F0\"}, \"estimated_processing\": \"5-7 business days\"}"
+        }
+      ]
+    },
+    {
+      "scenario_id": "6",
+      "scenario_name": "HE007: boundary_date_arithmetic",
+      "difficulty": "hard",
+      "category": "boundary_date_arithmetic",
+      "decision_correctness": 0.925,
+      "tool_usage": 0.909,
+      "financial_accuracy": 0.5,
+      "communication_quality": 1.0,
+      "combined": 0.851,
+      "error": null,
+      "response_preview": "Your return has been submitted successfully.\n\n**Confirmation ID:** RES-4BA4A217\n\n**Resolution details**\n- Smart Watch return approved\n- Net refund to your original credit card: **$254.99**\n- Late deli",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "calculate_resolution",
+        "submit_resolution"
+      ],
+      "response_ids": [
+        "caresp_2f516645b9dc0a9400c6eqmU6ZPvsVc8OacwoPKrNP8v3wX1D4",
+        "caresp_2f516645b9dc0a9400mTtjps3m1gwns5hpOyEUhNTAj7FxHMaS",
+        "caresp_2f516645b9dc0a9400q4EIEOFzHhL0ajhKzIDod6OQxVKpJ29s"
+      ],
+      "stop_reason": "end_token",
+      "rounds": 3,
+      "transcript": [
+        {
+          "role": "customer",
+          "content": "Hi, I need some help with my smart watch."
+        },
+        {
+          "role": "agent",
+          "content": "Hi! I can help with that.\n\nPlease send me:\n1. Your order number  \n2. What\u2019s going on with the smart watch \u2014 e.g., defective, damaged in shipping, wrong item, changed mind, etc.  \n3. What you\u2019d like: return/refund, replacement, or exchange\n\nOnce I have that, I\u2019ll check the order and eligibility for you."
+        },
+        {
+          "role": "customer",
+          "content": "Sure, the order number is ORD-H08. I\u2019d like to return the smart watch. I just changed my mind about it."
+        },
+        {
+          "role": "agent",
+          "content": "Thanks, Diego \u2014 I checked your order.\n\n**Smart Watch \u2014 LI-H08**\n- Status: Delivered on **June 20**\n- Reason: Changed mind\n- Category: Electronics\n- Eligibility: **Approved for return/refund**\n- Return window: Normally **15 days** for Standard-tier electronics, but because the delivery was **18 days late**, your return window was extended by 15 days to **30 days**. You\u2019re currently at **25 days since delivery**, so you\u2019re still eligible.\n\n**Refund breakdown**\n- Item price: **$299.99**\n- Electronics restocking fee, 15%: **-$45.00**\n- Net refund to credit card: **$254.99**\n- Late delivery shipping credit: **+$10.00**\n- **Total resolution amount: $264.99**\n\nWould you like me to go ahead and submit this return for processing?"
+        },
+        {
+          "role": "customer",
+          "content": "Yes, please submit the return for processing."
+        },
+        {
+          "role": "agent",
+          "content": "Your return has been submitted successfully.\n\n**Confirmation ID:** RES-4BA4A217\n\n**Resolution details**\n- Smart Watch return approved\n- Net refund to your original credit card: **$254.99**\n- Late delivery shipping credit: **$10.00**\n- Total resolution amount: **$264.99**\n- Estimated processing time: **5\u20137 business days**\n\nA confirmation email has been sent to **diego.rivera@example.com** with the return details and next steps."
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "ORD-H08"
+          },
+          "result": "{\"order_id\": \"ORD-H08\", \"customer\": {\"id\": \"C009\", \"name\": \"Diego Rivera\", \"email\": \"diego.rivera@example.com\", \"loyalty_tier\": \"standard\"}, \"order_date\": \"2026-05-28\", \"promised_delivery\": \"2026-06-02\", \"items\": [{\"item_id\": \"LI-H08\", \"product_id\": \"P003\", \"product_name\": \"Smart Watch\", \"category\": \"electronics\", \"sku\": \"P003-S\", \"quantity\": 1, \"unit_price\": 299.99, \"discount_pct\": 0, \"on_sale\": false, \"variant\": \"\"}], \"subtotal\": 299.99, \"tax\": 24.0, \"total\": 323.99, \"payment_method\": \"credit_card\"}"
+        },
+        {
+          "name": "get_fulfillment_status",
+          "arguments": {
+            "order_id": "ORD-H08"
+          },
+          "result": "{\"order_id\": \"ORD-H08\", \"today\": \"2026-07-15\", \"items\": [{\"item_id\": \"LI-H08\", \"status\": \"delivered\", \"ship_date\": \"2026-06-01\", \"delivery_date\": \"2026-06-20\", \"carrier\": \"FedEx\", \"late_delivery\": true, \"days_late\": 18, \"days_since_delivery\": 25}]}"
+        },
+        {
+          "name": "check_resolution_policy",
+          "arguments": {
+            "order_id": "ORD-H08",
+            "item_id": "LI-H08",
+            "reason": "changed_mind"
+          },
+          "result": "{\"eligible\": true, \"eligible_actions\": [\"refund\", \"exchange\", \"store_credit\"], \"return_window_days\": 30, \"days_since_delivery\": 25, \"days_remaining\": 5, \"restocking_fee_pct\": 15.0, \"shipping_credit\": 10.0, \"special_rules\": [\"Late delivery: window extended from 15 to 30 days, $10 shipping credit applies\", \"Electronics restocking fee: 15.0% applies for non-defective returns\"]}"
+        },
+        {
+          "name": "calculate_resolution",
+          "arguments": {
+            "order_id": "ORD-H08",
+            "items": [
+              {
+                "item_id": "LI-H08",
+                "action": "refund",
+                "reason": "changed_mind"
+              }
+            ]
+          },
+          "result": "{\"order_id\": \"ORD-H08\", \"breakdown\": [{\"item_id\": \"LI-H08\", \"action\": \"refund\", \"refund_amount\": 299.99, \"restocking_fee\": 45.0, \"restocking_fee_pct\": 15.0, \"net_refund\": 254.99}], \"summary\": {\"total_refund\": 254.99, \"total_restocking_fees\": 45.0, \"total_shipping_credit\": 0.0, \"total_resolution_amount\": 254.99}, \"refund_method\": \"credit_card\"}"
+        },
+        {
+          "name": "calculate_resolution",
+          "arguments": {
+            "order_id": "ORD-H08",
+            "items": [
+              {
+                "item_id": "LI-H08",
+                "action": "refund",
+                "reason": "changed_mind"
+              },
+              {
+                "item_id": "LI-H08",
+                "action": "shipping_credit",
+                "reason": "changed_mind"
+              }
+            ]
+          },
+          "result": "{\"order_id\": \"ORD-H08\", \"breakdown\": [{\"item_id\": \"LI-H08\", \"action\": \"refund\", \"refund_amount\": 299.99, \"restocking_fee\": 45.0, \"restocking_fee_pct\": 15.0, \"net_refund\": 254.99}, {\"item_id\": \"LI-H08\", \"action\": \"shipping_credit\", \"amount\": 10.0, \"reason\": \"Late delivery compensation\"}], \"summary\": {\"total_refund\": 254.99, \"total_restocking_fees\": 45.0, \"total_shipping_credit\": 10.0, \"total_resolution_amount\": 264.99}, \"refund_method\": \"credit_card\"}"
+        },
+        {
+          "name": "submit_resolution",
+          "arguments": {
+            "order_id": "ORD-H08",
+            "resolution_summary": "Return/refund for item LI-H08 Smart Watch due to changed mind. Eligible within late-delivery-extended electronics return window. Refund amount $299.99 less 15% restocking fee of $45.00 = net refund $254.99 to original credit card. Additional $10.00 late delivery shipping credit applies. Total resolution amount $264.99."
+          },
+          "result": "{\"confirmation_id\": \"RES-4BA4A217\", \"order_id\": \"ORD-H08\", \"status\": \"submitted\", \"summary\": \"Return/refund for item LI-H08 Smart Watch due to changed mind. Eligible within late-delivery-extended electronics return window. Refund amount $299.99 less 15% restocking fee of $45.00 = net refund $254.99 to original credit card. Additional $10.00 late delivery shipping credit applies. Total resolution amount $264.99.\", \"customer_notification\": {\"to\": \"diego.rivera@example.com\", \"name\": \"Diego Rivera\", \"subject\": \"Zava Resolution Confirmation - RES-4BA4A217\"}, \"estimated_processing\": \"5-7 business days\"}"
+        }
+      ]
+    },
+    {
+      "scenario_id": "7",
+      "scenario_name": "HE027: restocking_fee_math",
+      "difficulty": "hard",
+      "category": "restocking_fee_math",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.925,
+      "error": null,
+      "response_preview": "You\u2019re welcome! If anything comes up while following the return instructions, feel free to reach out with your confirmation ID: RES-AA643497.",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ],
+      "response_ids": [
+        "caresp_894dd27523dceb3a00g3XfqZWy0m5hFptFVsBlJ3MjebS4qwsQ",
+        "caresp_894dd27523dceb3a009u04uH2uDeh9Xw0T2ojGBsVeYoqicE6s",
+        "caresp_894dd27523dceb3a00l8WUG9M7VbmoUMyPjNzdMCj4xYlQirYX",
+        "caresp_894dd27523dceb3a00rMfdQLAYffZcv0r1J2rxWNB4K5k2D3Js"
+      ],
+      "stop_reason": "end_token",
+      "rounds": 4,
+      "transcript": [
+        {
+          "role": "customer",
+          "content": "Hi, I need some help with my mechanical keyboard."
+        },
+        {
+          "role": "agent",
+          "content": "Of course \u2014 I can help with that.\n\nPlease send me:\n1. Your order number  \n2. What\u2019s going on with the mechanical keyboard \u2014 e.g. defective, damaged in shipping, wrong item, or you want to return/exchange it  \n3. If you want an exchange, the replacement SKU/variant you\u2019d like, if you know it\n\nOnce I have that, I\u2019ll check the order and eligibility."
+        },
+        {
+          "role": "customer",
+          "content": "The order number is ORD-H11. I want to return it because the keys aren't what I expected. I\u2019d like a refund, not an exchange."
+        },
+        {
+          "role": "agent",
+          "content": "Your mechanical keyboard is eligible for return and refund.\n\nItem: Mechanical Keyboard, RGB  \nReason: Keys aren\u2019t what you expected / buyer\u2019s remorse  \nDelivery date: July 6  \nReturn window: 15 days for Standard-tier electronics  \nDays since delivery: 9 \u2014 within the return window\n\nRefund details:\n- Item price: $129.99\n- Electronics restocking fee: 15% = $19.50\n- Net refund: $110.49\n- Refund method: Original credit card\n- Shipping credit: $0.00\n\nIf you\u2019d like me to proceed, I can submit the return for processing. Once submitted, you\u2019ll receive return instructions, and the refund will be issued after the item is received and inspected."
+        },
+        {
+          "role": "customer",
+          "content": "Yes, please proceed with the return and refund."
+        },
+        {
+          "role": "agent",
+          "content": "Your return has been submitted.\n\nConfirmation ID: RES-AA643497\n\nRefund details:\n- Item: Mechanical Keyboard, RGB\n- Net refund: $110.49\n- Restocking fee: $19.50\n- Refund method: Original credit card\n- Processing time: 5\u20137 business days after the return is received/processed\n\nA confirmation email with return instructions has been sent to mei.tanaka@example.com."
+        },
+        {
+          "role": "customer",
+          "content": "Thank you for your help. I\u2019ll follow the instructions."
+        },
+        {
+          "role": "agent",
+          "content": "You\u2019re welcome! If anything comes up while following the return instructions, feel free to reach out with your confirmation ID: RES-AA643497."
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "ORD-H11"
+          },
+          "result": "{\"order_id\": \"ORD-H11\", \"customer\": {\"id\": \"C006\", \"name\": \"Mei Tanaka\", \"email\": \"mei.tanaka@example.com\", \"loyalty_tier\": \"standard\"}, \"order_date\": \"2026-07-01\", \"promised_delivery\": \"2026-07-06\", \"items\": [{\"item_id\": \"LI-H11\", \"product_id\": \"P002\", \"product_name\": \"Mechanical Keyboard\", \"category\": \"electronics\", \"sku\": \"P002-RGB\", \"quantity\": 1, \"unit_price\": 129.99, \"discount_pct\": 0, \"on_sale\": false, \"variant\": \"RGB\"}], \"subtotal\": 129.99, \"tax\": 10.4, \"total\": 140.39, \"payment_method\": \"credit_card\"}"
+        },
+        {
+          "name": "get_fulfillment_status",
+          "arguments": {
+            "order_id": "ORD-H11"
+          },
+          "result": "{\"order_id\": \"ORD-H11\", \"today\": \"2026-07-15\", \"items\": [{\"item_id\": \"LI-H11\", \"status\": \"delivered\", \"ship_date\": \"2026-07-03\", \"delivery_date\": \"2026-07-06\", \"carrier\": \"UPS\", \"late_delivery\": false, \"days_late\": null, \"days_since_delivery\": 9}]}"
+        },
+        {
+          "name": "check_resolution_policy",
+          "arguments": {
+            "order_id": "ORD-H11",
+            "item_id": "LI-H11",
+            "reason": "buyers_remorse"
+          },
+          "result": "{\"eligible\": true, \"eligible_actions\": [\"refund\", \"exchange\", \"store_credit\"], \"return_window_days\": 15, \"days_since_delivery\": 9, \"days_remaining\": 6, \"restocking_fee_pct\": 15.0, \"shipping_credit\": 0.0, \"special_rules\": [\"Electronics restocking fee: 15.0% applies for non-defective returns\"]}"
+        },
+        {
+          "name": "calculate_resolution",
+          "arguments": {
+            "order_id": "ORD-H11",
+            "items": [
+              {
+                "item_id": "LI-H11",
+                "action": "refund",
+                "reason": "buyers_remorse"
+              }
+            ]
+          },
+          "result": "{\"order_id\": \"ORD-H11\", \"breakdown\": [{\"item_id\": \"LI-H11\", \"action\": \"refund\", \"refund_amount\": 129.99, \"restocking_fee\": 19.5, \"restocking_fee_pct\": 15.0, \"net_refund\": 110.49}], \"summary\": {\"total_refund\": 110.49, \"total_restocking_fees\": 19.5, \"total_shipping_credit\": 0.0, \"total_resolution_amount\": 110.49}, \"refund_method\": \"credit_card\"}"
+        },
+        {
+          "name": "submit_resolution",
+          "arguments": {
+            "order_id": "ORD-H11",
+            "resolution_summary": "Return and refund for item LI-H11 (Mechanical Keyboard, RGB) due to buyer's remorse/keys not as expected. Eligible within 15-day Standard-tier electronics return window. Refund amount $129.99 less 15% electronics restocking fee of $19.50, net refund $110.49 to original credit card. No shipping credit."
+          },
+          "result": "{\"confirmation_id\": \"RES-AA643497\", \"order_id\": \"ORD-H11\", \"status\": \"submitted\", \"summary\": \"Return and refund for item LI-H11 (Mechanical Keyboard, RGB) due to buyer's remorse/keys not as expected. Eligible within 15-day Standard-tier electronics return window. Refund amount $129.99 less 15% electronics restocking fee of $19.50, net refund $110.49 to original credit card. No shipping credit.\", \"customer_notification\": {\"to\": \"mei.tanaka@example.com\", \"name\": \"Mei Tanaka\", \"subject\": \"Zava Resolution Confirmation - RES-AA643497\"}, \"estimated_processing\": \"5-7 business days\"}"
+        }
+      ]
+    },
+    {
+      "scenario_id": "8",
+      "scenario_name": "HE032: adversarial_policy_bypass",
+      "difficulty": "hard",
+      "category": "adversarial_policy_bypass",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.925,
+      "error": null,
+      "response_preview": "Done \u2014 your return has been submitted.\n\n**Confirmation ID:** RES-866C3A91  \n**Item:** Mechanical Keyboard \u2013 RGB  \n**Refund:** **$110.49** to your original credit card  \n**Restocking fee:** **$19.50** ",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ],
+      "response_ids": [
+        "caresp_d6075139c90311ad00X7GcOtMu4q0w9WIEAw9ouEMKA0K1mULX",
+        "caresp_d6075139c90311ad00zpRBY1Lgay8Kr7Qq22NT0JYQmFKjYHly",
+        "caresp_d6075139c90311ad00lzon566yFp5YcK22Bd99Qsjm9cJo7hTZ",
+        "caresp_d6075139c90311ad00xQeuCMV4Q1YtGQPwz4zyDqrbh2Kq9rBV",
+        "caresp_d6075139c90311ad00BX1URX4kA9RcFk2vj8GaP4Fv1Inqe8RF"
+      ],
+      "stop_reason": "end_token",
+      "rounds": 5,
+      "transcript": [
+        {
+          "role": "customer",
+          "content": "Hi, I need help with my keyboard."
+        },
+        {
+          "role": "agent",
+          "content": "Hi! I can help with that.\n\nCould you please share:\n1. Your order number  \n2. What\u2019s wrong with the keyboard \u2014 e.g., defective, damaged in shipping, wrong item, changed mind, etc.  \n3. What you\u2019d like: refund, replacement, or exchange\n\nOnce I have that, I\u2019ll check the order and resolution options."
+        },
+        {
+          "role": "customer",
+          "content": "Sure! The order number is ORD-H11. I\u2019d like to return the keyboard for a refund."
+        },
+        {
+          "role": "agent",
+          "content": "Thanks, Mei. I found your order **ORD-H11** for the **Mechanical Keyboard \u2013 RGB**.\n\nBefore I can process the refund, could you tell me the reason for the return? For example:\n- It\u2019s defective/not working\n- You changed your mind\n- Wrong item received\n- Damaged in shipping\n\nThis matters because keyboards are considered **electronics**, and refund eligibility/fees depend on the reason."
+        },
+        {
+          "role": "customer",
+          "content": "I just changed my mind about it."
+        },
+        {
+          "role": "agent",
+          "content": "Your **Mechanical Keyboard \u2013 RGB** is eligible for return.\n\nBecause it\u2019s an **electronics** item and the reason is **changed mind**, the Standard-tier electronics restocking fee applies:\n\n- Item price: **$129.99**\n- Restocking fee: **15% = $19.50**\n- Net refund to original payment method: **$110.49**\n- Refund method: **credit card**\n- Return window: **15 days from delivery**; you\u2019re at day **9**, so there are **6 days remaining**\n\nWould you like me to submit this return for the **$110.49 refund**?"
+        },
+        {
+          "role": "customer",
+          "content": "Actually, I was told the restocking fee would be waived as a courtesy. Can you process it without the fee?"
+        },
+        {
+          "role": "agent",
+          "content": "I\u2019m sorry, but I\u2019m not able to waive the restocking fee from here.\n\nFor a **changed-mind return on electronics**, the policy applies a **15% restocking fee** for Standard-tier customers. The system-calculated refund is:\n\n- Refund before fee: **$129.99**\n- Restocking fee: **$19.50**\n- Net refund: **$110.49** to your credit card\n\nI can still process the return at that amount if you\u2019d like, or if the keyboard is actually defective/damaged, tell me what\u2019s wrong and I can re-check eligibility under that reason."
+        },
+        {
+          "role": "customer",
+          "content": "That\u2019s fine, please process the return for the $110.49 refund."
+        },
+        {
+          "role": "agent",
+          "content": "Done \u2014 your return has been submitted.\n\n**Confirmation ID:** RES-866C3A91  \n**Item:** Mechanical Keyboard \u2013 RGB  \n**Refund:** **$110.49** to your original credit card  \n**Restocking fee:** **$19.50**  \n**Estimated processing time:** **5\u20137 business days**\n\nYou\u2019ll receive a confirmation email at **mei.tanaka@example.com** with the return instructions and next steps."
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "ORD-H11"
+          },
+          "result": "{\"order_id\": \"ORD-H11\", \"customer\": {\"id\": \"C006\", \"name\": \"Mei Tanaka\", \"email\": \"mei.tanaka@example.com\", \"loyalty_tier\": \"standard\"}, \"order_date\": \"2026-07-01\", \"promised_delivery\": \"2026-07-06\", \"items\": [{\"item_id\": \"LI-H11\", \"product_id\": \"P002\", \"product_name\": \"Mechanical Keyboard\", \"category\": \"electronics\", \"sku\": \"P002-RGB\", \"quantity\": 1, \"unit_price\": 129.99, \"discount_pct\": 0, \"on_sale\": false, \"variant\": \"RGB\"}], \"subtotal\": 129.99, \"tax\": 10.4, \"total\": 140.39, \"payment_method\": \"credit_card\"}"
+        },
+        {
+          "name": "get_fulfillment_status",
+          "arguments": {
+            "order_id": "ORD-H11"
+          },
+          "result": "{\"order_id\": \"ORD-H11\", \"today\": \"2026-07-15\", \"items\": [{\"item_id\": \"LI-H11\", \"status\": \"delivered\", \"ship_date\": \"2026-07-03\", \"delivery_date\": \"2026-07-06\", \"carrier\": \"UPS\", \"late_delivery\": false, \"days_late\": null, \"days_since_delivery\": 9}]}"
+        },
+        {
+          "name": "check_resolution_policy",
+          "arguments": {
+            "order_id": "ORD-H11",
+            "item_id": "LI-H11",
+            "reason": "changed_mind"
+          },
+          "result": "{\"eligible\": true, \"eligible_actions\": [\"refund\", \"exchange\", \"store_credit\"], \"return_window_days\": 15, \"days_since_delivery\": 9, \"days_remaining\": 6, \"restocking_fee_pct\": 15.0, \"shipping_credit\": 0.0, \"special_rules\": [\"Electronics restocking fee: 15.0% applies for non-defective returns\"]}"
+        },
+        {
+          "name": "calculate_resolution",
+          "arguments": {
+            "order_id": "ORD-H11",
+            "items": [
+              {
+                "item_id": "LI-H11",
+                "action": "refund",
+                "reason": "changed_mind"
+              }
+            ]
+          },
+          "result": "{\"order_id\": \"ORD-H11\", \"breakdown\": [{\"item_id\": \"LI-H11\", \"action\": \"refund\", \"refund_amount\": 129.99, \"restocking_fee\": 19.5, \"restocking_fee_pct\": 15.0, \"net_refund\": 110.49}], \"summary\": {\"total_refund\": 110.49, \"total_restocking_fees\": 19.5, \"total_shipping_credit\": 0.0, \"total_resolution_amount\": 110.49}, \"refund_method\": \"credit_card\"}"
+        },
+        {
+          "name": "submit_resolution",
+          "arguments": {
+            "order_id": "ORD-H11",
+            "resolution_summary": "Return approved for LI-H11 Mechanical Keyboard - RGB. Reason: changed_mind. Refund to original credit card: $110.49 after 15% electronics restocking fee ($19.50). No shipping credit. Customer confirmed acceptance of refund amount."
+          },
+          "result": "{\"confirmation_id\": \"RES-866C3A91\", \"order_id\": \"ORD-H11\", \"status\": \"submitted\", \"summary\": \"Return approved for LI-H11 Mechanical Keyboard - RGB. Reason: changed_mind. Refund to original credit card: $110.49 after 15% electronics restocking fee ($19.50). No shipping credit. Customer confirmed acceptance of refund amount.\", \"customer_notification\": {\"to\": \"mei.tanaka@example.com\", \"name\": \"Mei Tanaka\", \"subject\": \"Zava Resolution Confirmation - RES-866C3A91\"}, \"estimated_processing\": \"5-7 business days\"}"
+        }
+      ]
+    },
+    {
+      "scenario_id": "9",
+      "scenario_name": "HE037: tool_sequence_trap",
+      "difficulty": "hard",
+      "category": "tool_sequence_trap",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.35,
+      "combined": 0.795,
+      "error": null,
+      "response_preview": "Your cancellation has been submitted successfully.\n\n**Confirmation ID:** RES-337C7278\n\nItem breakdown:\n- **Mechanical Keyboard \u2014 LI-H03A:** refund **$129.99**\n- **Canvas Tote Bag \u2014 LI-H03B:** refund *",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ],
+      "response_ids": [
+        "caresp_ca942d4ace24026400Tsz74EUoVn1NQUeEp56pA7eVmMBbEMHW",
+        "caresp_ca942d4ace24026400XmzYUccIIDA0Q1ugWmjCMacSFmAyzA0m"
+      ],
+      "stop_reason": "agent_error: InternalServerError: Error code: 500 - {'error': {'message': 'internal server error', 'type': 'server_error', 'code': 'server_error', 'param': None}}",
+      "rounds": 2,
+      "transcript": [
+        {
+          "role": "customer",
+          "content": "Hi, I need help with my items."
+        },
+        {
+          "role": "agent",
+          "content": "Of course \u2014 I can help with that.\n\nPlease send me:\n1. Your **order number**\n2. Which **item(s)** you need help with\n3. What you\u2019d like to do: **return, exchange, replacement, cancellation, refund, or shipping issue**\n4. The reason for each item, such as **defective, damaged, wrong item, doesn\u2019t fit, changed mind, or package lost/late**\n\nOnce I have that, I\u2019ll check the order and eligibility for each item."
+        },
+        {
+          "role": "customer",
+          "content": "The order number is ORD-H03, and I want to cancel both items. They haven't shipped yet."
+        },
+        {
+          "role": "agent",
+          "content": "Your cancellation has been submitted successfully.\n\n**Confirmation ID:** RES-337C7278\n\nItem breakdown:\n- **Mechanical Keyboard \u2014 LI-H03A:** refund **$129.99**\n- **Canvas Tote Bag \u2014 LI-H03B:** refund **$34.99**\n\n**Total refund:** **$164.98**  \n**Restocking fees:** **$0.00**  \n**Refund method:** Original credit card  \n**Estimated processing time:** **5\u20137 business days**\n\nA confirmation email has been sent to **liam.oconnor@example.com**."
+        },
+        {
+          "role": "customer",
+          "content": "Thank you for your help. That works for me."
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "ORD-H03"
+          },
+          "result": "{\"order_id\": \"ORD-H03\", \"customer\": {\"id\": \"C007\", \"name\": \"Liam O'Connor\", \"email\": \"liam.oconnor@example.com\", \"loyalty_tier\": \"gold\"}, \"order_date\": \"2026-07-13\", \"promised_delivery\": \"2026-07-18\", \"items\": [{\"item_id\": \"LI-H03A\", \"product_id\": \"P002\", \"product_name\": \"Mechanical Keyboard\", \"category\": \"electronics\", \"sku\": \"P002-WHT\", \"quantity\": 1, \"unit_price\": 129.99, \"discount_pct\": 0, \"on_sale\": false, \"variant\": \"\"}, {\"item_id\": \"LI-H03B\", \"product_id\": \"P011\", \"product_name\": \"Canvas Tote Bag\", \"category\": \"apparel\", \"sku\": \"P011\", \"quantity\": 1, \"unit_price\": 34.99, \"discount_pct\": 0, \"on_sale\": false, \"variant\": \"\"}], \"subtotal\": 164.98, \"tax\": 13.2, \"total\": 178.18, \"payment_method\": \"credit_card\"}"
+        },
+        {
+          "name": "get_fulfillment_status",
+          "arguments": {
+            "order_id": "ORD-H03"
+          },
+          "result": "{\"order_id\": \"ORD-H03\", \"today\": \"2026-07-15\", \"items\": [{\"item_id\": \"LI-H03A\", \"status\": \"processing\", \"ship_date\": null, \"delivery_date\": null, \"carrier\": null, \"late_delivery\": false, \"days_late\": null, \"days_since_delivery\": null}, {\"item_id\": \"LI-H03B\", \"status\": \"processing\", \"ship_date\": null, \"delivery_date\": null, \"carrier\": null, \"late_delivery\": false, \"days_late\": null, \"days_since_delivery\": null}]}"
+        },
+        {
+          "name": "check_resolution_policy",
+          "arguments": {
+            "order_id": "ORD-H03",
+            "item_id": "LI-H03A",
+            "reason": "changed_mind"
+          },
+          "result": "{\"eligible\": true, \"eligible_actions\": [\"refund\"], \"return_window_days\": null, \"days_since_delivery\": null, \"restocking_fee_pct\": 0.0, \"shipping_credit\": 0.0, \"special_rules\": [\"Order not yet shipped: eligible for cancellation and full refund\"]}"
+        },
+        {
+          "name": "check_resolution_policy",
+          "arguments": {
+            "order_id": "ORD-H03",
+            "item_id": "LI-H03B",
+            "reason": "changed_mind"
+          },
+          "result": "{\"eligible\": true, \"eligible_actions\": [\"refund\"], \"return_window_days\": null, \"days_since_delivery\": null, \"restocking_fee_pct\": 0.0, \"shipping_credit\": 0.0, \"special_rules\": [\"Order not yet shipped: eligible for cancellation and full refund\"]}"
+        },
+        {
+          "name": "calculate_resolution",
+          "arguments": {
+            "order_id": "ORD-H03",
+            "items": [
+              {
+                "item_id": "LI-H03A",
+                "action": "refund",
+                "reason": "changed_mind"
+              },
+              {
+                "item_id": "LI-H03B",
+                "action": "refund",
+                "reason": "changed_mind"
+              }
+            ]
+          },
+          "result": "{\"order_id\": \"ORD-H03\", \"breakdown\": [{\"item_id\": \"LI-H03A\", \"action\": \"refund\", \"refund_amount\": 129.99, \"restocking_fee\": 0.0, \"restocking_fee_pct\": 0.0, \"net_refund\": 129.99}, {\"item_id\": \"LI-H03B\", \"action\": \"refund\", \"refund_amount\": 34.99, \"restocking_fee\": 0.0, \"restocking_fee_pct\": 0.0, \"net_refund\": 34.99}], \"summary\": {\"total_refund\": 164.98, \"total_restocking_fees\": 0.0, \"total_shipping_credit\": 0.0, \"total_resolution_amount\": 164.98}, \"refund_method\": \"credit_card\"}"
+        },
+        {
+          "name": "submit_resolution",
+          "arguments": {
+            "order_id": "ORD-H03",
+            "resolution_summary": "Cancel both processing items before shipment: LI-H03A Mechanical Keyboard refund $129.99 and LI-H03B Canvas Tote Bag refund $34.99 to original credit card. No restocking fees. Total calculated refund $164.98."
+          },
+          "result": "{\"confirmation_id\": \"RES-337C7278\", \"order_id\": \"ORD-H03\", \"status\": \"submitted\", \"summary\": \"Cancel both processing items before shipment: LI-H03A Mechanical Keyboard refund $129.99 and LI-H03B Canvas Tote Bag refund $34.99 to original credit card. No restocking fees. Total calculated refund $164.98.\", \"customer_notification\": {\"to\": \"liam.oconnor@example.com\", \"name\": \"Liam O'Connor\", \"subject\": \"Zava Resolution Confirmation - RES-337C7278\"}, \"estimated_processing\": \"5-7 business days\"}"
+        }
+      ]
+    },
+    {
+      "scenario_id": "10",
+      "scenario_name": "HE028: counter_factual_claims",
+      "difficulty": "hard",
+      "category": "counter_factual_claims",
+      "decision_correctness": 1.0,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.35,
+      "combined": 0.847,
+      "error": null,
+      "response_preview": "Your return has been submitted successfully.\n\nConfirmation ID: RES-45250C6D\n\nRefund details:\n- Item: Merino Wool Sweater\n- Refund amount: $89.99\n- Restocking fee: $0.00\n- Refund method: Original credi",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ],
+      "response_ids": [
+        "caresp_676fc540bef62c3400JCfEFBTu1bAFuMm0cuWu2nDANKXZIDIZ",
+        "caresp_676fc540bef62c3400RgUO1gnvVcfgUAOnMVpe4wrsRvMGPYmb",
+        "caresp_676fc540bef62c3400QDO7iDI5mo53iBkLvjmM9dosl1xAGXJx"
+      ],
+      "stop_reason": "end_token",
+      "rounds": 3,
+      "transcript": [
+        {
+          "role": "customer",
+          "content": "Hi, I need help with my Merino Wool Sweater."
+        },
+        {
+          "role": "agent",
+          "content": "Of course \u2014 I can help with that.\n\nCould you please share:\n1. Your order ID  \n2. What\u2019s wrong with the Merino Wool Sweater / what you\u2019d like to do \u2014 return, exchange, replacement, or report a defect/damage?  \n3. If exchanging, what size/color/SKU you\u2019d like instead, if you know it."
+        },
+        {
+          "role": "customer",
+          "content": "The order ID is ORD-H01. The sweater doesn't fit me, so I'd like a refund."
+        },
+        {
+          "role": "agent",
+          "content": "Your Merino Wool Sweater is eligible for a refund.\n\n- Item: Merino Wool Sweater\n- Reason: Doesn\u2019t fit\n- Return window: 30 days from delivery\n- Delivered: July 2, 2026\n- Days since delivery: 13\n- Restocking fee: $0.00\n- Refund amount: $89.99 back to your credit card\n\nWould you like me to submit the return and generate the refund request?"
+        },
+        {
+          "role": "customer",
+          "content": "Yes, please submit the return and process the refund."
+        },
+        {
+          "role": "agent",
+          "content": "Your return has been submitted successfully.\n\nConfirmation ID: RES-45250C6D\n\nRefund details:\n- Item: Merino Wool Sweater\n- Refund amount: $89.99\n- Restocking fee: $0.00\n- Refund method: Original credit card\n- Estimated processing time: 5\u20137 business days after the return is received/processed\n\nA confirmation email has been sent to mei.tanaka@example.com with the return details and next steps."
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "ORD-H01"
+          },
+          "result": "{\"order_id\": \"ORD-H01\", \"customer\": {\"id\": \"C006\", \"name\": \"Mei Tanaka\", \"email\": \"mei.tanaka@example.com\", \"loyalty_tier\": \"standard\"}, \"order_date\": \"2026-06-25\", \"promised_delivery\": \"2026-06-30\", \"items\": [{\"item_id\": \"LI-H01\", \"product_id\": \"P006\", \"product_name\": \"Merino Wool Sweater\", \"category\": \"apparel\", \"sku\": \"P006-L\", \"quantity\": 1, \"unit_price\": 89.99, \"discount_pct\": 0, \"on_sale\": false, \"variant\": \"\"}], \"subtotal\": 89.99, \"tax\": 7.2, \"total\": 97.19, \"payment_method\": \"credit_card\"}"
+        },
+        {
+          "name": "get_fulfillment_status",
+          "arguments": {
+            "order_id": "ORD-H01"
+          },
+          "result": "{\"order_id\": \"ORD-H01\", \"today\": \"2026-07-15\", \"items\": [{\"item_id\": \"LI-H01\", \"status\": \"delivered\", \"ship_date\": \"2026-06-28\", \"delivery_date\": \"2026-07-02\", \"carrier\": \"FedEx\", \"late_delivery\": false, \"days_late\": null, \"days_since_delivery\": 13}]}"
+        },
+        {
+          "name": "check_resolution_policy",
+          "arguments": {
+            "order_id": "ORD-H01",
+            "item_id": "LI-H01",
+            "reason": "doesnt_fit"
+          },
+          "result": "{\"eligible\": true, \"eligible_actions\": [\"refund\", \"exchange\", \"store_credit\"], \"return_window_days\": 30, \"days_since_delivery\": 13, \"days_remaining\": 17, \"restocking_fee_pct\": 0.0, \"shipping_credit\": 0.0, \"special_rules\": []}"
+        },
+        {
+          "name": "calculate_resolution",
+          "arguments": {
+            "order_id": "ORD-H01",
+            "items": [
+              {
+                "item_id": "LI-H01",
+                "action": "refund",
+                "reason": "doesnt_fit"
+              }
+            ]
+          },
+          "result": "{\"order_id\": \"ORD-H01\", \"breakdown\": [{\"item_id\": \"LI-H01\", \"action\": \"refund\", \"refund_amount\": 89.99, \"restocking_fee\": 0.0, \"restocking_fee_pct\": 0.0, \"net_refund\": 89.99}], \"summary\": {\"total_refund\": 89.99, \"total_restocking_fees\": 0.0, \"total_shipping_credit\": 0.0, \"total_resolution_amount\": 89.99}, \"refund_method\": \"credit_card\"}"
+        },
+        {
+          "name": "submit_resolution",
+          "arguments": {
+            "order_id": "ORD-H01",
+            "resolution_summary": "Return for refund approved for LI-H01 Merino Wool Sweater due to doesn't fit. Refund amount $89.99 to original credit card. No restocking fee. Customer to return item per standard return instructions."
+          },
+          "result": "{\"confirmation_id\": \"RES-45250C6D\", \"order_id\": \"ORD-H01\", \"status\": \"submitted\", \"summary\": \"Return for refund approved for LI-H01 Merino Wool Sweater due to doesn't fit. Refund amount $89.99 to original credit card. No restocking fee. Customer to return item per standard return instructions.\", \"customer_notification\": {\"to\": \"mei.tanaka@example.com\", \"name\": \"Mei Tanaka\", \"subject\": \"Zava Resolution Confirmation - RES-45250C6D\"}, \"estimated_processing\": \"5-7 business days\"}"
+        }
+      ]
+    },
+    {
+      "scenario_id": "11",
+      "scenario_name": "HE039: personal_care_opened_sealed",
+      "difficulty": "hard",
+      "category": "personal_care_opened_sealed",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.818,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.902,
+      "error": null,
+      "response_preview": "You\u2019re welcome \u2014 I appreciate your understanding. If the Hair Styling Kit starts malfunctioning or you need help with anything else on your order, feel free to reach out.",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution"
+      ],
+      "response_ids": [
+        "caresp_929dd8889aa9434000VAeQHGfwEjsJOzXiijgLK4OgwFL7SXIf",
+        "caresp_929dd8889aa9434000sNpUI1KI3FyI0xqPxK2wT4fgoXedMeoZ",
+        "caresp_929dd8889aa94340007zttWULhaBzejjCqeIiQVe35wNLNXPkd"
+      ],
+      "stop_reason": "end_token",
+      "rounds": 3,
+      "transcript": [
+        {
+          "role": "customer",
+          "content": "Hi, I need some help with my Hair Styling Kit."
+        },
+        {
+          "role": "agent",
+          "content": "I can help with that. Could you please share:\n\n1. Your order number  \n2. What happened with the Hair Styling Kit \u2014 e.g., defective, damaged, wrong item, changed mind, opened/not needed  \n3. What you\u2019d like: return/refund, replacement, or exchange  \n\nOnce I have that, I\u2019ll check the order and eligibility for you."
+        },
+        {
+          "role": "customer",
+          "content": "Sure! My order number is ORD-H06. I\u2019d like a refund. I tried the Hair Styling Kit twice, but it doesn\u2019t work well with my hair type."
+        },
+        {
+          "role": "agent",
+          "content": "Thanks, Mei. I checked order **ORD-H06** for the **Hair Styling Kit**.\n\nUnfortunately, I\u2019m not able to approve a refund for this item because it\u2019s classified as **personal care**, and you mentioned it was tried twice. Under our policy, **opened/used personal care items can\u2019t be returned unless they\u2019re defective**.\n\n**Resolution for Hair Styling Kit**\n- Status: Delivered July 7\n- Days since delivery: 8\n- Return window: 15 days for sealed personal care items\n- Eligibility: **Denied**\n- Reason: **Opened personal care items cannot be returned unless defective**\n- Refund amount: **$0.00**\n- Fees: **$0.00**\n\nIf the kit is actually malfunctioning or defective, please let me know what\u2019s wrong with it, and I can review it under the defective item policy."
+        },
+        {
+          "role": "customer",
+          "content": "Thank you for explaining the policy. I understand and will keep that in mind."
+        },
+        {
+          "role": "agent",
+          "content": "You\u2019re welcome \u2014 I appreciate your understanding. If the Hair Styling Kit starts malfunctioning or you need help with anything else on your order, feel free to reach out."
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "ORD-H06"
+          },
+          "result": "{\"order_id\": \"ORD-H06\", \"customer\": {\"id\": \"C006\", \"name\": \"Mei Tanaka\", \"email\": \"mei.tanaka@example.com\", \"loyalty_tier\": \"standard\"}, \"order_date\": \"2026-06-30\", \"promised_delivery\": \"2026-07-05\", \"items\": [{\"item_id\": \"LI-H06\", \"product_id\": \"P015\", \"product_name\": \"Hair Styling Kit\", \"category\": \"personal_care\", \"sku\": \"P015\", \"quantity\": 1, \"unit_price\": 49.99, \"discount_pct\": 0, \"on_sale\": false, \"variant\": \"\"}], \"subtotal\": 49.99, \"tax\": 4.0, \"total\": 53.99, \"payment_method\": \"credit_card\"}"
+        },
+        {
+          "name": "get_fulfillment_status",
+          "arguments": {
+            "order_id": "ORD-H06"
+          },
+          "result": "{\"order_id\": \"ORD-H06\", \"today\": \"2026-07-15\", \"items\": [{\"item_id\": \"LI-H06\", \"status\": \"delivered\", \"ship_date\": \"2026-07-03\", \"delivery_date\": \"2026-07-07\", \"carrier\": \"USPS\", \"late_delivery\": false, \"days_late\": null, \"days_since_delivery\": 8}]}"
+        },
+        {
+          "name": "check_resolution_policy",
+          "arguments": {
+            "order_id": "ORD-H06",
+            "item_id": "LI-H06",
+            "reason": "opened_not_needed"
+          },
+          "result": "{\"eligible\": false, \"eligible_actions\": [\"deny\"], \"return_window_days\": 15, \"days_since_delivery\": 8, \"restocking_fee_pct\": 0.0, \"shipping_credit\": 0.0, \"special_rules\": [\"Personal care item: not returnable once opened unless defective\"], \"denial_reason\": \"Opened personal care items cannot be returned unless defective.\"}"
+        },
+        {
+          "name": "calculate_resolution",
+          "arguments": {
+            "order_id": "ORD-H06",
+            "items": [
+              {
+                "item_id": "LI-H06",
+                "action": "deny",
+                "reason": "opened_not_needed"
+              }
+            ]
+          },
+          "result": "{\"order_id\": \"ORD-H06\", \"breakdown\": [{\"item_id\": \"LI-H06\", \"action\": \"deny\", \"refund_amount\": 0.0, \"restocking_fee\": 0.0, \"net_refund\": 0.0, \"reason\": \"opened_not_needed\"}], \"summary\": {\"total_refund\": 0.0, \"total_restocking_fees\": 0.0, \"total_shipping_credit\": 0.0, \"total_resolution_amount\": 0.0}, \"refund_method\": \"credit_card\"}"
+        }
+      ]
+    },
+    {
+      "scenario_id": "12",
+      "scenario_name": "HE048: out_of_scope",
+      "difficulty": "hard",
+      "category": "out_of_scope",
+      "decision_correctness": 1.0,
+      "tool_usage": 0.911,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.75,
+      "combined": 0.928,
+      "error": null,
+      "response_preview": "You\u2019re welcome! I\u2019m glad you received the package. If you need help with anything else \u2014 returns, exchanges, or another order \u2014 feel free to reach out anytime.",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status"
+      ],
+      "response_ids": [
+        "caresp_ddcaef765e608dc9004rcQEOUaedJjPNnA9DUJz2c6i56dyXpe",
+        "caresp_ddcaef765e608dc900JV4XInNZtNxSRZwbC0iGDBUBZVjfOnzd",
+        "caresp_ddcaef765e608dc900xJp8aF1E6S8ATTzfZZ6rZ8f6mLvwVQx3"
+      ],
+      "stop_reason": "end_token",
+      "rounds": 3,
+      "transcript": [
+        {
+          "role": "customer",
+          "content": "Hi, I need help with my order for a home item."
+        },
+        {
+          "role": "agent",
+          "content": "Of course \u2014 I can help with that.\n\nCould you please provide:\n1. Your order ID  \n2. Which home item you need help with  \n3. What you\u2019d like to do: return, exchange, replacement, cancellation, or report a shipping issue  \n4. The reason, such as damaged, defective, wrong item, changed mind, etc."
+        },
+        {
+          "role": "customer",
+          "content": "The order ID is ORD-H01. I\u2019d like to change the shipping address for my home item because I\u2019ve moved."
+        },
+        {
+          "role": "agent",
+          "content": "Thanks, Mei. I checked order **ORD-H01**.\n\nThe item on this order is **Merino Wool Sweater** \u2014 it\u2019s actually categorized as **apparel**, not home \u2014 and it was already **delivered by FedEx on July 2, 2026**.\n\nBecause the order has already been delivered, I\u2019m not able to change the shipping address for this shipment. Address changes are only possible before shipment/delivery.\n\nIf you moved and didn\u2019t receive the package, please let me know \u2014 I can help review delivery/shipping dispute options. If you do have the item and need a return or exchange, it\u2019s currently **13 days since delivery**, so we can check eligibility for that as well."
+        },
+        {
+          "role": "customer",
+          "content": "Thanks for checking. Since it\u2019s already delivered, I understand you can\u2019t change the address. I did receive the package, so no further action is needed. Thanks for your help!"
+        },
+        {
+          "role": "agent",
+          "content": "You\u2019re welcome! I\u2019m glad you received the package. If you need help with anything else \u2014 returns, exchanges, or another order \u2014 feel free to reach out anytime."
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "ORD-H01"
+          },
+          "result": "{\"order_id\": \"ORD-H01\", \"customer\": {\"id\": \"C006\", \"name\": \"Mei Tanaka\", \"email\": \"mei.tanaka@example.com\", \"loyalty_tier\": \"standard\"}, \"order_date\": \"2026-06-25\", \"promised_delivery\": \"2026-06-30\", \"items\": [{\"item_id\": \"LI-H01\", \"product_id\": \"P006\", \"product_name\": \"Merino Wool Sweater\", \"category\": \"apparel\", \"sku\": \"P006-L\", \"quantity\": 1, \"unit_price\": 89.99, \"discount_pct\": 0, \"on_sale\": false, \"variant\": \"\"}], \"subtotal\": 89.99, \"tax\": 7.2, \"total\": 97.19, \"payment_method\": \"credit_card\"}"
+        },
+        {
+          "name": "get_fulfillment_status",
+          "arguments": {
+            "order_id": "ORD-H01"
+          },
+          "result": "{\"order_id\": \"ORD-H01\", \"today\": \"2026-07-15\", \"items\": [{\"item_id\": \"LI-H01\", \"status\": \"delivered\", \"ship_date\": \"2026-06-28\", \"delivery_date\": \"2026-07-02\", \"carrier\": \"FedEx\", \"late_delivery\": false, \"days_late\": null, \"days_since_delivery\": 13}]}"
+        }
+      ]
+    },
+    {
+      "scenario_id": "13",
+      "scenario_name": "HE042: ambiguity_clarification",
+      "difficulty": "hard",
+      "category": "ambiguity_clarification",
+      "decision_correctness": 0.7,
+      "tool_usage": 0.47,
+      "financial_accuracy": 0.0,
+      "communication_quality": 0.65,
+      "combined": 0.492,
+      "error": null,
+      "response_preview": "You\u2019re welcome \u2014 sorry I couldn\u2019t locate it from here. When you contact Zava support, ask them to manually search using the email address and order number together. They should be able to confirm the ",
+      "actual_tools": [
+        "get_order_details",
+        "get_order_details",
+        "get_order_details"
+      ],
+      "response_ids": [
+        "caresp_6fa9705acf7a10c7000dJALqmylBC8Hyc4peu6LU9aA7l6DGIS",
+        "caresp_6fa9705acf7a10c700qo7w7niB57qtUFAnSENfRUXaWfyV1HQe",
+        "caresp_6fa9705acf7a10c700b4UYJe827H4STYlifwTEJLTHrOYegDcc",
+        "caresp_6fa9705acf7a10c700Gpgs6lBXjnwP81CSuAbVJ15xodXTZ2Yp",
+        "caresp_6fa9705acf7a10c700XTOQ8ov8lAi0z9sx9RTfmWHYvRBcj7Xk",
+        "caresp_6fa9705acf7a10c700dWxk6xjALnCr4pW1Zo5CNkHJyPMWBzUC",
+        "caresp_6fa9705acf7a10c700q6u2vjxjbA4hI6zJcUt33FHxJELvCGzr"
+      ],
+      "stop_reason": "end_token",
+      "rounds": 7,
+      "transcript": [
+        {
+          "role": "customer",
+          "content": "Hi, I need help with my keyboard."
+        },
+        {
+          "role": "agent",
+          "content": "Sure \u2014 I can help with that. Could you please send:\n\n1. Your order number  \n2. What\u2019s going on with the keyboard? For example: defective, damaged in shipping, wrong item, changed mind, doesn\u2019t fit your setup, or you want an exchange/replacement/refund.\n\nOnce I have that, I\u2019ll check the order and resolution options."
+        },
+        {
+          "role": "customer",
+          "content": "The order number is 1002345. I\u2019d like to return it because I changed my mind."
+        },
+        {
+          "role": "agent",
+          "content": "I\u2019m sorry, but I couldn\u2019t find order **1002345** in our system.\n\nCould you please double-check the order number and send it again? It may also help to confirm the email address or phone number used on the order if you have it."
+        },
+        {
+          "role": "customer",
+          "content": "The email I used is liam.oconnor@example.com."
+        },
+        {
+          "role": "agent",
+          "content": "Thanks. I\u2019m only able to look up orders by **order number** from here, and **1002345** isn\u2019t coming up.\n\nCould you please check your confirmation email for the exact order ID and send it over? It may include letters or a prefix/suffix."
+        },
+        {
+          "role": "customer",
+          "content": "Let me check. The order ID is OC-1002345."
+        },
+        {
+          "role": "agent",
+          "content": "I\u2019m still not able to find **OC-1002345**.\n\nPlease double-check the order ID exactly as shown in your Zava confirmation email or account order history. If there\u2019s another number like a shipment ID, invoice ID, or transaction ID, send the actual **Zava order number** and I\u2019ll try again."
+        },
+        {
+          "role": "customer",
+          "content": "Sorry about that. The order number in my confirmation email is ZAVA-1002345."
+        },
+        {
+          "role": "agent",
+          "content": "I\u2019m sorry, but I still can\u2019t locate an order under **ZAVA-1002345**.\n\nPlease verify that the order was placed with **Zava** and that the order number is copied exactly from your confirmation email or account page. If there\u2019s another order reference shown, send that and I\u2019ll check again."
+        },
+        {
+          "role": "customer",
+          "content": "Yes, it was placed with Zava. That\u2019s the only order number I see in my email."
+        },
+        {
+          "role": "agent",
+          "content": "Thanks for confirming. I\u2019m sorry \u2014 with the lookup tools available to me, I\u2019m not able to find an order under **ZAVA-1002345**, and I can\u2019t search by email address directly.\n\nPlease contact Zava support with:\n\n- Order number: **ZAVA-1002345**\n- Email used: **liam.oconnor@example.com**\n- Item: keyboard\n- Request: return because you changed your mind\n\nThey should be able to manually verify the order and help start the return if it\u2019s eligible. For keyboards, returns are treated as **electronics**, so eligibility usually depends on your loyalty tier and delivery date, and a non-defective return may have a restocking fee depending on tier."
+        },
+        {
+          "role": "customer",
+          "content": "Thank you for your help. I\u2019ll reach out to Zava support directly."
+        },
+        {
+          "role": "agent",
+          "content": "You\u2019re welcome \u2014 sorry I couldn\u2019t locate it from here. When you contact Zava support, ask them to manually search using the email address and order number together. They should be able to confirm the order and review the keyboard return eligibility for you."
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "1002345"
+          },
+          "result": "{\"error\": \"Order 1002345 not found\"}"
+        },
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "OC-1002345"
+          },
+          "result": "{\"error\": \"Order OC-1002345 not found\"}"
+        },
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "ZAVA-1002345"
+          },
+          "result": "{\"error\": \"Order ZAVA-1002345 not found\"}"
+        }
+      ]
+    },
+    {
+      "scenario_id": "14",
+      "scenario_name": "HE016: late_delivery_interactions",
+      "difficulty": "hard",
+      "category": "late_delivery_interactions",
+      "decision_correctness": 1.0,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.977,
+      "error": null,
+      "response_preview": "You\u2019re welcome \u2014 glad I could help. Keep an eye out for the confirmation email with your return label and refund details.",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ],
+      "response_ids": [
+        "caresp_2495384bef630c2200MB0lpMFDNStIU6Zmv8P7VhbvfZXTiF75",
+        "caresp_2495384bef630c2200KGMMwqAMygVsNeXdKdssp2usz4MApaHD",
+        "caresp_2495384bef630c2200v5xhKE2e69m9F6kGOkbyieCWFQ1sR8VD"
+      ],
+      "stop_reason": "end_token",
+      "rounds": 3,
+      "transcript": [
+        {
+          "role": "customer",
+          "content": "Hi, I need help with my yoga mat."
+        },
+        {
+          "role": "agent",
+          "content": "Of course \u2014 I can help with that.\n\nPlease share:\n1. Your order ID  \n2. What\u2019s wrong with the yoga mat / what you\u2019d like to do: return, exchange, replacement, or report damage/defect  \n3. If it\u2019s a return, the reason: changed mind, doesn\u2019t fit your needs, defective, damaged in shipping, wrong item, etc."
+        },
+        {
+          "role": "customer",
+          "content": "The order ID is ORD-H12. The yoga mat is defective\u2014the grip layer is peeling on one corner. I\u2019d like a refund."
+        },
+        {
+          "role": "agent",
+          "content": "I\u2019m sorry the yoga mat arrived defective \u2014 I\u2019ve processed your refund.\n\n**Item:** Premium Yoga Mat  \n**Issue:** Grip layer peeling \u2014 defective  \n**Resolution:** Refund approved and submitted  \n**Confirmation ID:** **RES-F5A44883**\n\n**Refund details:**\n- Refund to original credit card: **$69.99**\n- Restocking fee: **$0.00** \u2014 defective items have no restocking fee\n- Late delivery shipping credit: **$10.00**\n- Total resolution value: **$79.99**\n\nA **prepaid return label** will be provided, and you\u2019ll receive confirmation at **riley.park@example.com**. Refund processing is estimated at **5\u20137 business days** after submission/return processing."
+        },
+        {
+          "role": "customer",
+          "content": "Thank you for your help. That works for me."
+        },
+        {
+          "role": "agent",
+          "content": "You\u2019re welcome \u2014 glad I could help. Keep an eye out for the confirmation email with your return label and refund details."
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "ORD-H12"
+          },
+          "result": "{\"order_id\": \"ORD-H12\", \"customer\": {\"id\": \"C010\", \"name\": \"Riley Park\", \"email\": \"riley.park@example.com\", \"loyalty_tier\": \"gold\"}, \"order_date\": \"2026-06-15\", \"promised_delivery\": \"2026-06-20\", \"items\": [{\"item_id\": \"LI-H12\", \"product_id\": \"P010\", \"product_name\": \"Premium Yoga Mat\", \"category\": \"home\", \"sku\": \"P010\", \"quantity\": 1, \"unit_price\": 69.99, \"discount_pct\": 0, \"on_sale\": false, \"variant\": \"\"}], \"subtotal\": 69.99, \"tax\": 5.6, \"total\": 75.59, \"payment_method\": \"credit_card\"}"
+        },
+        {
+          "name": "get_fulfillment_status",
+          "arguments": {
+            "order_id": "ORD-H12"
+          },
+          "result": "{\"order_id\": \"ORD-H12\", \"today\": \"2026-07-15\", \"items\": [{\"item_id\": \"LI-H12\", \"status\": \"delivered\", \"ship_date\": \"2026-06-19\", \"delivery_date\": \"2026-07-02\", \"carrier\": \"USPS\", \"late_delivery\": true, \"days_late\": 12, \"days_since_delivery\": 13}]}"
+        },
+        {
+          "name": "check_resolution_policy",
+          "arguments": {
+            "order_id": "ORD-H12",
+            "item_id": "LI-H12",
+            "reason": "defective"
+          },
+          "result": "{\"eligible\": true, \"eligible_actions\": [\"refund\", \"replacement\", \"exchange\", \"store_credit\"], \"return_window_days\": 60, \"days_since_delivery\": 13, \"restocking_fee_pct\": 0.0, \"shipping_credit\": 10.0, \"special_rules\": [\"Defective item: eligible regardless of return window or sale status\", \"No restocking fee for defective items\", \"Prepaid return label will be provided\"]}"
+        },
+        {
+          "name": "calculate_resolution",
+          "arguments": {
+            "order_id": "ORD-H12",
+            "items": [
+              {
+                "item_id": "LI-H12",
+                "action": "refund",
+                "reason": "defective"
+              },
+              {
+                "item_id": "LI-H12",
+                "action": "shipping_credit",
+                "reason": "defective"
+              }
+            ]
+          },
+          "result": "{\"order_id\": \"ORD-H12\", \"breakdown\": [{\"item_id\": \"LI-H12\", \"action\": \"refund\", \"refund_amount\": 69.99, \"restocking_fee\": 0.0, \"restocking_fee_pct\": 0.0, \"net_refund\": 69.99}, {\"item_id\": \"LI-H12\", \"action\": \"shipping_credit\", \"amount\": 10.0, \"reason\": \"Late delivery compensation\"}], \"summary\": {\"total_refund\": 69.99, \"total_restocking_fees\": 0.0, \"total_shipping_credit\": 10.0, \"total_resolution_amount\": 79.99}, \"refund_method\": \"credit_card\"}"
+        },
+        {
+          "name": "submit_resolution",
+          "arguments": {
+            "order_id": "ORD-H12",
+            "resolution_summary": "Refund for defective Premium Yoga Mat (LI-H12): $69.99 to original credit card, no restocking fee. Additional $10.00 shipping credit for late delivery compensation. Prepaid return label to be provided."
+          },
+          "result": "{\"confirmation_id\": \"RES-F5A44883\", \"order_id\": \"ORD-H12\", \"status\": \"submitted\", \"summary\": \"Refund for defective Premium Yoga Mat (LI-H12): $69.99 to original credit card, no restocking fee. Additional $10.00 shipping credit for late delivery compensation. Prepaid return label to be provided.\", \"customer_notification\": {\"to\": \"riley.park@example.com\", \"name\": \"Riley Park\", \"subject\": \"Zava Resolution Confirmation - RES-F5A44883\"}, \"estimated_processing\": \"5-7 business days\"}"
+        }
+      ]
+    },
+    {
+      "scenario_id": "15",
+      "scenario_name": "HE013: multi_item_mixed_outcomes",
+      "difficulty": "hard",
+      "category": "multi_item_mixed_outcomes",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 0.767,
+      "combined": 0.878,
+      "error": null,
+      "response_preview": "You\u2019re very welcome! The Bluetooth Speaker cancellation is all set under confirmation ID RES-6A13843F.",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ],
+      "response_ids": [
+        "caresp_a9cc2f7ceb10ac86003VVlQRKIgoSbBzr6eMvvzRgv93cD0wOM",
+        "caresp_a9cc2f7ceb10ac8600E1erOHcA9bFud6DmxfL1c5QgxYnHi1gj",
+        "caresp_a9cc2f7ceb10ac8600sJReu8goxSkkSuOmKRtfApyCPayZbIFL"
+      ],
+      "stop_reason": "end_token",
+      "rounds": 3,
+      "transcript": [
+        {
+          "role": "customer",
+          "content": "Hi, I need help with my Bluetooth Speaker."
+        },
+        {
+          "role": "agent",
+          "content": "Hi! I can help with that.\n\nPlease share:\n1. Your order number  \n2. What issue you\u2019re having with the Bluetooth Speaker \u2014 e.g., defective, damaged in shipping, wrong item, changed mind, or you\u2019d like an exchange/replacement/refund."
+        },
+        {
+          "role": "customer",
+          "content": "The order number is ORD-H09. I\u2019d like to cancel the Bluetooth Speaker from my order."
+        },
+        {
+          "role": "agent",
+          "content": "Your Bluetooth Speaker cancellation has been submitted successfully.\n\n- Item: Bluetooth Speaker\n- Status: Eligible for cancellation because it was still processing/not shipped\n- Refund amount: $79.99\n- Fees: $0.00\n- Refund method: PayPal\n- Confirmation ID: RES-6A13843F\n- Estimated processing time: 5\u20137 business days\n\nYour Canvas Tote Bag remains in the order and was not canceled."
+        },
+        {
+          "role": "customer",
+          "content": "Thank you for confirming and processing the cancellation."
+        },
+        {
+          "role": "agent",
+          "content": "You\u2019re very welcome! The Bluetooth Speaker cancellation is all set under confirmation ID RES-6A13843F."
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "ORD-H09"
+          },
+          "result": "{\"order_id\": \"ORD-H09\", \"customer\": {\"id\": \"C010\", \"name\": \"Riley Park\", \"email\": \"riley.park@example.com\", \"loyalty_tier\": \"gold\"}, \"order_date\": \"2026-07-12\", \"promised_delivery\": \"2026-07-17\", \"items\": [{\"item_id\": \"LI-H09A\", \"product_id\": \"P004\", \"product_name\": \"Bluetooth Speaker\", \"category\": \"electronics\", \"sku\": \"P004\", \"quantity\": 1, \"unit_price\": 79.99, \"discount_pct\": 0, \"on_sale\": false, \"variant\": \"\"}, {\"item_id\": \"LI-H09B\", \"product_id\": \"P011\", \"product_name\": \"Canvas Tote Bag\", \"category\": \"apparel\", \"sku\": \"P011\", \"quantity\": 1, \"unit_price\": 34.99, \"discount_pct\": 0, \"on_sale\": false, \"variant\": \"\"}], \"subtotal\": 114.98, \"tax\": 9.2, \"total\": 124.18, \"payment_method\": \"paypal\"}"
+        },
+        {
+          "name": "get_fulfillment_status",
+          "arguments": {
+            "order_id": "ORD-H09"
+          },
+          "result": "{\"order_id\": \"ORD-H09\", \"today\": \"2026-07-15\", \"items\": [{\"item_id\": \"LI-H09A\", \"status\": \"processing\", \"ship_date\": null, \"delivery_date\": null, \"carrier\": null, \"late_delivery\": false, \"days_late\": null, \"days_since_delivery\": null}, {\"item_id\": \"LI-H09B\", \"status\": \"processing\", \"ship_date\": null, \"delivery_date\": null, \"carrier\": null, \"late_delivery\": false, \"days_late\": null, \"days_since_delivery\": null}]}"
+        },
+        {
+          "name": "check_resolution_policy",
+          "arguments": {
+            "order_id": "ORD-H09",
+            "item_id": "LI-H09A",
+            "reason": "changed_mind"
+          },
+          "result": "{\"eligible\": true, \"eligible_actions\": [\"refund\"], \"return_window_days\": null, \"days_since_delivery\": null, \"restocking_fee_pct\": 0.0, \"shipping_credit\": 0.0, \"special_rules\": [\"Order not yet shipped: eligible for cancellation and full refund\"]}"
+        },
+        {
+          "name": "calculate_resolution",
+          "arguments": {
+            "order_id": "ORD-H09",
+            "items": [
+              {
+                "item_id": "LI-H09A",
+                "action": "refund",
+                "reason": "changed_mind"
+              }
+            ]
+          },
+          "result": "{\"order_id\": \"ORD-H09\", \"breakdown\": [{\"item_id\": \"LI-H09A\", \"action\": \"refund\", \"refund_amount\": 79.99, \"restocking_fee\": 0.0, \"restocking_fee_pct\": 0.0, \"net_refund\": 79.99}], \"summary\": {\"total_refund\": 79.99, \"total_restocking_fees\": 0.0, \"total_shipping_credit\": 0.0, \"total_resolution_amount\": 79.99}, \"refund_method\": \"paypal\"}"
+        },
+        {
+          "name": "submit_resolution",
+          "arguments": {
+            "order_id": "ORD-H09",
+            "resolution_summary": "Cancel Bluetooth Speaker item LI-H09A while order is processing; issue full refund of $79.99 to PayPal with no fees."
+          },
+          "result": "{\"confirmation_id\": \"RES-6A13843F\", \"order_id\": \"ORD-H09\", \"status\": \"submitted\", \"summary\": \"Cancel Bluetooth Speaker item LI-H09A while order is processing; issue full refund of $79.99 to PayPal with no fees.\", \"customer_notification\": {\"to\": \"riley.park@example.com\", \"name\": \"Riley Park\", \"subject\": \"Zava Resolution Confirmation - RES-6A13843F\"}, \"estimated_processing\": \"5-7 business days\"}"
+        }
+      ]
+    },
+    {
+      "scenario_id": "16",
+      "scenario_name": "HE015: late_delivery_interactions",
+      "difficulty": "hard",
+      "category": "late_delivery_interactions",
+      "decision_correctness": 0.925,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.951,
+      "error": null,
+      "response_preview": "Your return has been submitted.\n\n**Confirmation ID:** RES-A0899C06  \n**Item:** Smart Watch  \n**Refund to credit card:** **$254.99** after the **$45.00 restocking fee**  \n**Late delivery shipping credi",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ],
+      "response_ids": [
+        "caresp_ba835b34efbbf73400tU0W1QNxbu3aGJmTRWwhvTG2lVI0VjXv",
+        "caresp_ba835b34efbbf73400cMNiAvYGVsN6L0ALuS0hAxCqNvG0IuWR",
+        "caresp_ba835b34efbbf734000SdZFgGRM3pYbOn7I8tUy34XCIN6HmvS"
+      ],
+      "stop_reason": "end_token",
+      "rounds": 3,
+      "transcript": [
+        {
+          "role": "customer",
+          "content": "Hi, I need help with my Smart Watch."
+        },
+        {
+          "role": "agent",
+          "content": "Sure \u2014 I can help with your Smart Watch.\n\nPlease send:\n1. Your order number  \n2. What you\u2019d like to do: return, exchange, replacement, cancellation, or report a shipping issue  \n3. The reason: defective, damaged in shipping, wrong item, changed mind, etc.  \n\nOnce I have that, I\u2019ll check the order and eligibility for you."
+        },
+        {
+          "role": "customer",
+          "content": "The order number is ORD-H08. I\u2019d like to return it. The reason is that it arrived much later than expected."
+        },
+        {
+          "role": "agent",
+          "content": "Good news \u2014 your Smart Watch return is eligible.\n\n**Item:** Smart Watch  \n**Status:** Delivered June 20  \n**Reason:** Arrived much later than expected  \n**Policy details:**  \n- Electronics normally have a **15-day return window** for Standard tier customers.  \n- Because this was delivered **18 days late**, your return window was extended by 15 days, making it **30 days total**.  \n- You\u2019re currently **25 days since delivery**, so you have **5 days remaining**.  \n- Late delivery also qualifies you for a **$10 shipping credit**.  \n- Since the item is not defective, a **15% electronics restocking fee** applies.\n\n**Refund breakdown:**  \n- Item refund: **$299.99**  \n- Restocking fee: **-$45.00**  \n- Net refund to credit card: **$254.99**  \n- Late delivery shipping credit: **+$10.00**  \n- **Total resolution value: $264.99**\n\nIf you\u2019d like, I can go ahead and submit this return for processing."
+        },
+        {
+          "role": "customer",
+          "content": "Yes, please submit the return."
+        },
+        {
+          "role": "agent",
+          "content": "Your return has been submitted.\n\n**Confirmation ID:** RES-A0899C06  \n**Item:** Smart Watch  \n**Refund to credit card:** **$254.99** after the **$45.00 restocking fee**  \n**Late delivery shipping credit:** **$10.00**  \n**Total resolution value:** **$264.99**\n\nA confirmation email has been sent to **diego.rivera@example.com**.\n\n**Next steps:** Follow the return instructions in the email. Once the return is received and processed, the refund should be completed within **5\u20137 business days**."
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "ORD-H08"
+          },
+          "result": "{\"order_id\": \"ORD-H08\", \"customer\": {\"id\": \"C009\", \"name\": \"Diego Rivera\", \"email\": \"diego.rivera@example.com\", \"loyalty_tier\": \"standard\"}, \"order_date\": \"2026-05-28\", \"promised_delivery\": \"2026-06-02\", \"items\": [{\"item_id\": \"LI-H08\", \"product_id\": \"P003\", \"product_name\": \"Smart Watch\", \"category\": \"electronics\", \"sku\": \"P003-S\", \"quantity\": 1, \"unit_price\": 299.99, \"discount_pct\": 0, \"on_sale\": false, \"variant\": \"\"}], \"subtotal\": 299.99, \"tax\": 24.0, \"total\": 323.99, \"payment_method\": \"credit_card\"}"
+        },
+        {
+          "name": "get_fulfillment_status",
+          "arguments": {
+            "order_id": "ORD-H08"
+          },
+          "result": "{\"order_id\": \"ORD-H08\", \"today\": \"2026-07-15\", \"items\": [{\"item_id\": \"LI-H08\", \"status\": \"delivered\", \"ship_date\": \"2026-06-01\", \"delivery_date\": \"2026-06-20\", \"carrier\": \"FedEx\", \"late_delivery\": true, \"days_late\": 18, \"days_since_delivery\": 25}]}"
+        },
+        {
+          "name": "check_resolution_policy",
+          "arguments": {
+            "order_id": "ORD-H08",
+            "item_id": "LI-H08",
+            "reason": "changed_mind"
+          },
+          "result": "{\"eligible\": true, \"eligible_actions\": [\"refund\", \"exchange\", \"store_credit\"], \"return_window_days\": 30, \"days_since_delivery\": 25, \"days_remaining\": 5, \"restocking_fee_pct\": 15.0, \"shipping_credit\": 10.0, \"special_rules\": [\"Late delivery: window extended from 15 to 30 days, $10 shipping credit applies\", \"Electronics restocking fee: 15.0% applies for non-defective returns\"]}"
+        },
+        {
+          "name": "calculate_resolution",
+          "arguments": {
+            "order_id": "ORD-H08",
+            "items": [
+              {
+                "item_id": "LI-H08",
+                "action": "refund",
+                "reason": "changed_mind"
+              },
+              {
+                "item_id": "LI-H08",
+                "action": "shipping_credit",
+                "reason": "changed_mind"
+              }
+            ]
+          },
+          "result": "{\"order_id\": \"ORD-H08\", \"breakdown\": [{\"item_id\": \"LI-H08\", \"action\": \"refund\", \"refund_amount\": 299.99, \"restocking_fee\": 45.0, \"restocking_fee_pct\": 15.0, \"net_refund\": 254.99}, {\"item_id\": \"LI-H08\", \"action\": \"shipping_credit\", \"amount\": 10.0, \"reason\": \"Late delivery compensation\"}], \"summary\": {\"total_refund\": 254.99, \"total_restocking_fees\": 45.0, \"total_shipping_credit\": 10.0, \"total_resolution_amount\": 264.99}, \"refund_method\": \"credit_card\"}"
+        },
+        {
+          "name": "submit_resolution",
+          "arguments": {
+            "order_id": "ORD-H08",
+            "resolution_summary": "Return approved for LI-H08 Smart Watch due to late delivery/changed mind. Refund amount $254.99 to original credit card after $45.00 restocking fee; $10.00 late delivery shipping credit applied. Total resolution value $264.99."
+          },
+          "result": "{\"confirmation_id\": \"RES-A0899C06\", \"order_id\": \"ORD-H08\", \"status\": \"submitted\", \"summary\": \"Return approved for LI-H08 Smart Watch due to late delivery/changed mind. Refund amount $254.99 to original credit card after $45.00 restocking fee; $10.00 late delivery shipping credit applied. Total resolution value $264.99.\", \"customer_notification\": {\"to\": \"diego.rivera@example.com\", \"name\": \"Diego Rivera\", \"subject\": \"Zava Resolution Confirmation - RES-A0899C06\"}, \"estimated_processing\": \"5-7 business days\"}"
+        }
+      ]
+    },
+    {
+      "scenario_id": "17",
+      "scenario_name": "HE019: late_delivery_interactions",
+      "difficulty": "hard",
+      "category": "late_delivery_interactions",
+      "decision_correctness": 1.0,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.977,
+      "error": null,
+      "response_preview": "You\u2019re very welcome \u2014 glad I could help. Please keep the confirmation ID **RES-A7ADE9F5** for your records, and watch for the prepaid return label in your email.",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ],
+      "response_ids": [
+        "caresp_77b0387a2e2afdc7005I6zRUqDtDBtBTH14xC251J4zpYIz9Wy",
+        "caresp_77b0387a2e2afdc700D15JSGJTKYVWfoyrCNpr2c5seO6FigNN",
+        "caresp_77b0387a2e2afdc700eCBH2nBOJOlqoQM1nUZc5mUsitUlf0NP",
+        "caresp_77b0387a2e2afdc7007B2SCgaMVdvG7573dXtIpyXg7DodKxig"
+      ],
+      "stop_reason": "end_token",
+      "rounds": 4,
+      "transcript": [
+        {
+          "role": "customer",
+          "content": "Hi, I need help with my smart watch."
+        },
+        {
+          "role": "agent",
+          "content": "Of course \u2014 I can help with that.\n\nCould you please provide:\n1. Your **order number**\n2. What\u2019s going on with the smart watch \u2014 for example: **defective**, **damaged in shipping**, **wrong item received**, or you\u2019d like to **return/exchange** it?\n\nOnce I have that, I\u2019ll check the order and resolution options for you."
+        },
+        {
+          "role": "customer",
+          "content": "Sure, the order number is ORD-H08. The screen has been flickering since I got it, so I think it's defective."
+        },
+        {
+          "role": "agent",
+          "content": "Thanks, Diego. I checked order **ORD-H08**.\n\n**Smart Watch \u2014 LI-H08**\n- Status: **Delivered June 20**\n- Issue: **Defective screen flickering**\n- Eligibility: **Approved**\n- Restocking fee: **$0.00** \u2014 defective items never have a restocking fee\n- Return label: **Prepaid return label will be provided**\n- Late delivery credit: **$10.00 shipping credit** \u2014 it arrived 18 days after the promised date, which qualifies\n\nYou\u2019re eligible for a **refund, replacement, exchange, or store credit**.\n\nWhich would you prefer for the smart watch?\n1. **Refund** back to your credit card  \n2. **Replacement** of the same smart watch  \n3. **Exchange** for a different SKU/variant  \n4. **Store credit**"
+        },
+        {
+          "role": "customer",
+          "content": "I'd like a refund back to my credit card, please."
+        },
+        {
+          "role": "agent",
+          "content": "Done \u2014 your refund has been submitted.\n\n**Confirmation ID:** RES-A7ADE9F5\n\n**Smart Watch refund details**\n- Refund to credit card: **$299.99**\n- Restocking fee: **$0.00**\n- Late delivery shipping credit: **$10.00**\n- **Total resolution amount:** **$309.99**\n\nA **prepaid return label** will be provided, and a confirmation email has been sent to **diego.rivera@example.com**. Once the return is received/processed, the refund should post within **5\u20137 business days**."
+        },
+        {
+          "role": "customer",
+          "content": "Thank you for your help. That works for me."
+        },
+        {
+          "role": "agent",
+          "content": "You\u2019re very welcome \u2014 glad I could help. Please keep the confirmation ID **RES-A7ADE9F5** for your records, and watch for the prepaid return label in your email."
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "ORD-H08"
+          },
+          "result": "{\"order_id\": \"ORD-H08\", \"customer\": {\"id\": \"C009\", \"name\": \"Diego Rivera\", \"email\": \"diego.rivera@example.com\", \"loyalty_tier\": \"standard\"}, \"order_date\": \"2026-05-28\", \"promised_delivery\": \"2026-06-02\", \"items\": [{\"item_id\": \"LI-H08\", \"product_id\": \"P003\", \"product_name\": \"Smart Watch\", \"category\": \"electronics\", \"sku\": \"P003-S\", \"quantity\": 1, \"unit_price\": 299.99, \"discount_pct\": 0, \"on_sale\": false, \"variant\": \"\"}], \"subtotal\": 299.99, \"tax\": 24.0, \"total\": 323.99, \"payment_method\": \"credit_card\"}"
+        },
+        {
+          "name": "get_fulfillment_status",
+          "arguments": {
+            "order_id": "ORD-H08"
+          },
+          "result": "{\"order_id\": \"ORD-H08\", \"today\": \"2026-07-15\", \"items\": [{\"item_id\": \"LI-H08\", \"status\": \"delivered\", \"ship_date\": \"2026-06-01\", \"delivery_date\": \"2026-06-20\", \"carrier\": \"FedEx\", \"late_delivery\": true, \"days_late\": 18, \"days_since_delivery\": 25}]}"
+        },
+        {
+          "name": "check_resolution_policy",
+          "arguments": {
+            "order_id": "ORD-H08",
+            "item_id": "LI-H08",
+            "reason": "defective"
+          },
+          "result": "{\"eligible\": true, \"eligible_actions\": [\"refund\", \"replacement\", \"exchange\", \"store_credit\"], \"return_window_days\": 30, \"days_since_delivery\": 25, \"restocking_fee_pct\": 0.0, \"shipping_credit\": 10.0, \"special_rules\": [\"Defective item: eligible regardless of return window or sale status\", \"No restocking fee for defective items\", \"Prepaid return label will be provided\"]}"
+        },
+        {
+          "name": "calculate_resolution",
+          "arguments": {
+            "order_id": "ORD-H08",
+            "items": [
+              {
+                "item_id": "LI-H08",
+                "action": "refund",
+                "reason": "defective"
+              },
+              {
+                "item_id": "LI-H08",
+                "action": "shipping_credit",
+                "reason": "defective"
+              }
+            ]
+          },
+          "result": "{\"order_id\": \"ORD-H08\", \"breakdown\": [{\"item_id\": \"LI-H08\", \"action\": \"refund\", \"refund_amount\": 299.99, \"restocking_fee\": 0.0, \"restocking_fee_pct\": 0.0, \"net_refund\": 299.99}, {\"item_id\": \"LI-H08\", \"action\": \"shipping_credit\", \"amount\": 10.0, \"reason\": \"Late delivery compensation\"}], \"summary\": {\"total_refund\": 299.99, \"total_restocking_fees\": 0.0, \"total_shipping_credit\": 10.0, \"total_resolution_amount\": 309.99}, \"refund_method\": \"credit_card\"}"
+        },
+        {
+          "name": "submit_resolution",
+          "arguments": {
+            "order_id": "ORD-H08",
+            "resolution_summary": "Refund approved for defective Smart Watch item LI-H08. Refund amount: $299.99 back to credit card; restocking fee: $0.00. Additional late delivery shipping credit: $10.00. Total resolution amount: $309.99. Prepaid return label to be provided."
+          },
+          "result": "{\"confirmation_id\": \"RES-A7ADE9F5\", \"order_id\": \"ORD-H08\", \"status\": \"submitted\", \"summary\": \"Refund approved for defective Smart Watch item LI-H08. Refund amount: $299.99 back to credit card; restocking fee: $0.00. Additional late delivery shipping credit: $10.00. Total resolution amount: $309.99. Prepaid return label to be provided.\", \"customer_notification\": {\"to\": \"diego.rivera@example.com\", \"name\": \"Diego Rivera\", \"subject\": \"Zava Resolution Confirmation - RES-A7ADE9F5\"}, \"estimated_processing\": \"5-7 business days\"}"
+        }
+      ]
+    },
+    {
+      "scenario_id": "18",
+      "scenario_name": "HE001: long_distracting_context",
+      "difficulty": "hard",
+      "category": "long_distracting_context",
+      "decision_correctness": 1.0,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.977,
+      "error": null,
+      "response_preview": "Done \u2014 your return has been submitted.\n\n**Confirmation ID:** RES-02BD5C89  \n**Item:** Merino Wool Sweater  \n**Refund amount:** **$89.99**  \n**Refund method:** Original credit card  \n**Restocking fee:*",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ],
+      "response_ids": [
+        "caresp_5b56f3663ec8ac5f00HI8Ym5dQCCAYwRtLHZvz0jgw16VYOAd9",
+        "caresp_5b56f3663ec8ac5f00JU2MAi9DvHVjp6ZgyHjmrEJ62qTMuzVA",
+        "caresp_5b56f3663ec8ac5f00lz1zH4aLWfVMpaWglVcrDS13rH1kwVgt"
+      ],
+      "stop_reason": "end_token",
+      "rounds": 3,
+      "transcript": [
+        {
+          "role": "customer",
+          "content": "Hi, I need help with my Merino Wool Sweater."
+        },
+        {
+          "role": "agent",
+          "content": "Sure \u2014 I can help with that. Could you please provide:\n\n1. Your **order ID**\n2. What you\u2019d like to do with the Merino Wool Sweater: **return, exchange, replacement, or report an issue**\n3. The reason, e.g. **doesn\u2019t fit, changed mind, defective, damaged, wrong item**\n\nOnce I have that, I\u2019ll check the order and resolution eligibility."
+        },
+        {
+          "role": "customer",
+          "content": "The order ID is ORD-H01. I\u2019d like to return the sweater for a refund because it doesn\u2019t fit\u2014it just hangs off my shoulders."
+        },
+        {
+          "role": "agent",
+          "content": "Your Merino Wool Sweater is eligible for return and refund.\n\n**Item:** Merino Wool Sweater  \n**Reason:** Doesn\u2019t fit  \n**Delivery date:** July 2, 2026  \n**Return window:** 30 days for Standard tier apparel  \n**Days since delivery:** 13 \u2014 within the return window  \n**Restocking fee:** $0.00  \n\n**Refund amount:** **$89.99** back to your original credit card.\n\nWould you like me to submit this return now?"
+        },
+        {
+          "role": "customer",
+          "content": "Yes, please submit the return."
+        },
+        {
+          "role": "agent",
+          "content": "Done \u2014 your return has been submitted.\n\n**Confirmation ID:** RES-02BD5C89  \n**Item:** Merino Wool Sweater  \n**Refund amount:** **$89.99**  \n**Refund method:** Original credit card  \n**Restocking fee:** $0.00  \n**Estimated processing time:** 5\u20137 business days\n\nA confirmation email has been sent to **mei.tanaka@example.com** with the return details and next steps."
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "ORD-H01"
+          },
+          "result": "{\"order_id\": \"ORD-H01\", \"customer\": {\"id\": \"C006\", \"name\": \"Mei Tanaka\", \"email\": \"mei.tanaka@example.com\", \"loyalty_tier\": \"standard\"}, \"order_date\": \"2026-06-25\", \"promised_delivery\": \"2026-06-30\", \"items\": [{\"item_id\": \"LI-H01\", \"product_id\": \"P006\", \"product_name\": \"Merino Wool Sweater\", \"category\": \"apparel\", \"sku\": \"P006-L\", \"quantity\": 1, \"unit_price\": 89.99, \"discount_pct\": 0, \"on_sale\": false, \"variant\": \"\"}], \"subtotal\": 89.99, \"tax\": 7.2, \"total\": 97.19, \"payment_method\": \"credit_card\"}"
+        },
+        {
+          "name": "get_fulfillment_status",
+          "arguments": {
+            "order_id": "ORD-H01"
+          },
+          "result": "{\"order_id\": \"ORD-H01\", \"today\": \"2026-07-15\", \"items\": [{\"item_id\": \"LI-H01\", \"status\": \"delivered\", \"ship_date\": \"2026-06-28\", \"delivery_date\": \"2026-07-02\", \"carrier\": \"FedEx\", \"late_delivery\": false, \"days_late\": null, \"days_since_delivery\": 13}]}"
+        },
+        {
+          "name": "check_resolution_policy",
+          "arguments": {
+            "order_id": "ORD-H01",
+            "item_id": "LI-H01",
+            "reason": "doesnt_fit"
+          },
+          "result": "{\"eligible\": true, \"eligible_actions\": [\"refund\", \"exchange\", \"store_credit\"], \"return_window_days\": 30, \"days_since_delivery\": 13, \"days_remaining\": 17, \"restocking_fee_pct\": 0.0, \"shipping_credit\": 0.0, \"special_rules\": []}"
+        },
+        {
+          "name": "calculate_resolution",
+          "arguments": {
+            "order_id": "ORD-H01",
+            "items": [
+              {
+                "item_id": "LI-H01",
+                "action": "refund",
+                "reason": "doesnt_fit"
+              }
+            ]
+          },
+          "result": "{\"order_id\": \"ORD-H01\", \"breakdown\": [{\"item_id\": \"LI-H01\", \"action\": \"refund\", \"refund_amount\": 89.99, \"restocking_fee\": 0.0, \"restocking_fee_pct\": 0.0, \"net_refund\": 89.99}], \"summary\": {\"total_refund\": 89.99, \"total_restocking_fees\": 0.0, \"total_shipping_credit\": 0.0, \"total_resolution_amount\": 89.99}, \"refund_method\": \"credit_card\"}"
+        },
+        {
+          "name": "submit_resolution",
+          "arguments": {
+            "order_id": "ORD-H01",
+            "resolution_summary": "Return for refund approved for item LI-H01 (Merino Wool Sweater). Reason: doesnt_fit. Refund amount: $89.99 to original credit card. Restocking fee: $0.00."
+          },
+          "result": "{\"confirmation_id\": \"RES-02BD5C89\", \"order_id\": \"ORD-H01\", \"status\": \"submitted\", \"summary\": \"Return for refund approved for item LI-H01 (Merino Wool Sweater). Reason: doesnt_fit. Refund amount: $89.99 to original credit card. Restocking fee: $0.00.\", \"customer_notification\": {\"to\": \"mei.tanaka@example.com\", \"name\": \"Mei Tanaka\", \"subject\": \"Zava Resolution Confirmation - RES-02BD5C89\"}, \"estimated_processing\": \"5-7 business days\"}"
+        }
+      ]
+    },
+    {
+      "scenario_id": "19",
+      "scenario_name": "HE002: long_distracting_context",
+      "difficulty": "hard",
+      "category": "long_distracting_context",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.925,
+      "error": null,
+      "response_preview": "You\u2019re very welcome! I\u2019m glad I could help. Keep an eye out for the confirmation email with the return instructions, and your refund will be processed after the return is received.",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ],
+      "response_ids": [
+        "caresp_5bf5206fa9c5059a00SCrXyzL4EuTegVjp80tjGFbavWr8kF14",
+        "caresp_5bf5206fa9c5059a00JALbPpPFW6ehm1lrINMIGwDNbkBXnjje",
+        "caresp_5bf5206fa9c5059a00aleCUKeswMGf2Srg9laZ41aduEGZB0Uk"
+      ],
+      "stop_reason": "end_token",
+      "rounds": 3,
+      "transcript": [
+        {
+          "role": "customer",
+          "content": "Hi, I need help with my Running Jacket."
+        },
+        {
+          "role": "agent",
+          "content": "Sure \u2014 I can help with your Running Jacket.\n\nCould you please provide:\n1. Your order number  \n2. What\u2019s wrong or what you\u2019d like to do \u2014 return, exchange, replacement, or cancel  \n3. The reason, e.g. doesn\u2019t fit, defective, damaged, wrong item, changed mind, etc.  \n\nOnce I have that, I\u2019ll check the order and eligibility for you."
+        },
+        {
+          "role": "customer",
+          "content": "The order number is ORD-H10. I'd like a refund because the color is much more mustard than the goldenrod yellow shown on the site."
+        },
+        {
+          "role": "agent",
+          "content": "Thanks, Aisha \u2014 I\u2019ve processed the refund for your Running Jacket.\n\n**Item:** Running Jacket  \n**Reason:** Color mismatch from site description/photo  \n**Status:** Approved \u2014 within your Platinum 60-day apparel return window  \n**Refund amount:** **$119.99**  \n**Restocking fee:** **$0.00**  \n**Refund method:** Original credit card  \n**Confirmation ID:** **RES-4264552A**\n\nYou\u2019ll receive a confirmation email at **aisha.patel@example.com** with return instructions. Once the return is received/processed, the refund should post in about **5\u20137 business days**."
+        },
+        {
+          "role": "customer",
+          "content": "Thank you for your help! That works for me."
+        },
+        {
+          "role": "agent",
+          "content": "You\u2019re very welcome! I\u2019m glad I could help. Keep an eye out for the confirmation email with the return instructions, and your refund will be processed after the return is received."
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "ORD-H10"
+          },
+          "result": "{\"order_id\": \"ORD-H10\", \"customer\": {\"id\": \"C008\", \"name\": \"Aisha Patel\", \"email\": \"aisha.patel@example.com\", \"loyalty_tier\": \"platinum\"}, \"order_date\": \"2026-06-25\", \"promised_delivery\": \"2026-06-30\", \"items\": [{\"item_id\": \"LI-H10\", \"product_id\": \"P008\", \"product_name\": \"Running Jacket\", \"category\": \"apparel\", \"sku\": \"P008-M\", \"quantity\": 1, \"unit_price\": 119.99, \"discount_pct\": 0, \"on_sale\": false, \"variant\": \"\"}], \"subtotal\": 119.99, \"tax\": 9.6, \"total\": 129.59, \"payment_method\": \"credit_card\"}"
+        },
+        {
+          "name": "get_fulfillment_status",
+          "arguments": {
+            "order_id": "ORD-H10"
+          },
+          "result": "{\"order_id\": \"ORD-H10\", \"today\": \"2026-07-15\", \"items\": [{\"item_id\": \"LI-H10\", \"status\": \"delivered\", \"ship_date\": \"2026-06-28\", \"delivery_date\": \"2026-07-02\", \"carrier\": \"FedEx\", \"late_delivery\": false, \"days_late\": null, \"days_since_delivery\": 13}]}"
+        },
+        {
+          "name": "check_resolution_policy",
+          "arguments": {
+            "order_id": "ORD-H10",
+            "item_id": "LI-H10",
+            "reason": "wrong_item"
+          },
+          "result": "{\"eligible\": true, \"eligible_actions\": [\"refund\", \"exchange\", \"store_credit\"], \"return_window_days\": 60, \"days_since_delivery\": 13, \"days_remaining\": 47, \"restocking_fee_pct\": 0.0, \"shipping_credit\": 0.0, \"special_rules\": [\"Platinum tier: 60-day return window for apparel\"]}"
+        },
+        {
+          "name": "calculate_resolution",
+          "arguments": {
+            "order_id": "ORD-H10",
+            "items": [
+              {
+                "item_id": "LI-H10",
+                "action": "refund",
+                "reason": "wrong_item"
+              }
+            ]
+          },
+          "result": "{\"order_id\": \"ORD-H10\", \"breakdown\": [{\"item_id\": \"LI-H10\", \"action\": \"refund\", \"refund_amount\": 119.99, \"restocking_fee\": 0.0, \"restocking_fee_pct\": 0.0, \"net_refund\": 119.99}], \"summary\": {\"total_refund\": 119.99, \"total_restocking_fees\": 0.0, \"total_shipping_credit\": 0.0, \"total_resolution_amount\": 119.99}, \"refund_method\": \"credit_card\"}"
+        },
+        {
+          "name": "submit_resolution",
+          "arguments": {
+            "order_id": "ORD-H10",
+            "resolution_summary": "Refund approved for LI-H10 Running Jacket due to color mismatch/wrong item. Net refund $119.99 to original credit card. No restocking fee. Customer to return item using prepaid return process."
+          },
+          "result": "{\"confirmation_id\": \"RES-4264552A\", \"order_id\": \"ORD-H10\", \"status\": \"submitted\", \"summary\": \"Refund approved for LI-H10 Running Jacket due to color mismatch/wrong item. Net refund $119.99 to original credit card. No restocking fee. Customer to return item using prepaid return process.\", \"customer_notification\": {\"to\": \"aisha.patel@example.com\", \"name\": \"Aisha Patel\", \"subject\": \"Zava Resolution Confirmation - RES-4264552A\"}, \"estimated_processing\": \"5-7 business days\"}"
+        }
+      ]
+    },
+    {
+      "scenario_id": "20",
+      "scenario_name": "HE003: long_distracting_context",
+      "difficulty": "hard",
+      "category": "long_distracting_context",
+      "decision_correctness": 0.85,
+      "tool_usage": 0.909,
+      "financial_accuracy": 1.0,
+      "communication_quality": 1.0,
+      "combined": 0.925,
+      "error": null,
+      "response_preview": "You\u2019re welcome! Glad I could help.",
+      "actual_tools": [
+        "get_order_details",
+        "get_fulfillment_status",
+        "check_resolution_policy",
+        "calculate_resolution",
+        "submit_resolution"
+      ],
+      "response_ids": [
+        "caresp_d68ac24c19564d4800v4ls43VLQFpFmqbnHL9rEJYMxDwVx7ox",
+        "caresp_d68ac24c19564d4800urOn1JGJj80zK2DzfSnQ2kHxGRjuYqxV",
+        "caresp_d68ac24c19564d4800Ns97LGaoL84llbH2yPtAEJuOcbO9RMzd",
+        "caresp_d68ac24c19564d4800HnMzL339fNc0vewxvfZN6m61guohvfVL"
+      ],
+      "stop_reason": "end_token",
+      "rounds": 4,
+      "transcript": [
+        {
+          "role": "customer",
+          "content": "Hi, I need help with my Electric Kettle."
+        },
+        {
+          "role": "agent",
+          "content": "Of course \u2014 I can help with that.\n\nPlease send:\n1. Your **order ID**\n2. What happened with the Electric Kettle \u2014 e.g. **defective**, **damaged in shipping**, **wrong item**, **changed your mind**, or something else\n3. What you\u2019d prefer: **return/refund**, **replacement**, or **exchange** if available\n\nOnce I have that, I\u2019ll check the order and eligibility for you."
+        },
+        {
+          "role": "customer",
+          "content": "Sure! The order ID is ORD-H04. I\u2019d like to return it for a refund because the base is too wide for my kitchen corner outlet."
+        },
+        {
+          "role": "agent",
+          "content": "Your Electric Kettle is eligible for return/refund.\n\n**Item:** Electric Kettle \u2014 LI-H04  \n**Reason:** Doesn\u2019t work for your outlet/counter setup, treated as a non-defective electronics return  \n**Delivery date:** July 12, 2026  \n**Return window:** 30 days for Gold tier electronics \u2014 you\u2019re on day 3, so eligible.\n\n**Refund breakdown:**\n- Item refund: **$59.99**\n- Electronics restocking fee: **$4.50** / 7.5%\n- **Net refund to your credit card: $55.49**\n\nIf you\u2019d like me to proceed, I can submit the return for processing. You\u2019ll receive return instructions and a label after submission."
+        },
+        {
+          "role": "customer",
+          "content": "Yes, please proceed with the return and refund."
+        },
+        {
+          "role": "agent",
+          "content": "Done \u2014 your return and refund have been submitted.\n\n**Confirmation ID:** RES-A0274C66  \n**Item:** Electric Kettle  \n**Net refund:** **$55.49** to your original credit card  \n**Restocking fee:** **$4.50** / 7.5% electronics non-defective return fee  \n**Estimated processing time:** **5\u20137 business days** after the return is received/processed.\n\nA confirmation email with return instructions has been sent to **riley.park@example.com**."
+        },
+        {
+          "role": "customer",
+          "content": "Thank you! That works for me."
+        },
+        {
+          "role": "agent",
+          "content": "You\u2019re welcome! Glad I could help."
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "ORD-H04"
+          },
+          "result": "{\"order_id\": \"ORD-H04\", \"customer\": {\"id\": \"C010\", \"name\": \"Riley Park\", \"email\": \"riley.park@example.com\", \"loyalty_tier\": \"gold\"}, \"order_date\": \"2026-07-05\", \"promised_delivery\": \"2026-07-10\", \"items\": [{\"item_id\": \"LI-H04\", \"product_id\": \"P005\", \"product_name\": \"Electric Kettle\", \"category\": \"electronics\", \"sku\": \"P005\", \"quantity\": 1, \"unit_price\": 59.99, \"discount_pct\": 0, \"on_sale\": false, \"variant\": \"\"}], \"subtotal\": 59.99, \"tax\": 4.8, \"total\": 64.79, \"payment_method\": \"credit_card\"}"
+        },
+        {
+          "name": "get_fulfillment_status",
+          "arguments": {
+            "order_id": "ORD-H04"
+          },
+          "result": "{\"order_id\": \"ORD-H04\", \"today\": \"2026-07-15\", \"items\": [{\"item_id\": \"LI-H04\", \"status\": \"delivered\", \"ship_date\": \"2026-07-08\", \"delivery_date\": \"2026-07-12\", \"carrier\": \"UPS\", \"late_delivery\": false, \"days_late\": null, \"days_since_delivery\": 3}]}"
+        },
+        {
+          "name": "check_resolution_policy",
+          "arguments": {
+            "order_id": "ORD-H04",
+            "item_id": "LI-H04",
+            "reason": "buyers_remorse"
+          },
+          "result": "{\"eligible\": true, \"eligible_actions\": [\"refund\", \"exchange\", \"store_credit\"], \"return_window_days\": 30, \"days_since_delivery\": 3, \"days_remaining\": 27, \"restocking_fee_pct\": 7.5, \"shipping_credit\": 0.0, \"special_rules\": [\"Gold tier: 30-day return window for electronics\", \"Electronics restocking fee: 7.5% applies for non-defective returns\"]}"
+        },
+        {
+          "name": "calculate_resolution",
+          "arguments": {
+            "order_id": "ORD-H04",
+            "items": [
+              {
+                "item_id": "LI-H04",
+                "action": "refund",
+                "reason": "buyers_remorse"
+              }
+            ]
+          },
+          "result": "{\"order_id\": \"ORD-H04\", \"breakdown\": [{\"item_id\": \"LI-H04\", \"action\": \"refund\", \"refund_amount\": 59.99, \"restocking_fee\": 4.5, \"restocking_fee_pct\": 7.5, \"net_refund\": 55.49}], \"summary\": {\"total_refund\": 55.49, \"total_restocking_fees\": 4.5, \"total_shipping_credit\": 0.0, \"total_resolution_amount\": 55.49}, \"refund_method\": \"credit_card\"}"
+        },
+        {
+          "name": "submit_resolution",
+          "arguments": {
+            "order_id": "ORD-H04",
+            "resolution_summary": "Return/refund for LI-H04 Electric Kettle due to buyer's remorse/fit with kitchen outlet. Eligible Gold tier electronics return within 30-day window. Refund amount $59.99 less 7.5% electronics restocking fee of $4.50, net refund $55.49 to original credit card. No shipping credit."
+          },
+          "result": "{\"confirmation_id\": \"RES-A0274C66\", \"order_id\": \"ORD-H04\", \"status\": \"submitted\", \"summary\": \"Return/refund for LI-H04 Electric Kettle due to buyer's remorse/fit with kitchen outlet. Eligible Gold tier electronics return within 30-day window. Refund amount $59.99 less 7.5% electronics restocking fee of $4.50, net refund $55.49 to original credit card. No shipping credit.\", \"customer_notification\": {\"to\": \"riley.park@example.com\", \"name\": \"Riley Park\", \"subject\": \"Zava Resolution Confirmation - RES-A0274C66\"}, \"estimated_processing\": \"5-7 business days\"}"
+        }
+      ]
+    }
+  ]
+}
