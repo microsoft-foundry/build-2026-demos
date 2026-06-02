@@ -1,4 +1,4 @@
-# [DRAFT] Open-Source Models on Microsoft Foundry
+# Open-Source Models on Microsoft Foundry
 
 > **Microsoft Build 2026 — Station 3: Open-Source Models Expert Meet Up**
 
