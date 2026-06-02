@@ -1,6 +1,6 @@
 # Open-Source Models on Microsoft Foundry
 
-> **Microsoft Build 2026 — Station 3: Open-Source Models Expert Meet Up**
+> **Microsoft Build 2026 — Station 3: Open-Source Models**
 
 ---
 ## Related Build 2026 Sessions
