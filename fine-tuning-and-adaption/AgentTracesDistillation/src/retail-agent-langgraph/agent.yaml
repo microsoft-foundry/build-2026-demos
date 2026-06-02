@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/microsoft/AgentSchema/refs/heads/main/schemas/v1.0/ContainerAgent.yaml
+
+kind: hosted
+name: retail-agent-langgraph
+description: |
+    Retail Agent written using LangGraph.
+metadata:
+    tags:
+        - AI Agent Hosting
+        - Azure AI AgentServer
+        - LangGraph
+        - LangChain
+protocols:
+    - protocol: responses
+      version: 1.0.0
+resources:
+    cpu: "1"
+    memory: 2Gi
+environment_variables:
+    - name: AZURE_OPENAI_ENDPOINT
+      value: ${AZURE_OPENAI_ENDPOINT}
+    - name: AZURE_AI_MODEL_DEPLOYMENT_NAME
+      value: gpt-5.4

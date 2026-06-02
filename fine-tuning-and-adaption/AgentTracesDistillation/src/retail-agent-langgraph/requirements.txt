@@ -1,0 +1,17 @@
+azure-ai-agentserver-responses==1.0.0b4
+azure-ai-agentserver-core==2.0.0b2
+azure-identity>=1.25.1
+# Pin: 1.2.3 rewrote AzureAIOpenTelemetryTracer ("OpenTelemetry spec-compliant
+# spans for GenAI operations", PR #509) and the new emission path no longer
+# produces per-LLM/per-tool dependency spans for our LangGraph chatbot+tools
+# graph in the hosted-agent runtime — only the outer `invoke_agent` request
+# envelope is emitted, which means the data-gen worker can't reconstruct
+# {messages, tool_calls} from the spans (returns 500).
+# 1.2.2 emits the full chat/execute_tool dependency span tree as expected.
+langchain-azure-ai[opentelemetry]==1.2.2
+# Pin the rest of the langchain stack to versions on PyPI as of 2026-05-07
+# (the last-known-good build day) so a server-side container rebuild can't
+# silently pull a newer transitive that re-breaks the tracer.
+langchain==1.2.15
+langchain-openai==1.1.14
+langgraph==1.1.8
