@@ -119,13 +119,6 @@ Managed Compute integrates fully into Foundry:
 
 > **Result:** the same code works across **Pay-per-token**, **PTU**, and **Managed Compute** deployments.
 
-### Billing and Pricing
-
-- **Hourly billing per GPU SKU.**
-- Pricing aligned with **industry benchmarks** (e.g., AWS SageMaker).
-- Throughput depends on **model size and architecture**.
-- **Cost controls:** auto-scaling and scale-to-zero (no cost when idle).
-- **Quota:** managed via Foundry (not Azure Compute quotas) — **per SKU, per region**.
 
 ### Technical Architecture
 
@@ -162,7 +155,7 @@ _Demonstrate how OSS models are deployed and consumed on Foundry Managed Compute
 - **No VMs, no clusters** — Microsoft manages runtimes, updates, and security patching.
 - **Same Foundry developer experience** — the same SDK, API keys, private endpoints, and portal work across **Pay-per-token**, **PTU**, and **Managed Compute**.
 - **GPU flexibility** — NVIDIA A100/H100/H200 and AMD MI300, with automatic configuration matching.
-- **Cost controls** — hourly per-GPU-SKU billing with auto-scaling and **scale-to-zero** (no cost when idle); quota is managed in Foundry per SKU, per region.
+- **Cost controls** — hourly per-GPU-SKU billing with auto-scaling; quota is managed in Foundry per SKU, per region.
 
 ### Demo 2 — Train, Deploy, and Improve Agents
 
