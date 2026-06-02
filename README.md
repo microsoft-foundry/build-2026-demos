@@ -8,6 +8,7 @@ A collection of demo assets showcasing Microsoft Foundry capabilities presented 
 - [Agent Guardrails and Controls](agent-guardrails-and-controls/)
 - [Agent Operations and Management](agent-operations-and-management/)
 - [Agent Tools and Integrations](agent-tools-and-integrations/)
+- [Browser Automation Tool and Verification Skill](browser-automation-tool-and-verification-skill/)
 - [Building Agents with Foundry Agent Service](building-agents-with-foundry-agent-service/)
 - [Fine-Tuning and Adaption](fine-tuning-and-adaption/)
 - [Foundation and Frontier Models](foundation-and-frontier-models/)
